@@ -20,20 +20,22 @@ Una **IA Ejecutiva** que lidera, y un **consejo de directores** especializados:
 | **MKT** | Director de Marketing IA | Contenido, redes, campañas |
 | **EDU** | Director de Educación IA | ALMA (inglés), formación, Mujer Raíz |
 
-## ⚠️ Pregunta estratégica para Reyna (Constitución Art. 6.2 — Génesis propone, Reyna decide)
+## ✅ Relación ALMA / Génesis — RESUELTA (por el documento de visión de Reyna)
 
-En el mockup, **ALMA** aparece como "Directora Ejecutiva IA". Pero:
-- **ALMA** también es tu app iOS (MI ALMA).
-- **Génesis** es hoy el Chief Architect / Guardián (el que construye y documenta).
+Según la Visión Maestra ([PG-011](../docs/PG-011-Vision-Maestra-ALMA.md)):
+- **ALMA = Chief AI / CEO digital.** Dirige, coordina, y es con quien Reyna "habla".
+- **Génesis = Chief Architect / Guardián.** Construye, documenta y protege a ALMA.
+- No compiten: **ALMA dirige, Génesis edifica.**
 
-Hay que aclarar la relación para no confundir marcas ni roles. Opciones:
-- **(a)** ALMA = cara ejecutiva del consejo (con quien Reyna "habla"); Génesis =
-  arquitecto/guardián detrás (construye, documenta, protege). Coexisten.
-- **(b)** Un solo agente ejecutivo con un nombre; renombrar para evitar choque con la
-  app ALMA.
-- **(c)** Otra estructura que Reyna prefiera.
+## Mecánica del Consejo (de la visión de Reyna)
 
-*No se construye ningún agente hasta que Reyna decida esto.*
+Ante una decisión importante NO responde un solo agente. **ALMA convoca** a los
+especialistas, cada uno analiza, y ALMA **sintetiza una recomendación única**.
+(Ejemplo "oficina en Texas": Finanzas + Legal + RH + Marketing + Operaciones → ALMA
+sintetiza.) Ver el detalle y la estructura completa de Divisiones en PG-011.
+
+*Nota: los 7 agentes sembrados aquí (ALMA + LEX/TECH/OPS/FIN/MKT/EDU) son la vista
+resumida del dashboard. La estructura completa por Divisiones vive en PG-011.*
 
 ## Relación con `rit_core`
 

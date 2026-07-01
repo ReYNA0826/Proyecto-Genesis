@@ -12,11 +12,12 @@
 | PG-003 | Roadmap | `ROADMAP.md` | ✅ |
 | PG-004 | Integraciones | `INTEGRATIONS.md` | ✅ |
 | PG-005 | Inventario de repos | `REPOS-INVENTORY.md` | ✅ |
-| PG-006 | Constitución de RIT | `docs/PG-006-Constitucion-RIT-v1.0.md` | ✅ v1.0 ratificada |
+| PG-006 | Constitución de RIT | `docs/PG-006-Constitucion-RIT-v1.0.md` | ✅ v1.1 |
 | PG-007 | Esquema `rit_core` (Supabase) | `database/rit_core-schema.md` | ✅ Creado en Legal.Services |
 | PG-008 | RIT Dashboard (lobby) | `dashboard/index.html` | ✅ v2 marca oficial |
 | PG-009 | Identidad de Marca | `docs/PG-009-Identidad-de-Marca.md` | ✅ Definida |
 | PG-010 | Consejo Ejecutivo IA (visión) | `agents/PG-010-Consejo-Ejecutivo-IA.md` | 🟡 Diseño |
+| PG-011 | **Visión Maestra — ALMA** ⭐ | `docs/PG-011-Vision-Maestra-ALMA.md` | ✅ Estrella polar |
 
 ## Diarios de sesión
 
