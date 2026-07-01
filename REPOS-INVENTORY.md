@@ -4,6 +4,14 @@
 > **GitHub** = confirmado vía SSH autenticado (`ReYNA0826`).
 > Nota: GitHub trata los nombres sin distinguir mayúsculas; el caso mostrado es aproximado.
 
+## ⚠️ Aclaración importante (Reyna, 2026-07-01)
+
+**MUJER (app iOS) es un proyecto SEPARADO de Mujer Raíz Executive Club.**
+No confundir:
+- **MUJER** = app iOS "La Raíz de la Corona" (repo `ReYNA0826/MUJER`).
+- **Mujer Raíz Executive Club** = portal web de socias (código en el repo
+  `ReYNA0826/mujer-raiz-portal`; carpeta local `~/Projects/executive-club`).
+
 ## Módulos del ecosistema
 
 | Módulo | Local | GitHub (`ReYNA0826/`) | Ubicación local |
@@ -32,13 +40,14 @@
 - ✅ **MUJER** — **RESUELTO 2026-07-01.** Primer commit local (`2f9f975`, 30 archivos, sin
   secretos) + repo privado `ReYNA0826/MUJER` creado y `push` hecho. Respaldado en la nube.
   `.mcp.json` y `Secrets.swift` excluidos.
-- 🟡 **executive-club / mujer-raiz-portal — confusión de NOMBRES (no es peligro).**
-  Diagnóstico read-only: los folders `~/Projects/executive-club` y
-  `~/Documents/GitHub/mujer-raiz-portal` son **dos copias del MISMO repo**
-  (`ReYNA0826/mujer-raiz-portal`), y ese repo **contiene el código de `executive-club`**
-  (ambos `package.json` → `"name": "executive-club"`). Están sincronizados; nada roto.
-  **Decisión de Reyna pendiente:** ¿renombrar el repo a `executive-club`? ¿son 1 o 2
-  proyectos? NO tocar el remote sin su OK (romper el enlace sí sería peligroso).
+- 🟡 **executive-club / mujer-raiz-portal = MISMO proyecto (Executive Club web).**
+  Confirmado por Reyna: los folders `~/Projects/executive-club` y
+  `~/Documents/GitHub/mujer-raiz-portal` son dos copias del repo
+  `ReYNA0826/mujer-raiz-portal`, que contiene el código del Executive Club
+  (`package.json` → `"name": "executive-club"`). No es error: es un solo proyecto.
+  **Decisión de Reyna pendiente (opcional):** ¿renombrar el repo GitHub a
+  `mujer-raiz-executive-club` para que el nombre coincida? Y decidir cuál de las dos
+  copias locales es la "de trabajo" (evitar editar en dos lados).
 - Confirmar si `Reyna` es efectivamente "Asistente de Reyna".
 - Confirmar qué es `Imigracionaldia` y si entra al ecosistema RIT.
 
