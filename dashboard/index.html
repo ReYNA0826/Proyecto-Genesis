@@ -3,109 +3,134 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>RIT · Lobby — Reyna Intelligence Team</title>
+<title>Proyecto Génesis · Dashboard — RIT</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet">
 <style>
-:root{--text-primary:#1a1a1a;--text-secondary:#6b6b6b;--border:#e5e5e3;--bg-primary:#fff;--bg-secondary:#faf9f7;--accent:#7c3aed}
+:root{--navy:#0A1D3A;--deep:#051226;--steel:#1E2F4F;--gold:#D4AF37;--pearl:#F8F8F8;--silver:#A7A9AC;--serif:'Cormorant Garamond',Georgia,serif}
 *{box-sizing:border-box}
-body{margin:0;background:#f4f3f1;padding:28px 16px;font-family:ui-sans-serif,-apple-system,system-ui,sans-serif;color:var(--text-primary)}
-.rit{max-width:900px;margin:0 auto}
-.rit code{background:var(--bg-secondary);padding:1px 5px;border-radius:4px;font-size:.85em}
-.rit-head{display:flex;align-items:center;gap:14px;padding:18px 20px;border:1px solid var(--border);border-radius:14px;background:var(--bg-secondary)}
-.rit-crown{font-size:32px}
-.rit-title{font-size:22px;font-weight:700;letter-spacing:-.01em}
-.rit-sub{font-size:12.5px;color:var(--text-secondary);margin-top:2px}
-.rit-stats{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin:16px 0}
-.stat{border:1px solid var(--border);border-radius:12px;padding:14px;text-align:center;background:var(--bg-primary)}
-.stat .n{font-size:24px;font-weight:750;color:var(--accent)}
-.stat .l{font-size:11.5px;color:var(--text-secondary);margin-top:2px}
-.rit-block{border:1px solid var(--border);border-radius:14px;padding:16px 18px;margin-bottom:14px;background:var(--bg-primary)}
-.rit-h{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--text-secondary);margin-bottom:10px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:9px}
-.card{border:1px solid var(--border);border-left-width:3px;border-radius:9px;padding:10px 11px;background:var(--bg-secondary)}
-.card .tag{font-size:10px;font-weight:700;text-transform:uppercase;color:var(--text-secondary)}
-.card .cn{font-size:13px;font-weight:650;margin:3px 0 1px}
-.card .cr{font-size:11px;color:var(--text-secondary);font-family:ui-monospace,monospace}
-.card.ios{border-left-color:#ec4899}.card.web{border-left-color:#3b82f6}.card.hub{border-left-color:#7c3aed}
-.card.agente{border-left-color:#f59e0b}.card.contenido{border-left-color:#10b981}
-.rit-cols{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.timeline,.integ{list-style:none;padding:0;margin:0}
-.timeline li{display:flex;align-items:center;gap:9px;padding:6px 0;font-size:13.5px;border-bottom:1px dashed var(--border)}
-.timeline li:last-child{border-bottom:none}
-.ses{font-size:10.5px;font-weight:700;color:var(--accent);background:#f3effe;border-radius:5px;padding:1px 6px}
-.integ li{display:flex;align-items:center;gap:8px;padding:6px 0;font-size:13.5px}
-.integ .st{margin-left:auto;font-size:11px;color:var(--text-secondary)}
-.dot{width:9px;height:9px;border-radius:50%;display:inline-block}
-.dot.ok{background:#10b981}.dot.warn{background:#f59e0b}.dot.bad{background:#ef4444}
-.agent{font-size:13px;background:var(--bg-secondary);border:1px solid var(--border);border-radius:9px;padding:10px 11px}
-.rit-foot{text-align:center;font-size:12.5px;font-style:italic;color:var(--text-secondary);padding:10px 0 2px}
-@media(max-width:640px){.rit-stats{grid-template-columns:repeat(3,1fr)}.rit-cols{grid-template-columns:1fr}}
+body{margin:0;background:var(--deep);color:var(--pearl);font-family:Montserrat,ui-sans-serif,system-ui,sans-serif;padding:20px}
+.gx{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:200px 1fr;border-radius:16px;overflow:hidden;background:var(--deep);border:1px solid #12233f}
+.gx-side{background:var(--navy);padding:18px 12px;display:flex;flex-direction:column;gap:14px;border-right:1px solid #12233f}
+.gx-brand{display:flex;align-items:center;gap:9px}
+.gx-g{width:36px;height:36px;border:2px solid var(--gold);border-radius:50%;color:var(--gold);font-weight:700;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:20px;flex:none}
+.gx-brand b{font-size:9px;letter-spacing:.15em;color:var(--silver)}
+.gx-bt{font-family:var(--serif);font-size:19px;letter-spacing:.06em}
+.gx-side nav{display:flex;flex-direction:column;gap:2px}
+.gx-side a{font-size:12.5px;color:#c7cfdc;padding:8px 9px;border-radius:8px;cursor:pointer;text-decoration:none}
+.gx-side a.on{background:var(--steel);color:var(--gold);font-weight:600}
+.gx-sys{margin-top:auto;font-size:11px;color:#7fd3a3}
+.gx-main{padding:18px 22px;min-width:0}
+.gx-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:16px}
+.gx-hi{font-family:var(--serif);font-size:24px}
+.gx-lema{font-size:12px;color:var(--silver);font-style:italic;max-width:480px;margin-top:3px}
+.gx-date{font-size:12px;text-align:right}.gx-date span{color:var(--silver);font-size:11px}
+.gx-stats{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:16px}
+.s{background:var(--navy);border:1px solid #14274a;border-radius:12px;padding:12px}
+.sn{font-size:23px;font-weight:700;color:var(--gold);font-family:var(--serif)}
+.sl{font-size:12px;margin-top:1px}.sx{font-size:10px;color:var(--silver);margin-top:2px}
+.gx-hero{display:flex;gap:18px;align-items:center;background:linear-gradient(90deg,var(--navy),var(--steel));border:1px solid #1c3358;border-radius:14px;padding:18px;margin-bottom:18px}
+.gx-orb{width:80px;height:80px;border-radius:50%;border:2px solid var(--gold);flex:none;position:relative;display:flex;align-items:center;justify-content:center;color:var(--gold)}
+.gx-orb span{position:absolute;font-family:var(--serif);font-size:34px;font-weight:700}
+.gx-htitle{font-family:var(--serif);font-size:22px}
+.gx-htitle em{font-size:10px;font-style:normal;background:rgba(127,211,163,.16);color:#7fd3a3;padding:2px 8px;border-radius:10px;vertical-align:middle;margin-left:6px;text-transform:uppercase}
+.gx-hero p{font-size:12.5px;color:#c7cfdc;margin:6px 0 12px;line-height:1.5}
+.gx-btns{display:flex;gap:8px;flex-wrap:wrap}
+.gx-btns button{font-size:12px;padding:8px 14px;border-radius:8px;border:1px solid #2a446e;background:transparent;color:var(--pearl);cursor:pointer}
+.gx-btns .p{background:var(--gold);color:#26200a;border-color:var(--gold);font-weight:700}
+.gx-h{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--gold);margin:0 0 10px}
+.gx-h span{color:var(--silver);font-weight:500;text-transform:none;letter-spacing:0}
+.gx-council{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;margin-bottom:18px}
+.c{background:var(--navy);border:1px solid #14274a;border-radius:10px;padding:10px 4px;text-align:center;font-size:12px;font-weight:600}
+.c small{display:block;font-weight:400;font-size:9.5px;color:var(--silver);margin-top:1px}
+.c .av{width:32px;height:32px;margin:0 auto 6px;border-radius:50%;border:1px solid #2a446e;display:flex;align-items:center;justify-content:center;color:var(--silver)}
+.c.lead{border-color:var(--gold)}.c.lead .av{border-color:var(--gold);color:var(--gold)}
+.gx-cols{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.gx-card{background:var(--navy);border:1px solid #14274a;border-radius:14px;padding:15px}
+.pr{display:flex;align-items:center;gap:8px;margin-bottom:10px;font-size:12.5px}
+.pr span{flex:none;width:170px;color:#dfe4ec}
+.pr i{height:7px;background:linear-gradient(90deg,var(--gold),#8a6f1f);border-radius:4px;display:block}
+.dl{list-style:none;margin:0;padding:0}
+.dl li{font-size:13px;padding:7px 0;border-bottom:1px dashed #17294a;display:flex;gap:8px}
+.dl li:last-child{border:none}
+.dl b{color:var(--gold);font-size:10.5px;background:var(--steel);border-radius:5px;padding:1px 6px;height:fit-content}
+.gx-foot{text-align:center;color:var(--gold);font-family:var(--serif);font-size:15px;padding:16px 0 2px}
+@media(max-width:760px){.gx{grid-template-columns:1fr}.gx-side{flex-direction:row;flex-wrap:wrap}.gx-side nav{flex-direction:row;flex-wrap:wrap}.gx-sys{margin:0}.gx-stats{grid-template-columns:repeat(3,1fr)}.gx-council{grid-template-columns:repeat(4,1fr)}.gx-cols{grid-template-columns:1fr}.pr span{width:120px}}
 </style>
 </head>
 <body>
-<!--
-  RIT Dashboard — Lobby v1 (snapshot)
-  Datos capturados de rit_core (Legal.Services) el 2026-07-01, Sesión 03.
-  v2 pendiente: leer en vivo con login. Ver ROADMAP Fase 3.
--->
-<div class="rit">
-  <header class="rit-head">
-    <div class="rit-crown">👑</div>
-    <div>
-      <div class="rit-title">Reyna Intelligence Team</div>
-      <div class="rit-sub">Lobby · snapshot de <code>rit_core</code> · Sesión 03 (2026-07-01)</div>
+<!-- RIT Dashboard v2 (marca oficial) — mockup visual con datos reales de rit_core, Sesión 03 (2026-07-01).
+     Colores: Azul Génesis #0A1D3A / Oro #D4AF37. v3 pendiente: datos en vivo + login. -->
+<div class="gx">
+  <aside class="gx-side">
+    <div class="gx-brand"><span class="gx-g">G</span><div><b>PROYECTO</b><br><span class="gx-bt">GÉNESIS</span></div></div>
+    <nav>
+      <a class="on">◆ Dashboard</a>
+      <a>✦ ALMA · Executive AI</a>
+      <a>⚖ Consejo Ejecutivo IA</a>
+      <a>🧠 Memoria Permanente</a>
+      <a>📁 Proyectos</a>
+      <a>✓ Tareas</a>
+      <a>📊 Analíticas</a>
+      <a>🔬 Genesis Labs</a>
+    </nav>
+    <div class="gx-sys">● Sistema Óptimo</div>
+  </aside>
+  <main class="gx-main">
+    <header class="gx-top">
+      <div>
+        <div class="gx-hi">¡Bienvenida, Reyna! 👋</div>
+        <div class="gx-lema">“La inteligencia crece cuando el conocimiento permanece y el trabajo se comparte.”</div>
+      </div>
+      <div class="gx-date">1 de julio de 2026<br><span>Martes, 10:30 AM</span></div>
+    </header>
+    <div class="gx-stats">
+      <div class="s"><div class="sn">8</div><div class="sl">Agentes</div><div class="sx">1 activo · 7 diseñados</div></div>
+      <div class="s"><div class="sn">11</div><div class="sl">Proyectos</div><div class="sx">todos activos</div></div>
+      <div class="s"><div class="sn">5</div><div class="sl">Decisiones</div><div class="sx">Sesiones 1–3</div></div>
+      <div class="s"><div class="sn">v1.0</div><div class="sl">Constitución</div><div class="sx">ratificada</div></div>
+      <div class="s"><div class="sn">3</div><div class="sl">Integraciones</div><div class="sx">1 activa</div></div>
     </div>
-  </header>
-
-  <div class="rit-stats">
-    <div class="stat"><div class="n">11</div><div class="l">Proyectos</div></div>
-    <div class="stat"><div class="n">5</div><div class="l">Decisiones</div></div>
-    <div class="stat"><div class="n">3</div><div class="l">Integraciones</div></div>
-    <div class="stat"><div class="n">1</div><div class="l">Agente</div></div>
-    <div class="stat"><div class="n">v1.0</div><div class="l">Constitución</div></div>
-  </div>
-
-  <section class="rit-block">
-    <div class="rit-h">Proyectos del ecosistema</div>
-    <div class="grid">
-      <div class="card ios"><div class="tag">iOS</div><div class="cn">MI ALMA</div><div class="cr">New_Alma</div></div>
-      <div class="card ios"><div class="tag">iOS</div><div class="cn">MUJER</div><div class="cr">MUJER</div></div>
-      <div class="card web"><div class="tag">Web</div><div class="cn">Leyal · legal.services</div><div class="cr">leyal.services</div></div>
-      <div class="card web"><div class="tag">Web</div><div class="cn">Dream Immigration Portal</div><div class="cr">Dream-Immigration-Portal</div></div>
-      <div class="card web"><div class="tag">Web</div><div class="cn">Evaluador de Expedientes</div><div class="cr">Evaluador</div></div>
-      <div class="card web"><div class="tag">Web</div><div class="cn">Mujer Raíz Executive Club</div><div class="cr">mujer-raiz-portal</div></div>
-      <div class="card web"><div class="tag">Web</div><div class="cn">portal.eliolawteam</div><div class="cr">portal.eliolawteam</div></div>
-      <div class="card web"><div class="tag">Web</div><div class="cn">asistencia-admin</div><div class="cr">asistencia-admin</div></div>
-      <div class="card hub"><div class="tag">Hub</div><div class="cn">Proyecto Génesis</div><div class="cr">Proyecto-Genesis</div></div>
-      <div class="card agente"><div class="tag">Agente</div><div class="cn">Asistente de Reyna</div><div class="cr">Reyna</div></div>
-      <div class="card contenido"><div class="tag">Contenido</div><div class="cn">Inmigración al Día</div><div class="cr">Imigracionaldia</div></div>
+    <section class="gx-hero">
+      <div class="gx-orb">✦<span>G</span></div>
+      <div>
+        <div class="gx-htitle">ALMA · Executive AI <em>activo</em></div>
+        <p>Directora Ejecutiva de Inteligencia Artificial. Coordina agentes, proyectos, conocimiento y decisiones estratégicas para lograr tus objetivos.</p>
+        <div class="gx-btns"><button class="p">Hablar con ALMA</button><button>Informe Ejecutivo</button><button>Nueva Solicitud</button></div>
+      </div>
+    </section>
+    <div class="gx-h">Consejo Ejecutivo IA <span>· diseñado, pendiente construir</span></div>
+    <div class="gx-council">
+      <div class="c lead"><div class="av">✦</div>ALMA<small>Ejecutiva</small></div>
+      <div class="c"><div class="av">⚖</div>LEX<small>Legal</small></div>
+      <div class="c"><div class="av">⚙</div>TECH<small>Tecnología</small></div>
+      <div class="c"><div class="av">◎</div>OPS<small>Operaciones</small></div>
+      <div class="c"><div class="av">$</div>FIN<small>Finanzas</small></div>
+      <div class="c"><div class="av">◈</div>MKT<small>Marketing</small></div>
+      <div class="c"><div class="av">✎</div>EDU<small>Educación</small></div>
     </div>
-  </section>
-
-  <div class="rit-cols">
-    <section class="rit-block">
-      <div class="rit-h">Decisiones fundacionales</div>
-      <ol class="timeline">
-        <li><span class="ses">S1</span> Nacimiento de RIT</li>
-        <li><span class="ses">S2</span> Arquitectura hub + módulos</li>
-        <li><span class="ses">S2</span> Repo padre en GitHub</li>
-        <li><span class="ses">S3</span> Constitución de RIT v1.0</li>
-        <li><span class="ses">S3</span> rit_core en Legal.Services</li>
-      </ol>
-    </section>
-
-    <section class="rit-block">
-      <div class="rit-h">Integraciones</div>
-      <ul class="integ">
-        <li><span class="dot ok"></span> GitHub <span class="st">activo</span></li>
-        <li><span class="dot warn"></span> Blog de visas · n8n <span class="st">pausado</span></li>
-        <li><span class="dot bad"></span> Eleven Love → Monday <span class="st">roto</span></li>
-      </ul>
-      <div class="rit-h" style="margin-top:14px">Agente activo</div>
-      <div class="agent">🧭 <b>Génesis</b> — Chief Architect &amp; memoria estratégica</div>
-    </section>
-  </div>
-
-  <footer class="rit-foot">“La inteligencia crece cuando el conocimiento permanece y el trabajo se comparte.”</footer>
+    <div class="gx-cols">
+      <section class="gx-card">
+        <div class="gx-h">Proyectos principales</div>
+        <div class="pr"><span>Leyal · legal.services</span><i style="width:70%"></i></div>
+        <div class="pr"><span>Dream Immigration Portal</span><i style="width:75%"></i></div>
+        <div class="pr"><span>MI ALMA (iOS)</span><i style="width:85%"></i></div>
+        <div class="pr"><span>MUJER (iOS)</span><i style="width:45%"></i></div>
+        <div class="pr"><span>Mujer Raíz Executive Club</span><i style="width:60%"></i></div>
+      </section>
+      <section class="gx-card">
+        <div class="gx-h">Decisiones fundacionales</div>
+        <ul class="dl">
+          <li><b>S1</b> Nacimiento de RIT</li>
+          <li><b>S2</b> Arquitectura hub + módulos</li>
+          <li><b>S2</b> Repo padre en GitHub</li>
+          <li><b>S3</b> Constitución v1.0 ratificada</li>
+          <li><b>S3</b> rit_core creado (con datos)</li>
+        </ul>
+      </section>
+    </div>
+    <footer class="gx-foot">✦ El futuro es brillante.</footer>
+  </main>
 </div>
 </body>
 </html>
