@@ -13,6 +13,7 @@
 | PG-004 | Integraciones | `INTEGRATIONS.md` | ✅ |
 | PG-005 | Inventario de repos | `REPOS-INVENTORY.md` | ✅ |
 | PG-006 | Constitución de RIT | `docs/PG-006-Constitucion-RIT-v1.0.md` | ✅ v1.0 ratificada |
+| PG-007 | Esquema `rit_core` (Supabase) | `database/rit_core-schema.md` | 🟡 Diseño (sin crear) |
 
 ## Diarios de sesión
 
