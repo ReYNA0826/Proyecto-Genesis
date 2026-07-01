@@ -21,9 +21,11 @@
 
 ## Fase 2 — Cerebro de datos
 
-- [ ] Crear base `rit_core` en Supabase
-- [ ] Definir esquema de tablas (usuarios, proyectos, agentes, memoria, decisiones…)
-- [ ] Un solo login (Supabase Auth / Google / Apple)
+- [x] Definir esquema de tablas (9 tablas — ver `database/rit_core-schema.md`)
+- [x] Crear `rit_core` en Supabase (esquema dentro de Legal.Services, $0 extra)
+- [x] Sembrar datos reales (1 usuario, 1 agente, 11 proyectos, 5 decisiones, 3 integraciones)
+- [ ] Definir políticas RLS por rol (hoy: deny-by-default)
+- [ ] Un solo login (Supabase Auth / Google / Apple) — pendiente (cada app tiene su auth)
 
 ## Fase 3 — El lobby
 

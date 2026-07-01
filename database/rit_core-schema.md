@@ -1,9 +1,15 @@
 # PG-007 · Esquema de `rit_core` (Supabase) — v0.1 diseño
 
-**Fecha:** 2026-07-01 · **Estado:** 🟡 Diseño en papel (aún NO creado en Supabase)
+**Fecha:** 2026-07-01 · **Estado:** ✅ CREADO en Supabase
 
-> `rit_core` es el cerebro de datos de RIT. Todas las apps del ecosistema reportan
-> aquí. Este documento es el diseño; cuando Reyna apruebe, se ejecuta como migración.
+> `rit_core` es el cerebro de datos de RIT. Todas las apps del ecosistema reportan aquí.
+>
+> **Ubicación real:** esquema `rit_core` dentro del proyecto **Legal.Services**
+> (`ref: ouhpmlyutvsvfhxqumxf`). Aislado del esquema `public` de Leyal. RLS activado
+> en las 9 tablas (deny-by-default).
+>
+> **Sembrado (Sesión 03):** 1 usuario (Reyna), 1 agente (Génesis), 11 proyectos con
+> sus refs Supabase, 5 decisiones fundacionales (Sesiones 1-3), 3 integraciones.
 
 ---
 
