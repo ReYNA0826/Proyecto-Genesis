@@ -57,6 +57,7 @@ comparte." · **Visión:** "El futuro es brillante."
 | PG-009 | Identidad de Marca | `docs/PG-009-Identidad-de-Marca.md` | ✅ Definida |
 | PG-010 | Consejo Ejecutivo IA (visión) | `agents/PG-010-Consejo-Ejecutivo-IA.md` | 🟡 Diseño |
 | PG-011 | **Visión Maestra — ALMA** ⭐ | `docs/PG-011-Vision-Maestra-ALMA.md` | ✅ Estrella polar |
+| PG-012 | Estado y Próximos Pasos | `PG-012-Estado-y-Proximos-Pasos.md` | ✅ Sesión 03 |
 
 ## Diarios de sesión
 
