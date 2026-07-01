@@ -61,6 +61,12 @@ comparte." · **Visión:** "El futuro es brillante."
 | PG-013 | Genesis Architect Agent (spec) | `agents/genesis-architect-agent.md` | ✅ v0.1 |
 | PG-014 | Genesis Architect — System Prompt | `prompts/genesis-architect-system-prompt.md` | ✅ v0.1 |
 | PG-015 | Genesis Dev Console (consola de auditoría) | `architecture/genesis-dev-console.md` | 🟡 Diseño v0.1 |
+| PG-016 | **Prompts del Consejo Ejecutivo** (7 agentes) | `prompts/*-prompt-oficial.md` + `prompts/Manual de Prompts de Agentes v0.1.pdf` | ✅ Activos en ElevenLabs |
+
+> ⚠️ **Nota de numeración (para Reyna):** el PDF que creaste se titula "PG-014",
+> pero PG-014 ya estaba asignado al *Genesis Architect System Prompt* (trabajo
+> paralelo). Aquí el manual quedó como parte de **PG-016**. Decide cómo prefieres
+> reconciliar los números para no duplicar.
 
 ## Diarios de sesión
 
