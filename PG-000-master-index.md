@@ -12,7 +12,7 @@
 | PG-003 | Roadmap | `ROADMAP.md` | ✅ |
 | PG-004 | Integraciones | `INTEGRATIONS.md` | ✅ |
 | PG-005 | Inventario de repos | `REPOS-INVENTORY.md` | ✅ |
-| PG-006 | Constitución de RIT | `docs/PG-006-Constitucion-RIT-v0.1.md` | 🟡 v0.1 borrador (Art. 1-3 por confirmar) |
+| PG-006 | Constitución de RIT | `docs/PG-006-Constitucion-RIT-v1.0.md` | ✅ v1.0 ratificada |
 
 ## Diarios de sesión
 
@@ -20,6 +20,7 @@
 |--------|-------|-----------|--------|
 | 01 | 2026-07-01 | `02_Diarios/Diario Fundacional - Sesion 01.md` | ✅ |
 | 02 | 2026-07-01 | `02_Diarios/Diario Fundacional - Sesion 02.md` | ✅ Andamiaje del repo padre |
+| 03 | 2026-07-01 | `02_Diarios/Diario Fundacional - Sesion 03.md` | ✅ Constitución v1.0 ratificada |
 
 ## Carpetas del repo
 
