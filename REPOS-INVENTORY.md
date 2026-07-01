@@ -29,8 +29,16 @@
 
 ## Pendientes detectados (para revisar con Reyna)
 
-- ⚠️ **MUJER** (local) no tiene remoto en GitHub → sin respaldo en la nube.
-- ⚠️ **executive-club** tiene su remoto apuntando a `mujer-raiz-portal.git` → posible mala configuración; conviene revisar si debe tener su propio repo.
+- 🟡 **MUJER** (local): antes SIN historial git. **Resuelto parcialmente 2026-07-01** →
+  primer commit local hecho (`2f9f975`, 30 archivos, sin secretos). **Falta:** crear
+  repo remoto en GitHub + `push` (requiere token). `.mcp.json` añadido al `.gitignore`.
+- 🟡 **executive-club / mujer-raiz-portal — confusión de NOMBRES (no es peligro).**
+  Diagnóstico read-only: los folders `~/Projects/executive-club` y
+  `~/Documents/GitHub/mujer-raiz-portal` son **dos copias del MISMO repo**
+  (`ReYNA0826/mujer-raiz-portal`), y ese repo **contiene el código de `executive-club`**
+  (ambos `package.json` → `"name": "executive-club"`). Están sincronizados; nada roto.
+  **Decisión de Reyna pendiente:** ¿renombrar el repo a `executive-club`? ¿son 1 o 2
+  proyectos? NO tocar el remote sin su OK (romper el enlace sí sería peligroso).
 - Confirmar si `Reyna` es efectivamente "Asistente de Reyna".
 - Confirmar qué es `Imigracionaldia` y si entra al ecosistema RIT.
 
