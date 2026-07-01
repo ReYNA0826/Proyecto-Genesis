@@ -12,7 +12,7 @@
 | PG-003 | Roadmap | `ROADMAP.md` | ✅ |
 | PG-004 | Integraciones | `INTEGRATIONS.md` | ✅ |
 | PG-005 | Inventario de repos | `REPOS-INVENTORY.md` | ✅ |
-| PG-006 | Constitución de RIT | `docs/` | ⬜ Pendiente (v0.1) |
+| PG-006 | Constitución de RIT | `docs/PG-006-Constitucion-RIT-v0.1.md` | 🟡 v0.1 borrador (Art. 1-3 por confirmar) |
 
 ## Diarios de sesión
 
