@@ -29,7 +29,9 @@
 
 ## Fase 3 — El lobby
 
-- [ ] Diseñar **RIT Dashboard** (el punto de entrada a todo)
+- [x] Diseñar y construir **RIT Dashboard v1** (snapshot) — `dashboard/index.html`
+- [ ] Dashboard v2: datos en vivo desde `rit_core` con login (server-side)
+- [ ] Desplegar el dashboard (Vercel / GitHub Pages)
 - [ ] Conectar el primer módulo vía API
 
 ## Fase 4 — Conexiones

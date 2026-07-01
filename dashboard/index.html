@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RIT · Lobby — Reyna Intelligence Team</title>
+<style>
+:root{--text-primary:#1a1a1a;--text-secondary:#6b6b6b;--border:#e5e5e3;--bg-primary:#fff;--bg-secondary:#faf9f7;--accent:#7c3aed}
+*{box-sizing:border-box}
+body{margin:0;background:#f4f3f1;padding:28px 16px;font-family:ui-sans-serif,-apple-system,system-ui,sans-serif;color:var(--text-primary)}
+.rit{max-width:900px;margin:0 auto}
+.rit code{background:var(--bg-secondary);padding:1px 5px;border-radius:4px;font-size:.85em}
+.rit-head{display:flex;align-items:center;gap:14px;padding:18px 20px;border:1px solid var(--border);border-radius:14px;background:var(--bg-secondary)}
+.rit-crown{font-size:32px}
+.rit-title{font-size:22px;font-weight:700;letter-spacing:-.01em}
+.rit-sub{font-size:12.5px;color:var(--text-secondary);margin-top:2px}
+.rit-stats{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin:16px 0}
+.stat{border:1px solid var(--border);border-radius:12px;padding:14px;text-align:center;background:var(--bg-primary)}
+.stat .n{font-size:24px;font-weight:750;color:var(--accent)}
+.stat .l{font-size:11.5px;color:var(--text-secondary);margin-top:2px}
+.rit-block{border:1px solid var(--border);border-radius:14px;padding:16px 18px;margin-bottom:14px;background:var(--bg-primary)}
+.rit-h{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--text-secondary);margin-bottom:10px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:9px}
+.card{border:1px solid var(--border);border-left-width:3px;border-radius:9px;padding:10px 11px;background:var(--bg-secondary)}
+.card .tag{font-size:10px;font-weight:700;text-transform:uppercase;color:var(--text-secondary)}
+.card .cn{font-size:13px;font-weight:650;margin:3px 0 1px}
+.card .cr{font-size:11px;color:var(--text-secondary);font-family:ui-monospace,monospace}
+.card.ios{border-left-color:#ec4899}.card.web{border-left-color:#3b82f6}.card.hub{border-left-color:#7c3aed}
+.card.agente{border-left-color:#f59e0b}.card.contenido{border-left-color:#10b981}
+.rit-cols{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.timeline,.integ{list-style:none;padding:0;margin:0}
+.timeline li{display:flex;align-items:center;gap:9px;padding:6px 0;font-size:13.5px;border-bottom:1px dashed var(--border)}
+.timeline li:last-child{border-bottom:none}
+.ses{font-size:10.5px;font-weight:700;color:var(--accent);background:#f3effe;border-radius:5px;padding:1px 6px}
+.integ li{display:flex;align-items:center;gap:8px;padding:6px 0;font-size:13.5px}
+.integ .st{margin-left:auto;font-size:11px;color:var(--text-secondary)}
+.dot{width:9px;height:9px;border-radius:50%;display:inline-block}
+.dot.ok{background:#10b981}.dot.warn{background:#f59e0b}.dot.bad{background:#ef4444}
+.agent{font-size:13px;background:var(--bg-secondary);border:1px solid var(--border);border-radius:9px;padding:10px 11px}
+.rit-foot{text-align:center;font-size:12.5px;font-style:italic;color:var(--text-secondary);padding:10px 0 2px}
+@media(max-width:640px){.rit-stats{grid-template-columns:repeat(3,1fr)}.rit-cols{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<!--
+  RIT Dashboard — Lobby v1 (snapshot)
+  Datos capturados de rit_core (Legal.Services) el 2026-07-01, Sesión 03.
+  v2 pendiente: leer en vivo con login. Ver ROADMAP Fase 3.
+-->
+<div class="rit">
+  <header class="rit-head">
+    <div class="rit-crown">👑</div>
+    <div>
+      <div class="rit-title">Reyna Intelligence Team</div>
+      <div class="rit-sub">Lobby · snapshot de <code>rit_core</code> · Sesión 03 (2026-07-01)</div>
+    </div>
+  </header>
+
+  <div class="rit-stats">
+    <div class="stat"><div class="n">11</div><div class="l">Proyectos</div></div>
+    <div class="stat"><div class="n">5</div><div class="l">Decisiones</div></div>
+    <div class="stat"><div class="n">3</div><div class="l">Integraciones</div></div>
+    <div class="stat"><div class="n">1</div><div class="l">Agente</div></div>
+    <div class="stat"><div class="n">v1.0</div><div class="l">Constitución</div></div>
+  </div>
+
+  <section class="rit-block">
+    <div class="rit-h">Proyectos del ecosistema</div>
+    <div class="grid">
+      <div class="card ios"><div class="tag">iOS</div><div class="cn">MI ALMA</div><div class="cr">New_Alma</div></div>
+      <div class="card ios"><div class="tag">iOS</div><div class="cn">MUJER</div><div class="cr">MUJER</div></div>
+      <div class="card web"><div class="tag">Web</div><div class="cn">Leyal · legal.services</div><div class="cr">leyal.services</div></div>
+      <div class="card web"><div class="tag">Web</div><div class="cn">Dream Immigration Portal</div><div class="cr">Dream-Immigration-Portal</div></div>
+      <div class="card web"><div class="tag">Web</div><div class="cn">Evaluador de Expedientes</div><div class="cr">Evaluador</div></div>
+      <div class="card web"><div class="tag">Web</div><div class="cn">Mujer Raíz Executive Club</div><div class="cr">mujer-raiz-portal</div></div>
+      <div class="card web"><div class="tag">Web</div><div class="cn">portal.eliolawteam</div><div class="cr">portal.eliolawteam</div></div>
+      <div class="card web"><div class="tag">Web</div><div class="cn">asistencia-admin</div><div class="cr">asistencia-admin</div></div>
+      <div class="card hub"><div class="tag">Hub</div><div class="cn">Proyecto Génesis</div><div class="cr">Proyecto-Genesis</div></div>
+      <div class="card agente"><div class="tag">Agente</div><div class="cn">Asistente de Reyna</div><div class="cr">Reyna</div></div>
+      <div class="card contenido"><div class="tag">Contenido</div><div class="cn">Inmigración al Día</div><div class="cr">Imigracionaldia</div></div>
+    </div>
+  </section>
+
+  <div class="rit-cols">
+    <section class="rit-block">
+      <div class="rit-h">Decisiones fundacionales</div>
+      <ol class="timeline">
+        <li><span class="ses">S1</span> Nacimiento de RIT</li>
+        <li><span class="ses">S2</span> Arquitectura hub + módulos</li>
+        <li><span class="ses">S2</span> Repo padre en GitHub</li>
+        <li><span class="ses">S3</span> Constitución de RIT v1.0</li>
+        <li><span class="ses">S3</span> rit_core en Legal.Services</li>
+      </ol>
+    </section>
+
+    <section class="rit-block">
+      <div class="rit-h">Integraciones</div>
+      <ul class="integ">
+        <li><span class="dot ok"></span> GitHub <span class="st">activo</span></li>
+        <li><span class="dot warn"></span> Blog de visas · n8n <span class="st">pausado</span></li>
+        <li><span class="dot bad"></span> Eleven Love → Monday <span class="st">roto</span></li>
+      </ul>
+      <div class="rit-h" style="margin-top:14px">Agente activo</div>
+      <div class="agent">🧭 <b>Génesis</b> — Chief Architect &amp; memoria estratégica</div>
+    </section>
+  </div>
+
+  <footer class="rit-foot">“La inteligencia crece cuando el conocimiento permanece y el trabajo se comparte.”</footer>
+</div>
+</body>
+</html>

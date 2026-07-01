@@ -14,6 +14,7 @@
 | PG-005 | Inventario de repos | `REPOS-INVENTORY.md` | ✅ |
 | PG-006 | Constitución de RIT | `docs/PG-006-Constitucion-RIT-v1.0.md` | ✅ v1.0 ratificada |
 | PG-007 | Esquema `rit_core` (Supabase) | `database/rit_core-schema.md` | ✅ Creado en Legal.Services |
+| PG-008 | RIT Dashboard (lobby) | `dashboard/index.html` | ✅ v1 snapshot |
 
 ## Diarios de sesión
 
