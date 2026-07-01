@@ -9,7 +9,7 @@
 | Módulo | Local | GitHub (`ReYNA0826/`) | Ubicación local |
 |--------|:-----:|-----------------------|-----------------|
 | ALMA / New_Alma | ✅ | `New_Alma` | `~/Projects/ALMA` |
-| MUJER (iOS) | ✅ | ⚠️ sin remoto | `~/Projects/MUJER` |
+| MUJER (iOS) | ✅ | `MUJER` (privado) | `~/Projects/MUJER` |
 | Mujer Raíz Executive Club | ✅ | ⚠️ remoto apunta a `mujer-raiz-portal` | `~/Projects/executive-club` |
 | legal.services (Leyal) | ✅ | `leyal.services` | `~/Documents/GitHub/leyal.services` |
 | mujer-raiz-portal | ✅ | `mujer-raiz-portal` | `~/Documents/GitHub/mujer-raiz-portal` |
@@ -29,9 +29,9 @@
 
 ## Pendientes detectados (para revisar con Reyna)
 
-- 🟡 **MUJER** (local): antes SIN historial git. **Resuelto parcialmente 2026-07-01** →
-  primer commit local hecho (`2f9f975`, 30 archivos, sin secretos). **Falta:** crear
-  repo remoto en GitHub + `push` (requiere token). `.mcp.json` añadido al `.gitignore`.
+- ✅ **MUJER** — **RESUELTO 2026-07-01.** Primer commit local (`2f9f975`, 30 archivos, sin
+  secretos) + repo privado `ReYNA0826/MUJER` creado y `push` hecho. Respaldado en la nube.
+  `.mcp.json` y `Secrets.swift` excluidos.
 - 🟡 **executive-club / mujer-raiz-portal — confusión de NOMBRES (no es peligro).**
   Diagnóstico read-only: los folders `~/Projects/executive-club` y
   `~/Documents/GitHub/mujer-raiz-portal` son **dos copias del MISMO repo**
