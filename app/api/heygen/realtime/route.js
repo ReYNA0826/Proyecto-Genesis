@@ -57,5 +57,6 @@ export async function GET(req) {
     return NextResponse.json({ error: `Avatar Realtime ${res.status}: ${msg}` }, { status: 502 });
   }
   const d = json?.data ?? {};
-  return NextResponse.json({ status: d.status ?? null, url: d.url ?? null });
+  const url = d.url ?? d.hls_url ?? d.stream_url ?? d.playback_url ?? d.playback?.hls_url ?? null;
+  return NextResponse.json({ status: d.status ?? null, url, campos: Object.keys(d) });
 }
