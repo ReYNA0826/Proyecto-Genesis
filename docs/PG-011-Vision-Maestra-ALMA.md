@@ -71,8 +71,12 @@ Eso es tener un **comité ejecutivo**, no conversar con un chatbot.
 
 ## La Regla de Oro (de Reyna)
 
-> **¿Esto hace que ALMA sea más inteligente el próximo año que hoy?**
+> **¿Esto hace que ALMA sea más inteligente y mejor?**
 > Si la respuesta es sí, lo construimos. Si no, probablemente no vale la pena.
+
+*Enmendada en Sesión 04, palabras de Reyna: "No tenemos que poner ningún tiempo —
+ni el próximo día, ni la próxima semana, ni el próximo mes. Simplemente ser mejor
+cada momento; tratar de siempre ser mejor."*
 
 ## Regla Cero (de Reyna, desde el día uno)
 

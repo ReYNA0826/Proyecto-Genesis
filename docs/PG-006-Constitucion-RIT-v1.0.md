@@ -102,9 +102,11 @@ Constitución.
 - Toda función debe fortalecer la inteligencia organizacional.
 
 **8.1** *Regla de Oro (de Reyna):* ante cualquier decisión, preguntar
-**¿esto hace que ALMA sea más inteligente el próximo año que hoy?** Si la respuesta es
-sí, se construye; si no, probablemente no vale la pena. (Corolario: si no fortalece
-claramente la inteligencia organizacional, se documenta la duda y se pospone.)
+**¿esto hace que ALMA sea más inteligente y mejor?** Sin fechas ni plazos — no se trata
+del próximo día, la próxima semana, el próximo mes o el próximo año. Se trata de **ser
+mejor en cada momento, siempre.** Si la respuesta es sí, se construye; si no,
+probablemente no vale la pena. (Corolario: si no fortalece claramente la inteligencia
+organizacional, se documenta la duda y se pospone.)
 
 ## Artículo 9 — Arquitectura
 
@@ -131,6 +133,7 @@ requiera, siempre por decisión de la fundadora.
 | 0.1 | 2026-07-01 | Borrador inicial (Sesión 03) |
 | 1.0 | 2026-07-01 | Ratificada por Reyna — Art. 1-3 confirmados (Sesión 03) |
 | 1.1 | 2026-07-01 | Art. 8.1: Regla de Oro auténtica de Reyna ("¿ALMA más inteligente el próximo año?"); ver visión maestra PG-011 |
+| 1.2 | 2026-07-01 | Art. 8.1 (Sesión 04, palabras de Reyna): la Regla de Oro pierde el plazo — "no a fecha; ser mejor cada momento, tratar de siempre ser mejor" |
 
 ---
 

@@ -103,7 +103,7 @@ protocolo de forma programática. El protocolo no cambia; cambia la mano.
 
 ---
 
-**Regla de Oro:** ¿esto hace que ALMA sea más inteligente el próximo año que hoy?
+**Regla de Oro:** ¿esto hace que ALMA sea más inteligente y mejor — en cada momento?
 **Sí — este documento es literalmente el mecanismo por el cual eso ocurre.**
 
 Proyecto Génesis continúa. ✦
