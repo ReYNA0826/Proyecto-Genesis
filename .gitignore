@@ -1,9 +1,4 @@
-.DS_Store
-*.tmp
 node_modules/
-.env
-.env.*
-
-# Token temporal — NUNCA subir
-.gh-token
+.next/
 .env.local
+.vercel

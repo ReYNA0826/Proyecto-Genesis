@@ -1,5 +1,3 @@
 {
-  "rewrites": [
-    { "source": "/", "destination": "/dashboard/index.html" }
-  ]
+  "framework": "nextjs"
 }
