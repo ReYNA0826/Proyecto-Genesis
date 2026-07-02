@@ -23,7 +23,7 @@ No confundir:
 | mujer-raiz-portal | ✅ | `mujer-raiz-portal` | `~/Documents/GitHub/mujer-raiz-portal` |
 | Dream Immigration Portal | ❌ | `Dream-Immigration-Portal` | — (solo GitHub) |
 | Evaluador de Expedientes | ❌ | `Evaluador` | — (solo GitHub) |
-| Asistente de Reyna | ❌ | `Reyna` | — (solo GitHub) |
+| ~~Asistente de Reyna~~ → Starter kit n8n | ❌ | `Reyna` | — (solo GitHub) |
 | portal.eliolawteam | ❌ | `portal.eliolawteam` (público) | — (solo GitHub) |
 | asistencia-admin | ❌ | `asistencia-admin` | — (solo GitHub) |
 | Inmigración al Día | ❌ | `Imigracionaldia` (público) | — (nuevo; no estaba en el plano) |
@@ -48,8 +48,15 @@ No confundir:
   **Decisión de Reyna pendiente (opcional):** ¿renombrar el repo GitHub a
   `mujer-raiz-executive-club` para que el nombre coincida? Y decidir cuál de las dos
   copias locales es la "de trabajo" (evitar editar en dos lados).
-- Confirmar si `Reyna` es efectivamente "Asistente de Reyna".
-- Confirmar qué es `Imigracionaldia` y si entra al ecosistema RIT.
+- ✅ **`Reyna` — IDENTIFICADO 2026-07-01 (Sesión 04).** NO es "Asistente de Reyna":
+  es una copia del **Self-hosted AI Starter Kit de n8n** (template Docker Compose para
+  correr n8n + IA local). El `.env` commiteado solo contiene los valores de ejemplo del
+  template — **no hay secretos reales expuestos** (verificado). Probablemente quedó de
+  un experimento con n8n local. **Decisión de Reyna pendiente:** ¿archivarlo/borrarlo,
+  o renombrarlo a algo descriptivo (ej. `n8n-starter-kit`) para liberar el nombre `Reyna`?
+- ✅ **`Imigracionaldia` — IDENTIFICADO 2026-07-01 (Sesión 04).** Repo **vacío**
+  (solo un README de una línea). Es un placeholder público sin contenido.
+  **Decisión de Reyna pendiente:** ¿tiene planes (¿el blog de visas?) o lo borramos?
 
 ## Nota de arquitectura
 

@@ -1,6 +1,10 @@
-# PG-007 · Esquema de `rit_core` (Supabase) — v0.1 diseño
+# PG-007 · Esquema de `rit_core` (Supabase) — v0.2
 
-**Fecha:** 2026-07-01 · **Estado:** ✅ CREADO en Supabase
+**Fecha:** 2026-07-01 · **Estado:** ✅ CREADO en Supabase — **11 tablas** (verificado Sesión 04)
+
+> **v0.2 (Sesión 04):** se documentan 2 tablas que ya existían en producción pero no
+> estaban en este documento (creadas en trabajo paralelo): `resultados_decisiones` y
+> `lecciones_aprendidas`. Son la base del **Protocolo de Aprendizaje (PG-017)**.
 
 > `rit_core` es el cerebro de datos de RIT. Todas las apps del ecosistema reportan aquí.
 >
@@ -146,6 +150,40 @@ create table integraciones (
   estado       text default 'activo',    -- activo | roto | pausado
   notas        text,
   created_at   timestamptz not null default now()
+);
+```
+
+### 10. `resultados_decisiones` *(v0.2 — aprendizaje)*
+Cierra el ciclo de cada decisión: ¿funcionó? Ver PG-017, paso "Observar".
+```sql
+create table resultados_decisiones (
+  id           uuid primary key default gen_random_uuid(),
+  decision_id  uuid not null references decisiones(id),
+  resultado    text not null default 'pendiente'
+               check (resultado in ('funciono','no_funciono','parcial','pendiente')),
+  impacto      text,
+  aprendizaje  text,
+  medido_en    date default current_date,
+  created_at   timestamptz not null default now()
+);
+```
+
+### 11. `lecciones_aprendidas` *(v0.2 — aprendizaje)*
+Conocimiento transferible destilado de la experiencia. Ver PG-017, paso "Destilar".
+```sql
+create table lecciones_aprendidas (
+  id             uuid primary key default gen_random_uuid(),
+  titulo         text not null,
+  contexto       text,
+  leccion        text not null,
+  categoria      text,              -- seguridad | arquitectura | gobierno | operaciones…
+  origen         text,              -- de dónde salió (sesión, incidente)
+  proyecto_id    uuid references proyectos(id),
+  decision_id    uuid references decisiones(id),
+  confianza      int not null default 3 check (confianza between 1 and 5),
+  veces_aplicada int not null default 0,
+  created_at     timestamptz not null default now(),
+  updated_at     timestamptz not null default now()
 );
 ```
 

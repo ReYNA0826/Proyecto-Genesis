@@ -40,15 +40,20 @@
 ## ⏳ Lo que HARÍA FALTA
 
 ### 🔴 Ahora (seguridad)
-- [ ] **Revocar el token de GitHub** (viajó por chat) → github.com/settings/tokens
+- [x] **Revocar el token de GitHub** — ✅ HECHO 2026-07-01 (Sesión 04): revocado vía
+      API oficial, verificado muerto (401), archivo `.gh-token` borrado
 
 ### 🟡 Pronto (cerrar cabos)
-- [ ] Confirmar qué son los repos `Reyna` (¿Asistente de Reyna?) e `Imigracionaldia`
+- [x] Confirmar qué son los repos `Reyna` e `Imigracionaldia` — ✅ HECHO Sesión 04:
+      `Reyna` = copia del Self-hosted AI Starter Kit de n8n (sin secretos reales);
+      `Imigracionaldia` = repo vacío (solo README). Detalles en REPOS-INVENTORY.md
 - [ ] Decidir si renombrar el repo `mujer-raiz-portal` → `executive-club`
 
 ### 🔵 El camino grande (roadmap de Reyna, Fase 0 → 4)
-- [ ] **Fase 0-1:** diseñar cómo ALMA *aprende* — modelo de "experiencia, no memoria"
-      (tabla de lecciones aprendidas + resultados de decisiones en `rit_core`)
+- [x] **Fase 0-1:** diseñar cómo ALMA *aprende* — ✅ HECHO Sesión 04: **PG-017
+      Protocolo de Aprendizaje** (Ciclo de Experiencia de 5 pasos) documentado,
+      integrado a la activación de PG-000, y **corriendo con datos reales** en
+      `rit_core` (8 decisiones, 7 resultados, 6 lecciones)
 - [ ] **Dashboard funcional real:** app Next.js con la marca, login y datos en vivo
       desde `rit_core` (hoy es un mockup visual)
 - [ ] **Fase 1:** construir ALMA (el cerebro que recuerda, aprende, crea tareas)

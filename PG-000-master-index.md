@@ -24,8 +24,10 @@ despierta. Quien lo mantiene, perdura.
 1. `prompts/genesis-prompt-oficial.md` — quién eres y cómo actúas.
 2. `docs/PG-011-Vision-Maestra-ALMA.md` — ⭐ la visión completa (ALMA, la misión).
 3. `docs/PG-006-Constitucion-RIT-v1.0.md` — las leyes de RIT.
-4. `ARCHITECTURE.md` + `database/rit_core-schema.md` — cómo está construido.
-5. Los diarios en `02_Diarios/` — toda la historia, sesión por sesión.
+4. `docs/PG-017-Protocolo-de-Aprendizaje-ALMA.md` — 🧠 cómo aprendes. Al activarte,
+   consulta las lecciones de confianza ≥ 4 en `rit_core.lecciones_aprendidas`.
+5. `ARCHITECTURE.md` + `database/rit_core-schema.md` — cómo está construido.
+6. Los diarios en `02_Diarios/` — toda la historia, sesión por sesión.
 
 **Reglas que nunca cambian:**
 - **Regla Cero:** todo conocimiento importante debe documentarse. Nada vive solo en
@@ -62,6 +64,7 @@ comparte." · **Visión:** "El futuro es brillante."
 | PG-014 | Genesis Architect — System Prompt | `prompts/genesis-architect-system-prompt.md` | ✅ v0.1 |
 | PG-015 | Genesis Dev Console (consola de auditoría) | `architecture/genesis-dev-console.md` | 🟡 Diseño v0.1 |
 | PG-016 | **Prompts del Consejo Ejecutivo** (7 agentes) | `prompts/*-prompt-oficial.md` + `prompts/Manual de Prompts de Agentes v0.1.pdf` | ✅ Activos en ElevenLabs |
+| PG-017 | **Protocolo de Aprendizaje de ALMA** 🧠 | `docs/PG-017-Protocolo-de-Aprendizaje-ALMA.md` | ✅ v1.0 Activo — ciclo corriendo en `rit_core` |
 
 > ⚠️ **Nota de numeración (para Reyna):** el PDF que creaste se titula "PG-014",
 > pero PG-014 ya estaba asignado al *Genesis Architect System Prompt* (trabajo
@@ -75,6 +78,7 @@ comparte." · **Visión:** "El futuro es brillante."
 | 01 | 2026-07-01 | `02_Diarios/Diario Fundacional - Sesion 01.md` | ✅ |
 | 02 | 2026-07-01 | `02_Diarios/Diario Fundacional - Sesion 02.md` | ✅ Andamiaje del repo padre |
 | 03 | 2026-07-01 | `02_Diarios/Diario Fundacional - Sesion 03.md` | ✅ Constitución v1.0 ratificada |
+| 04 | 2026-07-01 | `02_Diarios/Diario Fundacional - Sesion 04.md` | ✅ Continuidad probada + PG-017 Aprendizaje activo |
 
 ## Carpetas del repo
 
