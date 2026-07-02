@@ -37,7 +37,10 @@ export default async function Oficina() {
   return (
     <div className="of">
       <div className="topbar">
-        <div className="brand"><span className="g">G</span><b>RIT · LA OFICINA</b></div>
+        <div className="brand">
+          <img src="/genesis-icon.jpeg" alt="Génesis" width={36} height={36} style={{ borderRadius: "50%" }} />
+          <b>RIT · LA OFICINA</b>
+        </div>
         <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
           <span className="who">{user.email} · Fundadora &amp; CEO</span>
           <form action={signOut}><button className="btn">Salir</button></form>
@@ -45,6 +48,13 @@ export default async function Oficina() {
       </div>
 
       <header className="lobby">
+        <img
+          src="/genesis-icon.jpeg"
+          alt="Génesis — el futuro es brillante"
+          width={72}
+          height={72}
+          style={{ borderRadius: "50%", boxShadow: "0 0 30px rgba(212,175,55,.3)" }}
+        />
         <h1>Bienvenida, Reyna 👋</h1>
         <p>“La inteligencia crece cuando el conocimiento permanece y el trabajo se comparte.”</p>
         <div className="hi">{fecha} · datos en vivo desde rit_core</div>

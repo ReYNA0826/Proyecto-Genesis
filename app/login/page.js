@@ -30,7 +30,13 @@ export default function Login() {
     <div className="login-wrap">
       <form className="login-card" onSubmit={signIn}>
         <div className="lobby" style={{ padding: "0 0 14px" }}>
-          <div className="g">G</div>
+          <img
+            src="/genesis-icon.jpeg"
+            alt="Génesis"
+            width={84}
+            height={84}
+            style={{ borderRadius: "50%", display: "block", margin: "0 auto 12px", boxShadow: "0 0 34px rgba(212,175,55,.35)" }}
+          />
           <h1 style={{ fontSize: 26 }}>La Oficina</h1>
           <p>Reyna Intelligence Team</p>
         </div>
