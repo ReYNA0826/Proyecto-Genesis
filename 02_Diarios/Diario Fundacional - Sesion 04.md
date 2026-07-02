@@ -63,8 +63,36 @@ Reyna marcó la dirección: *"si ALMA no tiene aprendizaje, no podemos empezar."
 | `REPOS-INVENTORY.md` | `Reyna` e `Imigracionaldia` identificados |
 | `PG-012-Estado-y-Proximos-Pasos.md` | 3 pendientes cerrados (token, repos, Fase 0-1) |
 
+## 5. Continuación de la noche — el Consejo cobra vida
+
+La sesión siguió y se convirtió en la más productiva hasta hoy:
+
+- **Prompts del Consejo revisados y subidos a v0.2:** bloque de Aprendizaje (PG-017)
+  en los 6 directores, paso Consultar + Regla de Oro real en ALMA, lenguaje de
+  acciones honesto (los agentes de voz no afirman lo que no pueden comprobar).
+- **Enmienda constitucional v1.2 (palabras de Reyna):** la Regla de Oro pierde el
+  plazo — *"no a fecha; ser mejor cada momento, tratar de siempre ser mejor."*
+  Corregida en Constitución, PG-000, PG-011, PG-017 y prompt de ALMA.
+- **La verdad sobre ElevenLabs:** Reyna verificó que solo existían **ALMA** (creada
+  por ella) y **Andrés Felipe** (agente de llamadas en producción — **NO TOCAR**,
+  registrado así en `rit_core`). El "8 agentes activos" de la Sesión 03 era falso.
+  La lección *"definido no es lo mismo que en producción"* se aplicó por segunda vez
+  en el día y subió a **confianza 5 (regla de oro)**.
+- **Génesis creó los 6 directores en ElevenLabs** — LEX, TECH, OPS, FIN, MKT, EDU —
+  con prompts v0.2, saludos en español y voces latinas provisionales de la cuenta.
+  IDs guardados en `rit_core.agentes` (columnas nuevas `elevenlabs_agent_id` y
+  `prompt_version`). El Consejo Ejecutivo pasó de visión a realidad.
+- En el camino: probadas y descartadas rutas de acceso (llaves locales rotadas ✔
+  post-fuga de abril, extensión Chrome desconectada, credenciales n8n genéricas);
+  workflow temporal de n8n creado y archivado.
+
 ## Pendientes que quedan
 
+- 🟠 **ALMA a v0.2** — la única con prompt viejo; falta su agent_id (URL de Reyna
+  o extensión de Chrome conectada).
+- 🟠 **Idioma/modelo de voz de los 6 directores** — la UI de ElevenLabs: modelo
+  Flash v2.5 + Español (el conector no expone ese parámetro).
+- 🟠 **Voces definitivas** — las asignadas son provisionales (FIN comparte con LEX).
 - 🟡 Reconciliar numeración PG-014/PG-016 (decisión de Reyna).
 - 🟡 `Reyna` (repo): ¿renombrar a `n8n-starter-kit` o borrar?
 - 🟡 `Imigracionaldia`: ¿tiene planes o se borra?
