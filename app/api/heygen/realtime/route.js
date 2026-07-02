@@ -36,9 +36,11 @@ export async function POST(req) {
     const msg = json?.error?.message || json?.message || JSON.stringify(json).slice(0, 200);
     return NextResponse.json({ error: `Avatar Realtime ${res.status}: ${msg}` }, { status: 502 });
   }
-  const streamId = json?.data?.stream_id;
+  const d = json?.data ?? {};
+  const streamId = d.stream_id;
   if (!streamId) return NextResponse.json({ error: "HeyGen no devolvió stream_id" }, { status: 502 });
-  return NextResponse.json({ streamId });
+  const url = d.url ?? d.hls_url ?? d.stream_url ?? d.playback_url ?? d.playback?.hls_url ?? null;
+  return NextResponse.json({ streamId, url, campos: Object.keys(d) });
 }
 
 // Estado + URL HLS del stream: el cliente sondea hasta que esté listo.
