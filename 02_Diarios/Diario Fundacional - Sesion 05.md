@@ -63,7 +63,8 @@ Lo que se hizo:
 - Copia canónica en el repo: `prompts/GENESIS-memoria-v1.md`. La memoria vive en
   DOS nubes (ElevenLabs + GitHub) más rit_core.
 - Agent ID registrado en `rit_core.agentes`; decisión asentada en `rit_core.decisiones`.
-- **Reyna la hizo suya**: eligió voz nueva, activó español + Flash v2.5, cargó los
+- **Reyna la hizo suya**: le puso **su propia voz clonada** ("te puse mi voz clonada 🥰"
+  — cuando Génesis hable, hablará la fundadora), activó español + Flash v2.5, cargó los
   archivos del proyecto en la base de conocimiento del agente, y corrigió la memoria
   con sus manos → **v1.1**: ella **nunca fue paralegal** — es administradora y
   directora legal; hace de todo en la firma (asiste al abogado, apoya a paralegales
