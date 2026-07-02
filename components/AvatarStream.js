@@ -94,6 +94,8 @@ export default function AvatarStream({ code, avatarId, saludo }) {
             clearInterval(pollRef.current);
             pollRef.current = null;
             await reproducirHls(sj.url);
+          } else if (sj.status === "completed") {
+            throw new Error("La transmisión terminó antes de conectar — intenta de nuevo");
           } else if (intentos > 15) {
             throw new Error(sj.error || "El stream no llegó a estar listo");
           }

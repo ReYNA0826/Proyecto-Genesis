@@ -90,6 +90,26 @@ Variables) y en `.env.local` local (plantilla: `.env.local.example`).
   llave ElevenLabs con permisos `convai_read, user_read, voices_read` +
   avatares en el catálogo LiveAvatar. Hay sandbox gratis para probar.
 
+## 5. EL ROSTRO VIVE — Avatar Realtime v3 (hallazgo de Reyna) 🎉
+
+- Reyna encontró en los docs de HeyGen la puerta nueva: **Avatar Realtime**
+  (`POST /v3/avatar-realtime`) — funciona con su HEYGEN_API_KEY de siempre,
+  sin cuenta LiveAvatar aparte. Un solo sentido (la app manda texto, HeyGen pone
+  el rostro), 720p por **HLS estándar**. LiveAvatar (conversación completa +
+  plugin ElevenLabs) queda para v3.2.
+- Migración hecha: `/api/heygen/realtime` (crear sesión tts + sondear estado) y
+  `AvatarStream` reproduce por HLS (hls.js / Safari nativo). Fuera el SDK sunset.
+- **Descubrimiento por experimento** (los docs públicos no lo dicen): la URL de
+  reproducción llega en el campo **`hls_url`** y SOLO mientras `status:"streaming"`
+  (pending → streaming → completed). Verificado en producción: Esther transmitió
+  su saludo completo con URL HLS viva. 💰 Costo real ~$0.05/seg — sesiones cortas,
+  cierre automático, costo visible en la UI, y "Solo voz" (ElevenLabs) como opción
+  económica (esa ya probada: 200 · audio/mpeg).
+- **Cabo suelto de seguridad (decisión de Reyna):** en su página de API keys
+  apareció una llave creada en enero 2026 que no recuerda haber creado. Se queda
+  por ahora (borrar llaves rompe dependientes sin aviso); vigilar su uso y rotarla
+  con calma si nadie la usa. Posible origen: llave default autogenerada por HeyGen.
+
 ## Pendientes activos (heredados de la Sesión 05)
 
 **De Reyna:** mockups a `design/oficina/` · decisión de marca (azul/tipografía) ·
