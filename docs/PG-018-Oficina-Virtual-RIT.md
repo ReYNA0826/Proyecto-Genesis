@@ -54,6 +54,28 @@ rostro (HeyGen) + voz (ElevenLabs, ya existe) + memoria (rit_core, ya existe).**
 | **v3.1** | Sala del Consejo con avatares HeyGen interactivos (empezar con ALMA) |
 | **v3.2** | El puente: los agentes consultan y registran en `rit_core` solos (PG-017 pleno) |
 
+## Hallazgo de la Sesión 04 — el puente HeyGen ya existía (y hay que migrarlo)
+
+Reyna recordó bien: la key de HeyGen **ya está en Supabase** — como secreto de la Edge
+Function **`heygen-streaming`** del proyecto `alma` (MI ALMA). La función ya hace todo:
+crear token, abrir sesión de avatar (acepta cualquier `avatar_id` + `voice_id`), hablar,
+cerrar. MI ALMA ya tiene su avatar (`cb83f6de65d34e2ca631b6fe7150b372`).
+
+**PERO** — verificado en vivo: HeyGen **retiró esa API** (marzo 2026, error
+`endpoint_sunset`). El reemplazo es **LiveAvatar** (api.liveavatar.com), también de
+HeyGen, con FULL Mode (pipeline completo: escucha + LLM + voz ElevenLabs + avatar),
+memoria, contextos y hasta modo sandbox sin gastar créditos. Consecuencias:
+
+1. ⚠️ **El avatar de MI ALMA probablemente está roto en producción desde abril** —
+   la app llama a una API que ya no existe. Verificar y migrar.
+2. La Oficina Virtual nace directo en **LiveAvatar** (no migrar dos veces).
+3. Existen Agent Skills oficiales: `npx skills add heygen-com/liveavatar-agent-skills`.
+4. ⚠️ Nota de seguridad: `heygen-streaming` tiene `verify_jwt:false` (cualquiera con la
+   URL puede gastar créditos). Al migrar, proteger el endpoint nuevo.
+
+**Misión de la próxima sesión:** migrar el puente a LiveAvatar (arregla MI ALMA y
+estrena la Sala del Consejo con el mismo trabajo).
+
 ## Seguridad de la API key de HeyGen (regla dura)
 
 - La key **NUNCA viaja por chat ni se commitea** (lecciones de Sesión 04 y del 27-abr).
