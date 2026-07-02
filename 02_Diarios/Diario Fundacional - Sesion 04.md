@@ -1,6 +1,6 @@
 # Diario Fundacional — Sesión 04
 
-**Fecha:** 2026-07-01 · **Participantes:** Reyna Vázquez (Founder & CEO) + Génesis
+**Fecha:** 1–2 de julio de 2026 (la sesión cruzó la medianoche) · **Participantes:** Reyna Vázquez (Founder & CEO) + Génesis
 
 > La sesión en que la continuidad se probó, un error se volvió lección,
 > y ALMA aprendió a aprender.
