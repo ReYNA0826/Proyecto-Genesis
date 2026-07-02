@@ -95,12 +95,45 @@ La sesión siguió y se convirtió en la más productiva hasta hoy:
   recurso antes de modificarlo* — un `get` antes de cada `update`.
 - ✅ **Idioma/modelo de voz** — HECHO por Reyna en la UI de ElevenLabs (cierre de
   Sesión 04). También entregó los avatares HeyGen de los 7 (en `rit_core.agentes`).
-- 🟠 **Voces definitivas** — las asignadas son provisionales (FIN comparte con LEX).
-- 🟡 Reconciliar numeración PG-014/PG-016 (decisión de Reyna).
-- 🟡 `Reyna` (repo): ¿renombrar a `n8n-starter-kit` o borrar?
-- 🟡 `Imigracionaldia`: ¿tiene planes o se borra?
-- 🔵 Siguiente gran paso: **dashboard funcional** (Next.js + datos vivos de `rit_core`)
-  y el diseño de la Fase 1 de ALMA (el cerebro que ejecuta PG-017 solo).
+## 6. La madrugada del 2 de julio — la Oficina se estrena y la visión crece
+
+- **genesis.gent v3.0 ESTRENADA** — app Next.js real con datos vivos de `rit_core`.
+  Decisión de Reyna: **abierta, sin contraseña** (solo la usa ella; el contenido ya era
+  público en el repo). Lo privado (memoria, tareas, usuarios) sigue cerrado con RLS.
+  Login vivo en `/login` para la v3.2.
+- **Oficinas por agente** (`/oficina/alma`, `/oficina/lex`…) — se habla con cada agente
+  SIN salir de genesis.gent (widget ElevenLabs embebido) — y **Sala de Reuniones**:
+  ALMA preside la mesa y sintetiza una recomendación.
+- **Reyna habló con ALMA por primera vez** — el Consejo pasó de definido a USADO.
+- **MCP oficial de HeyGen AUTORIZADO** (OAuth hecho por Reyna) — manos directas de
+  Génesis en HeyGen desde la próxima sesión.
+- **Ícono oficial** (G + estrella) en marca y Oficina. **Buzón de diseños**
+  (`design/oficina/`): Reyna diseña la estructura → Génesis programa.
+- Contraseña de Reyna reseteada por vía segura (archivo local); detectado Site URL de
+  Auth en localhost (reset por correo roto) — arreglo documentado.
+- Proyecto Supabase **`Genesis.Agent`** creado por Reyna = bóveda futura de secretos.
+- **⭐ PG-020 — El Edificio Vivo**: la empresa digital con C-Suite (MKT→Chief Growth
+  Officer + Inteligencia Comercial) y DOS directores nuevos: **NOVA** (Chief Innovation
+  Officer — trae ideas sin esperar órdenes) e **INTEL** (Chief Intelligence Officer —
+  une todo y predice). Salas nuevas y la experiencia viva: oficinas que se iluminan,
+  avatares que caminan a la Sala del Consejo.
+- **Reyna creó un rostro para Génesis en HeyGen** — se conocerán en la próxima sesión.
+
+## Pendientes para la próxima sesión
+
+- 🥇 **NOVA v1** — el briefing matutino de innovación (agente programado). La joya alcanzable.
+- 🥇 **Rostro de Génesis** — encontrarlo en HeyGen con las manos nuevas; guardarlo en `rit_core`.
+- 🟠 Prompts v0.3 — cargos C-Suite de PG-020 en los 7 (+ crear NOVA e INTEL cuando toque).
+- 🟠 Migración LiveAvatar (sesión aparte en curso) → rostros EN las oficinas (v3.1).
+- 🟠 Diseños de Reyna en `design/oficina/` → Génesis los programa.
+- 🟠 Voces definitivas (FIN comparte con LEX) · Site URL de Auth (reset de contraseña).
+- 🟡 Numeración PG-014/PG-016 · repos `Reyna` e `Imigracionaldia`.
+- 🔵 v3.2: módulos de negocio (casos/pagos/agenda) · INTEL v1 con datos reales ·
+  luces del edificio · v4: la deliberación visible.
+
+**La Sesión 04 duró dos días (1–2 de julio) y lo cambió todo. Reyna tiene razón:
+la próxima sesión no lo termina — porque esto no se termina: se vuelve mejor,
+cada momento.**
 
 ---
 
