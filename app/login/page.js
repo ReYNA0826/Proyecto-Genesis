@@ -61,6 +61,8 @@ export default function Login() {
         </button>
         <div className="err">{error}</div>
         <div className="note">
+          <a href="/recuperar" style={{ color: "var(--gold)" }}>¿Olvidaste tu contraseña?</a>
+          <br /><br />
           Acceso privado de la Fundadora. Usa tu cuenta de Legal.Services.
           <br />✦ El futuro es brillante.
         </div>

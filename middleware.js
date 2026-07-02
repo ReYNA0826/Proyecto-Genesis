@@ -22,13 +22,14 @@ export async function middleware(request) {
 
   const { data: { user } } = await supabase.auth.getUser();
 
-  const isLogin = request.nextUrl.pathname.startsWith("/login");
+  const p = request.nextUrl.pathname;
+  const isLogin = p.startsWith("/login") || p.startsWith("/recuperar") || p.startsWith("/actualizar");
   if (!user && !isLogin) {
     const url = request.nextUrl.clone();
     url.pathname = "/login";
     return NextResponse.redirect(url);
   }
-  if (user && isLogin) {
+  if (user && p.startsWith("/login")) {
     const url = request.nextUrl.clone();
     url.pathname = "/";
     return NextResponse.redirect(url);
