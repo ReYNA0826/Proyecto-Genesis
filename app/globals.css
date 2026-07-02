@@ -54,4 +54,26 @@ a{color:inherit}
 .login-card input{width:100%;margin-bottom:10px;padding:11px 12px;border-radius:9px;border:1px solid #2a446e;background:#0c2144;color:var(--pearl);font-size:13px;font-family:inherit}
 .login-card .err{color:#ff9d9d;font-size:11.5px;margin-top:10px;min-height:16px}
 .login-card .note{color:var(--silver);font-size:10.5px;margin-top:14px;line-height:1.5}
-@media(max-width:760px){.consejo{grid-template-columns:repeat(2,1fr)}.wings{grid-template-columns:1fr}.hall{grid-template-columns:repeat(2,1fr)}.lobby h1{font-size:26px}}
+/* — v3.1 La Unificación — */
+.desk.obra{opacity:.75;cursor:default}
+.desk.obra:hover{transform:none;border-color:#16294c}
+.piso2{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+.oficina-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:14px;max-width:980px;margin:0 auto}
+.avbox{background:var(--navy);border:1px solid #14274a;border-radius:14px;padding:14px 16px}
+.avhead{display:flex;justify-content:space-between;align-items:center;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.avdot{font-size:9.5px;letter-spacing:.08em;color:var(--silver)}
+.avdot.live{color:var(--green)}.avdot.connecting{color:#e8c25a}.avdot.error{color:#ff9d9d}
+.avvideo{position:relative;aspect-ratio:16/9;background:#000;border:1px solid #1c355e;border-radius:10px;overflow:hidden}
+.avvideo video{width:100%;height:100%;object-fit:cover;display:block}
+.avwait{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;font-size:11.5px;color:var(--silver);background:rgba(5,18,38,.65);padding:10px}
+.avbtns{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:10px}
+.avbtns .btn:disabled{opacity:.45;cursor:default}
+.avmeta{font-size:9.5px;color:var(--silver);margin-top:8px;font-family:ui-monospace,monospace;word-break:break-all}
+.avmeta a{color:var(--gold)}
+.averr{font-size:10.5px;color:#ff9d9d;margin-top:8px;line-height:1.5}
+.cfg{width:100%;border-collapse:collapse;font-size:12px}
+.cfg th{text-align:left;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--silver);padding:6px 8px;border-bottom:1px solid #17294a}
+.cfg td{padding:8px;border-bottom:1px dashed #17294a;vertical-align:middle}
+.cfg .mono{font-family:ui-monospace,monospace;font-size:10.5px;word-break:break-all}
+.cfg input{width:100%;padding:7px 9px;border-radius:8px;border:1px solid #2a446e;background:#0c2144;color:var(--pearl);font-size:10.5px}
+@media(max-width:760px){.consejo{grid-template-columns:repeat(2,1fr)}.wings{grid-template-columns:1fr}.hall{grid-template-columns:repeat(2,1fr)}.lobby h1{font-size:26px}.piso2{grid-template-columns:repeat(3,1fr)}.oficina-grid{grid-template-columns:1fr}}

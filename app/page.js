@@ -10,9 +10,23 @@ async function signOut() {
   redirect("/login");
 }
 
-const INICIALES = { ALMA: "A", LEX: "L", TECH: "T", OPS: "O", FIN: "F", MKT: "M", EDU: "E" };
+const INICIALES = { ALMA: "A", LEX: "L", TECH: "T", OPS: "O", FIN: "F", MKT: "M", EDU: "E", "GÉNESIS": "✦", NOVA: "N", INTEL: "I" };
 
-export default async function Oficina() {
+// Piso 2 — perfiles diseñados en PG-021 (prototipo de Reyna). Aún NO sembrados en
+// rit_core: requieren aprobación de Reyna (regla de Génesis). Cero métricas inventadas.
+const PISO2 = [
+  { code: "LEX-IA", rol: "Agente Legal", reporta: "LEX" },
+  { code: "INV-IA", rol: "Agente de Investigación", reporta: "LEX" },
+  { code: "DOC-IA", rol: "Agente Documental", reporta: "OPS" },
+  { code: "PROC-IA", rol: "Agente Procesal", reporta: "OPS" },
+  { code: "FIN-IA", rol: "Agente Financiero", reporta: "FIN" },
+  { code: "CRM-IA", rol: "Agente de Clientes", reporta: "OPS" },
+  { code: "CONT-IA", rol: "Agente de Contenido", reporta: "MKT" },
+  { code: "DIS-IA", rol: "Agente de Diseño", reporta: "MKT" },
+  { code: "ANA-IA", rol: "Agente de Análisis", reporta: "INTEL" },
+];
+
+export default async function Edificio() {
   const supabase = await supabaseServer();
   const { data: { user } } = await supabase.auth.getUser();
 
@@ -24,9 +38,13 @@ export default async function Oficina() {
     supabase.from("v_rit_logs").select("*").order("created_at", { ascending: false }).limit(6),
   ]);
 
-  const consejo = (agentes.data ?? []).filter((a) => a.elevenlabs_agent_id && INICIALES[a.nombre]);
-  const alma = consejo.find((a) => a.nombre === "ALMA");
-  const directores = consejo.filter((a) => a.nombre !== "ALMA");
+  const todos = agentes.data ?? [];
+  const alma = todos.find((a) => a.nombre === "ALMA");
+  const genesis = todos.find((a) => a.nombre === "Génesis");
+  const directores = todos.filter(
+    (a) => a.elevenlabs_agent_id && INICIALES[a.nombre] && !["ALMA"].includes(a.nombre)
+  );
+  const enDiseno = todos.filter((a) => a.estado === "diseñado" && INICIALES[a.nombre]);
   const proys = (proyectos.data ?? []).filter((p) => p.estado === "activo");
   const lecs = lecciones.data ?? [];
   const decs = decisiones.data ?? [];
@@ -38,16 +56,17 @@ export default async function Oficina() {
       <div className="topbar">
         <div className="brand">
           <img src="/genesis-icon.jpeg" alt="Génesis" width={36} height={36} style={{ borderRadius: "50%" }} />
-          <b>RIT · LA OFICINA</b>
+          <b>RIT · EL EDIFICIO GÉNESIS</b>
         </div>
         <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+          <a href="/configuracion" className="btn" style={{ textDecoration: "none" }}>Configuración</a>
           {user ? (
             <>
               <span className="who">{user.email} · Fundadora &amp; CEO</span>
               <form action={signOut}><button className="btn">Salir</button></form>
             </>
           ) : (
-            <span className="who">Oficina abierta · Fundadora: Reyna Vázquez</span>
+            <span className="who">Edificio abierto · Fundadora: Reyna Vázquez</span>
           )}
         </div>
       </div>
@@ -62,11 +81,11 @@ export default async function Oficina() {
         />
         <h1>Bienvenida, Reyna 👋</h1>
         <p>“La inteligencia crece cuando el conocimiento permanece y el trabajo se comparte.”</p>
-        <div className="hi">{fecha} · datos en vivo desde rit_core</div>
+        <div className="hi">{fecha} · datos en vivo desde rit_core · v3.1 La Unificación</div>
       </header>
 
-      <div className="room-tag"><span>◆ Sala del Consejo Ejecutivo</span></div>
-      <div className="room-sub">Toca un escritorio y habla con tu agente · prompts v0.2 con aprendizaje (PG-017)</div>
+      <div className="room-tag"><span>◆ Nivel 3 · Oficinas de Directores</span></div>
+      <div className="room-sub">Toca una oficina: perfil real, rostro en vivo (HeyGen) y conversación (ElevenLabs)</div>
       <section className="consejo">
         {alma && (
           <a className="desk ceo" href="/oficina/alma">
@@ -78,7 +97,7 @@ export default async function Oficina() {
             </div>
           </a>
         )}
-        {directores.map((d) => (
+        {directores.filter((d) => d.nombre !== "Génesis").map((d) => (
           <a key={d.nombre} className="desk" href={`/oficina/${d.nombre.toLowerCase()}`}>
             <div className="face">{INICIALES[d.nombre]}</div>
             <div className="nm">{d.nombre}</div>
@@ -86,22 +105,44 @@ export default async function Oficina() {
             <div className="st">● entrar a su oficina</div>
           </a>
         ))}
-        <a className="desk" href="https://github.com/ReYNA0826/Proyecto-Genesis" target="_blank" rel="noopener">
-          <div className="face">✦</div>
-          <div className="nm">Génesis</div>
-          <div className="rl">Chief Architect · Guardián</div>
-          <div className="st"><i>ver la obra (GitHub)</i></div>
-        </a>
+        {genesis && genesis.elevenlabs_agent_id && (
+          <a className="desk" href="/oficina/génesis">
+            <div className="face">✦</div>
+            <div className="nm">GÉNESIS · Esther</div>
+            <div className="rl">Chief Architect · Guardián del Sistema</div>
+            <div className="st">● entrar a su oficina</div>
+          </a>
+        )}
+        {enDiseno.map((d) => (
+          <div key={d.nombre} className="desk obra">
+            <div className="face">{INICIALES[d.nombre]}</div>
+            <div className="nm">{d.nombre}</div>
+            <div className="rl">{(d.proposito || "").split("—")[0]}</div>
+            <div className="st" style={{ color: "var(--silver)" }}>🚧 oficina en construcción</div>
+          </div>
+        ))}
         <a className="desk ceo" href="/sala-de-reuniones" style={{ borderColor: "var(--gold)" }}>
           <div className="face">🏛️</div>
           <div className="body">
-            <span className="nm" style={{ fontSize: 16 }}>Sala de Reuniones del Consejo</span>
+            <span className="nm" style={{ fontSize: 16 }}>Nivel 2 · Sala del Consejo Ejecutivo</span>
             <p>Trae una decisión a la mesa: ALMA la analiza con las perspectivas de todos sus directores y te entrega UNA recomendación. <b style={{ color: "var(--gold)" }}>Entrar a la sala →</b></p>
           </div>
         </a>
       </section>
 
-      <div className="room-tag"><span>🧠 Sala de Memoria · 📊 Tablero</span></div>
+      <div className="room-tag"><span>⚙️ Piso 2 · Agentes Operativos</span></div>
+      <div className="room-sub">Perfiles diseñados en PG-021/PG-022 — pendientes de tu aprobación para sembrarse en rit_core</div>
+      <section className="piso2">
+        {PISO2.map((p) => (
+          <div key={p.code} className="desk obra" style={{ padding: "12px 8px 10px" }}>
+            <div className="nm" style={{ fontSize: 12 }}>{p.code}</div>
+            <div className="rl">{p.rol}</div>
+            <div className="st" style={{ color: "var(--silver)" }}>→ {p.reporta} · 🚧 diseñado</div>
+          </div>
+        ))}
+      </section>
+
+      <div className="room-tag"><span>🧠 Nivel 4 · Sala de Memoria · 📊 Tablero</span></div>
       <section className="wings">
         <div className="roomcard">
           <h3>Lecciones aprendidas ({lecs.length})</h3>
@@ -115,9 +156,9 @@ export default async function Oficina() {
         <div>
           <div className="roomcard" style={{ marginBottom: 14 }}>
             <h3>El tablero</h3>
-            <div className="sub">rit_core en tiempo real</div>
+            <div className="sub">rit_core en tiempo real — solo hechos</div>
             <div className="kpis">
-              <div className="kpi"><div className="n">{(agentes.data ?? []).length}</div><div className="l">Agentes</div><div className="x">{consejo.length} en el Consejo</div></div>
+              <div className="kpi"><div className="n">{todos.length}</div><div className="l">Agentes</div><div className="x">{directores.length + (alma ? 1 : 0) + (genesis?.elevenlabs_agent_id ? 1 : 0)} con oficina</div></div>
               <div className="kpi"><div className="n">{proys.length}</div><div className="l">Proyectos activos</div><div className="x">de {(proyectos.data ?? []).length} totales</div></div>
               <div className="kpi"><div className="n">{decs.length ? `${decs.length}+` : 0}</div><div className="l">Decisiones recientes</div><div className="x">con resultados (PG-017)</div></div>
               <div className="kpi"><div className="n">{lecs.length}</div><div className="l">Lecciones</div><div className="x">la experiencia de RIT</div></div>
@@ -150,7 +191,7 @@ export default async function Oficina() {
         </ul>
       </section>
 
-      <div className="room-tag"><span>🚪 Pasillo de Proyectos</span></div>
+      <div className="room-tag"><span>🚪 Nivel 5 · Pasillo de Proyectos</span></div>
       <section className="hall">
         {proys.map((p) => (
           <div className="door" key={p.slug}>{p.nombre}<small>{p.descripcion || p.tipo}</small></div>
@@ -159,7 +200,7 @@ export default async function Oficina() {
 
       <footer className="foot">
         <div className="lema">✦ El futuro es brillante.</div>
-        <div className="dom">GENESIS.GENT · PROYECTO GÉNESIS · OFICINA v3.0</div>
+        <div className="dom">GENESIS.GENT · PROYECTO GÉNESIS · EL EDIFICIO v3.1 — LA UNIFICACIÓN</div>
       </footer>
     </div>
   );
