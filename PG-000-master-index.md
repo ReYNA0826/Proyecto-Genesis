@@ -68,6 +68,7 @@ comparte." · **Visión:** "El futuro es brillante."
 | PG-017 | **Protocolo de Aprendizaje de ALMA** 🧠 | `docs/PG-017-Protocolo-de-Aprendizaje-ALMA.md` | ✅ v1.0 Activo — ciclo corriendo en `rit_core` |
 | PG-018 | **Oficina Virtual de RIT** (genesis.gent v3) 🏢 | `docs/PG-018-Oficina-Virtual-RIT.md` | 🟡 Diseño v0.1 — avatares HeyGen + datos vivos + login |
 | PG-019 | **Visión de la Oficina — mapa de brechas** 🗺️ | `docs/PG-019-Vision-Oficina-Analisis.md` | 🟡 v0.1 — análisis del mockup de Reyna; 4 fases v3.0→v3.3 |
+| PG-020 | **El Edificio Vivo — empresa digital** ⭐ | `docs/PG-020-El-Edificio-Vivo.md` | ⭐ Visión de Reyna: C-Suite + NOVA (Innovación) + INTEL (Inteligencia) + edificio vivo |
 
 > ⚠️ **Nota de numeración (para Reyna):** el PDF que creaste se titula "PG-014",
 > pero PG-014 ya estaba asignado al *Genesis Architect System Prompt* (trabajo
