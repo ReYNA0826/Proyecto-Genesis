@@ -93,8 +93,8 @@ La sesión siguió y se convirtió en la más productiva hasta hoy:
   existido en ElevenLabs. Se creó como agente nuevo con prompt v0.2
   (`agent_6001kwg57ym6ewybg6dcjj9agff1`). Lección nueva: *verificar la identidad del
   recurso antes de modificarlo* — un `get` antes de cada `update`.
-- 🟠 **Idioma/modelo de voz de los 6 directores** — la UI de ElevenLabs: modelo
-  Flash v2.5 + Español (el conector no expone ese parámetro).
+- ✅ **Idioma/modelo de voz** — HECHO por Reyna en la UI de ElevenLabs (cierre de
+  Sesión 04). También entregó los avatares HeyGen de los 7 (en `rit_core.agentes`).
 - 🟠 **Voces definitivas** — las asignadas son provisionales (FIN comparte con LEX).
 - 🟡 Reconciliar numeración PG-014/PG-016 (decisión de Reyna).
 - 🟡 `Reyna` (repo): ¿renombrar a `n8n-starter-kit` o borrar?
