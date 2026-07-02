@@ -69,21 +69,21 @@ export default async function Oficina() {
       <div className="room-sub">Toca un escritorio y habla con tu agente · prompts v0.2 con aprendizaje (PG-017)</div>
       <section className="consejo">
         {alma && (
-          <a className="desk ceo" href={`https://elevenlabs.io/app/talk-to?agent_id=${alma.elevenlabs_agent_id}`} target="_blank" rel="noopener">
+          <a className="desk ceo" href="/oficina/alma">
             <div className="face">A</div>
             <div className="body">
               <span className="nm" style={{ fontSize: 17 }}>ALMA · Directora Ejecutiva</span>
               <span className="badge">en su oficina</span>
-              <p>{alma.proposito} <b style={{ color: "var(--gold)" }}>Toca aquí para hablar con ella →</b></p>
+              <p>{alma.proposito} <b style={{ color: "var(--gold)" }}>Entra a su oficina y habla con ella →</b></p>
             </div>
           </a>
         )}
         {directores.map((d) => (
-          <a key={d.nombre} className="desk" href={`https://elevenlabs.io/app/talk-to?agent_id=${d.elevenlabs_agent_id}`} target="_blank" rel="noopener">
+          <a key={d.nombre} className="desk" href={`/oficina/${d.nombre.toLowerCase()}`}>
             <div className="face">{INICIALES[d.nombre]}</div>
             <div className="nm">{d.nombre}</div>
             <div className="rl">{(d.proposito || "").split("—")[0]}</div>
-            <div className="st">● hablar con {d.nombre}</div>
+            <div className="st">● entrar a su oficina</div>
           </a>
         ))}
         <a className="desk" href="https://github.com/ReYNA0826/Proyecto-Genesis" target="_blank" rel="noopener">
@@ -91,6 +91,13 @@ export default async function Oficina() {
           <div className="nm">Génesis</div>
           <div className="rl">Chief Architect · Guardián</div>
           <div className="st"><i>ver la obra (GitHub)</i></div>
+        </a>
+        <a className="desk ceo" href="/sala-de-reuniones" style={{ borderColor: "var(--gold)" }}>
+          <div className="face">🏛️</div>
+          <div className="body">
+            <span className="nm" style={{ fontSize: 16 }}>Sala de Reuniones del Consejo</span>
+            <p>Trae una decisión a la mesa: ALMA la analiza con las perspectivas de todos sus directores y te entrega UNA recomendación. <b style={{ color: "var(--gold)" }}>Entrar a la sala →</b></p>
+          </div>
         </a>
       </section>
 
