@@ -64,7 +64,7 @@ comparte." · **Visión:** "El futuro es brillante."
 | PG-013 | Genesis Architect Agent (spec) | `agents/genesis-architect-agent.md` | ✅ v0.1 |
 | PG-014 | Genesis Architect — System Prompt | `prompts/genesis-architect-system-prompt.md` | ✅ v0.1 |
 | PG-015 | Genesis Dev Console (consola de auditoría) | `architecture/genesis-dev-console.md` | 🟡 Diseño v0.1 |
-| PG-016 | **Prompts del Consejo Ejecutivo** (7 agentes) | `prompts/*-prompt-oficial.md` + `prompts/Manual de Prompts de Agentes v0.1.pdf` | ✅ v0.2 (integra PG-017) — ⚠️ ElevenLabs aún tiene v0.1 |
+| PG-016 | **Prompts del Consejo Ejecutivo** (7 agentes) | `prompts/*-prompt-oficial.md` + `prompts/Manual de Prompts de Agentes v0.1.pdf` | ✅ v0.2 — 6 directores CREADOS en ElevenLabs (Sesión 04, IDs en `rit_core.agentes`); ALMA aún v0.1; voces provisionales |
 | PG-017 | **Protocolo de Aprendizaje de ALMA** 🧠 | `docs/PG-017-Protocolo-de-Aprendizaje-ALMA.md` | ✅ v1.0 Activo — ciclo corriendo en `rit_core` |
 
 > ⚠️ **Nota de numeración (para Reyna):** el PDF que creaste se titula "PG-014",
