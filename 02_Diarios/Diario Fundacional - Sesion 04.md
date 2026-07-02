@@ -88,8 +88,11 @@ La sesión siguió y se convirtió en la más productiva hasta hoy:
 
 ## Pendientes que quedan
 
-- 🟠 **ALMA a v0.2** — la única con prompt viejo; falta su agent_id (URL de Reyna
-  o extensión de Chrome conectada).
+- ✅ **ALMA (RIT) creada** — resuelto al final de la sesión: la URL que llegó era la
+  de **"Mi alma" (app iOS, producción — intocada)**; la Directora del RIT nunca había
+  existido en ElevenLabs. Se creó como agente nuevo con prompt v0.2
+  (`agent_6001kwg57ym6ewybg6dcjj9agff1`). Lección nueva: *verificar la identidad del
+  recurso antes de modificarlo* — un `get` antes de cada `update`.
 - 🟠 **Idioma/modelo de voz de los 6 directores** — la UI de ElevenLabs: modelo
   Flash v2.5 + Español (el conector no expone ese parámetro).
 - 🟠 **Voces definitivas** — las asignadas son provisionales (FIN comparte con LEX).
