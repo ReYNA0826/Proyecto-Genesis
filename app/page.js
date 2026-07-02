@@ -15,7 +15,6 @@ const INICIALES = { ALMA: "A", LEX: "L", TECH: "T", OPS: "O", FIN: "F", MKT: "M"
 export default async function Oficina() {
   const supabase = await supabaseServer();
   const { data: { user } } = await supabase.auth.getUser();
-  if (!user) redirect("/login");
 
   const [agentes, proyectos, lecciones, decisiones, logs] = await Promise.all([
     supabase.from("v_rit_agentes").select("*"),
@@ -42,8 +41,14 @@ export default async function Oficina() {
           <b>RIT · LA OFICINA</b>
         </div>
         <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-          <span className="who">{user.email} · Fundadora &amp; CEO</span>
-          <form action={signOut}><button className="btn">Salir</button></form>
+          {user ? (
+            <>
+              <span className="who">{user.email} · Fundadora &amp; CEO</span>
+              <form action={signOut}><button className="btn">Salir</button></form>
+            </>
+          ) : (
+            <span className="who">Oficina abierta · Fundadora: Reyna Vázquez</span>
+          )}
         </div>
       </div>
 

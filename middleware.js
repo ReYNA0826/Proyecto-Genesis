@@ -22,13 +22,9 @@ export async function middleware(request) {
 
   const { data: { user } } = await supabase.auth.getUser();
 
+  // Oficina abierta (decisión de Reyna, Sesión 04): la lectura es pública; el login
+  // queda disponible en /login para cuando lleguen los módulos de negocio (v3.2).
   const p = request.nextUrl.pathname;
-  const isLogin = p.startsWith("/login") || p.startsWith("/recuperar") || p.startsWith("/actualizar");
-  if (!user && !isLogin) {
-    const url = request.nextUrl.clone();
-    url.pathname = "/login";
-    return NextResponse.redirect(url);
-  }
   if (user && p.startsWith("/login")) {
     const url = request.nextUrl.clone();
     url.pathname = "/";
