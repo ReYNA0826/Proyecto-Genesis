@@ -66,6 +66,7 @@ comparte." · **Visión:** "El futuro es brillante."
 | PG-015 | Genesis Dev Console (consola de auditoría) | `architecture/genesis-dev-console.md` | 🟡 Diseño v0.1 |
 | PG-016 | **Prompts del Consejo Ejecutivo** (7 agentes) | `prompts/*-prompt-oficial.md` + `prompts/Manual de Prompts de Agentes v0.1.pdf` | ✅ v0.2 — **Consejo COMPLETO en ElevenLabs** (Sesión 04): ALMA + 6 directores, IDs en `rit_core.agentes`. ⚠️ "Mi alma" (app iOS) y "Andrés Felipe" (llamadas) son OTROS agentes, de producción — NO TOCAR. Voces provisionales; falta idioma es/Flash v2.5 en UI |
 | PG-017 | **Protocolo de Aprendizaje de ALMA** 🧠 | `docs/PG-017-Protocolo-de-Aprendizaje-ALMA.md` | ✅ v1.0 Activo — ciclo corriendo en `rit_core` |
+| PG-018 | **Oficina Virtual de RIT** (genesis.gent v3) 🏢 | `docs/PG-018-Oficina-Virtual-RIT.md` | 🟡 Diseño v0.1 — avatares HeyGen + datos vivos + login |
 
 > ⚠️ **Nota de numeración (para Reyna):** el PDF que creaste se titula "PG-014",
 > pero PG-014 ya estaba asignado al *Genesis Architect System Prompt* (trabajo
