@@ -87,6 +87,12 @@ archivado. Vercel desplegó automático (READY) — genesis.gent al día.
 5. Aprobar la incorporación de los 9 agentes de Piso 2 a rit_core (7 del prototipo + DIS-IA y ANA-IA).
 
 **De Génesis (trabajo, en orden de prioridad heredado + nuevo):**
+0. 🥇🥇 **LA UNIFICACIÓN (decisión de Reyna al cierre):** llevar el Edificio del
+   prototipo a genesis.gent trayendo **solo las funciones que andan** (UI, voces
+   ElevenLabs, avatares HeyGen streaming, /configuracion) conectadas a datos
+   REALES de rit_core. Los datos falsos NO se traen — *"los casos no son reales,
+   entonces ¿para qué los vamos a traer?"* Donde no haya dato real todavía:
+   sala "en construcción", nunca números inventados.
 1. 🥇 NOVA v1 — briefing matutino programado (la joya alcanzable).
 2. 🥇 Registrar el rostro de Génesis vía MCP HeyGen.
 3. Prompts v0.3 del Consejo con los perfiles de PG-021 + cargos C-Suite de PG-020.
