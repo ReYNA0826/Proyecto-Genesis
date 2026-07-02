@@ -2,8 +2,10 @@
 
 import { useEffect, useRef, useState } from "react";
 
-// Override local por navegador (misma llave que el prototipo de Reyna):
-// permite probar otro avatar sin tocar rit_core ni el código.
+// Rostro en vivo con HeyGen Avatar Realtime (v3, HLS 720p).
+// ⚠️ Costo real ~$0.05/seg — sesiones cortas, se cierran solas al terminar el saludo.
+
+// Override local por navegador (misma llave que /configuracion):
 const STORAGE_KEY = "genesis.heygen.agents.v1";
 
 export function getOverride(code) {
@@ -18,9 +20,10 @@ export function getOverride(code) {
 
 export default function AvatarStream({ code, avatarId, saludo }) {
   const videoRef = useRef(null);
-  const avatarRef = useRef(null);
+  const hlsRef = useRef(null);
+  const pollRef = useRef(null);
   const audioRef = useRef(null);
-  const [estado, setEstado] = useState("idle"); // idle | connecting | live | error
+  const [estado, setEstado] = useState("idle"); // idle | connecting | live | done | error
   const [voz, setVoz] = useState("idle"); // idle | loading | playing | error
   const [mensaje, setMensaje] = useState("");
   const [idActivo, setIdActivo] = useState(avatarId || null);
@@ -29,52 +32,81 @@ export default function AvatarStream({ code, avatarId, saludo }) {
     setIdActivo(getOverride(code) || avatarId || null);
   }, [code, avatarId]);
 
-  const detener = async () => {
-    try {
-      await avatarRef.current?.stopAvatar();
-    } catch {}
-    avatarRef.current = null;
-    if (videoRef.current) videoRef.current.srcObject = null;
+  const limpiar = () => {
+    clearInterval(pollRef.current);
+    pollRef.current = null;
+    hlsRef.current?.destroy?.();
+    hlsRef.current = null;
+    if (videoRef.current) {
+      videoRef.current.pause?.();
+      videoRef.current.removeAttribute("src");
+      videoRef.current.load?.();
+    }
+  };
+
+  const detener = () => {
+    limpiar();
     setEstado("idle");
   };
 
-  useEffect(() => () => { void detener(); audioRef.current?.pause(); }, [code]);
+  useEffect(() => () => { limpiar(); audioRef.current?.pause(); }, [code]);
+
+  const reproducirHls = async (url) => {
+    const video = videoRef.current;
+    if (!video) return;
+    if (video.canPlayType("application/vnd.apple.mpegurl")) {
+      video.src = url; // Safari: HLS nativo
+      await video.play().catch(() => undefined);
+    } else {
+      const { default: Hls } = await import("hls.js");
+      if (!Hls.isSupported()) throw new Error("Este navegador no soporta HLS");
+      const hls = new Hls();
+      hlsRef.current = hls;
+      hls.loadSource(url);
+      hls.attachMedia(video);
+      hls.on(Hls.Events.MANIFEST_PARSED, () => video.play().catch(() => undefined));
+    }
+    video.onended = () => { limpiar(); setEstado("done"); };
+    setEstado("live");
+  };
 
   const iniciar = async () => {
-    if (!idActivo) return;
+    if (!idActivo || !saludo) return;
     setEstado("connecting");
     setMensaje("");
     try {
-      // El SDK de HeyGen se carga solo en el navegador (rompe en SSR).
-      const mod = await import("@heygen/streaming-avatar");
-      const StreamingAvatar = mod.default ?? mod.StreamingAvatar;
-      const { StreamingEvents, AvatarQuality } = mod;
-
-      const r = await fetch("/api/heygen/token", { method: "POST" });
+      const r = await fetch("/api/heygen/realtime", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ avatarId: idActivo, text: saludo }),
+      });
       const j = await r.json().catch(() => ({}));
       if (!r.ok) throw new Error(j.error || `HTTP ${r.status}`);
 
-      const avatar = new StreamingAvatar({ token: j.token });
-      avatarRef.current = avatar;
-
-      avatar.on(StreamingEvents.STREAM_READY, (evt) => {
-        if (videoRef.current) {
-          videoRef.current.srcObject = evt.detail;
-          videoRef.current.onloadedmetadata = () => videoRef.current?.play().catch(() => undefined);
+      // Sondear hasta que el stream HLS esté listo (máx ~30s)
+      let intentos = 0;
+      pollRef.current = setInterval(async () => {
+        intentos += 1;
+        try {
+          const s = await fetch(`/api/heygen/realtime?id=${encodeURIComponent(j.streamId)}`);
+          const sj = await s.json().catch(() => ({}));
+          if (sj.url) {
+            clearInterval(pollRef.current);
+            pollRef.current = null;
+            await reproducirHls(sj.url);
+          } else if (intentos > 15) {
+            throw new Error(sj.error || "El stream no llegó a estar listo");
+          }
+        } catch (e) {
+          clearInterval(pollRef.current);
+          pollRef.current = null;
+          setEstado("error");
+          setMensaje(e?.message || String(e));
         }
-        setEstado("live");
-      });
-      avatar.on(StreamingEvents.STREAM_DISCONNECTED, () => setEstado("idle"));
-
-      await avatar.createStartAvatar({ avatarName: idActivo, quality: AvatarQuality.Low });
-
-      if (saludo) {
-        try { await avatar.speak({ text: saludo }); } catch {}
-      }
+      }, 2000);
     } catch (e) {
       setEstado("error");
       setMensaje(e?.message || String(e));
-      avatarRef.current = null;
     }
   };
 
@@ -109,32 +141,39 @@ export default function AvatarStream({ code, avatarId, saludo }) {
   return (
     <div className="avbox">
       <div className="avhead">
-        <span>Avatar en vivo · HeyGen</span>
+        <span>Avatar en vivo · HeyGen Realtime</span>
         <span className={`avdot ${estado}`}>
-          {estado === "live" ? "en vivo" : estado === "connecting" ? "conectando…" : estado === "error" ? "error" : "listo"}
+          {estado === "live" ? "en vivo" : estado === "connecting" ? "conectando…" : estado === "done" ? "saludo terminado" : estado === "error" ? "error" : "listo"}
         </span>
       </div>
 
       {idActivo ? (
         <>
           <div className="avvideo">
-            <video ref={videoRef} playsInline autoPlay muted={false} />
+            <video ref={videoRef} playsInline autoPlay />
             {estado !== "live" && (
               <div className="avwait">
-                {estado === "connecting" ? "Abriendo sesión con HeyGen…" : `${code} en espera — inicia la transmisión`}
+                {estado === "connecting"
+                  ? "Abriendo transmisión con HeyGen… (puede tardar unos segundos)"
+                  : estado === "done"
+                    ? `${code} terminó su saludo — transmisión cerrada`
+                    : `${code} en espera — inicia la transmisión`}
               </div>
             )}
           </div>
           <div className="avbtns">
             <button className="btn gold" disabled={estado === "connecting" || estado === "live"} onClick={iniciar}>
-              {estado === "error" ? "Reintentar" : estado === "live" ? "En transmisión" : "Iniciar transmisión"}
+              {estado === "error" ? "Reintentar" : estado === "live" ? "En transmisión" : "Ver saludo en vivo"}
             </button>
-            <button className="btn" disabled={estado !== "live"} onClick={detener}>Finalizar</button>
+            <button className="btn" disabled={estado !== "live" && estado !== "connecting"} onClick={detener}>Finalizar</button>
             <button className="btn" disabled={voz === "loading"} onClick={hablar}>
               {voz === "loading" ? "Generando voz…" : voz === "playing" ? "Hablando…" : "Solo voz"}
             </button>
           </div>
-          <div className="avmeta">avatar_id: {idActivo} · <a href="/configuracion">configurar →</a></div>
+          <div className="avmeta">
+            avatar_id: {idActivo} · <a href="/configuracion">configurar →</a>
+            <br />transmisión HeyGen ≈ $0.05/seg · "Solo voz" (ElevenLabs) es la opción económica
+          </div>
         </>
       ) : (
         <div className="avwait" style={{ position: "static", padding: "18px 10px" }}>

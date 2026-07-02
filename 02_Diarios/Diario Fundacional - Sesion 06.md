@@ -70,6 +70,26 @@ números inventados, sala en construcción donde no hay dato real.**
 `ELEVENLABS_API_KEY` y `HEYGEN_API_KEY` en Vercel (Settings → Environment
 Variables) y en `.env.local` local (plantilla: `.env.local.example`).
 
+## 4. El Edificio HABLA en producción — y HeyGen apagó la API vieja
+
+- Reyna creó **llaves dedicadas para Génesis** (decisión suya: si un día se rotan,
+  producción — Mi alma, Andrés Felipe — no se toca) y las puso en Vercel.
+- v3.1 publicada (commit `b7f6321`) → deploy READY en genesis.gent.
+- **✅ LA VOZ VIVE:** `POST /api/voz` en producción devolvió audio real
+  (200 · audio/mpeg · 79 KB). El Edificio habla con ElevenLabs.
+- **❌ El rostro reveló la verdad:** `streaming.create_token` devuelve
+  **410 endpoint_sunset** — HeyGen apagó la API vieja de streaming. Es la
+  **migración LiveAvatar** que el diario ya anunciaba. La llave nueva de HeyGen
+  nace en el mundo nuevo.
+- **La ruta nueva (estudiada con los skills oficiales de HeyGen —
+  `liveavatar-agent-skills`):** LiveAvatar (api.liveavatar.com) con llave propia
+  (`X-API-KEY`, solo backend). Y el hallazgo de oro: el **plugin de agentes de
+  ElevenLabs** (modo LITE + `elevenlabs_agent_config`) conecta DIRECTO cada
+  agente del Consejo con su avatar — cerebro y rostro unidos, la visión v3.1
+  de PG-018 tal cual. Requisitos: llave LiveAvatar (app.liveavatar.com) +
+  llave ElevenLabs con permisos `convai_read, user_read, voices_read` +
+  avatares en el catálogo LiveAvatar. Hay sandbox gratis para probar.
+
 ## Pendientes activos (heredados de la Sesión 05)
 
 **De Reyna:** mockups a `design/oficina/` · decisión de marca (azul/tipografía) ·
