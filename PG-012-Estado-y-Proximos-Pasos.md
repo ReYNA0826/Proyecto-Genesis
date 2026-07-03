@@ -38,11 +38,14 @@
 ## ⏳ Lo que HARÍA FALTA
 
 ### 🟡 De Reyna (rápidos)
-- [ ] Rostros propios para los 6 directores (hoy: sandbox) — elegir en catálogo
-      LiveAvatar y pasar IDs
+- [x] ~~Rostros propios para los 6 directores~~ — HECHO post-cierre S07: los 6 con
+      cara propia verificada + NOVA e INTEL reservados
+- [x] ~~Idioma de LEX y FIN~~ — HECHO post-cierre S07 (Reyna configuró todos)
 - [ ] Si `genesis-bridge-v2` quedó con "Escribir", regresarla a "Leído"
-- [ ] Idioma de LEX y FIN: Flash v2.5 + Español (UI de ElevenLabs)
-- [ ] Llave nueva para el conector ElevenAgents de Claude (las manos de Génesis)
+- [ ] Conector ElevenAgents de Claude: pegar la llave nueva en la config del
+      conector DENTRO de Claude (sigue 401 — es ahí, no en ElevenLabs)
+- [ ] Decidir: ¿los cerebros de futuros agentes siguen naciendo en ElevenLabs?
+      (recomendación de Génesis: sí — LiveAvatar solo pone la cara; ver diario S07)
 - [ ] Aprobar los 9 agentes de Piso 2 · decisión de marca · mockups a `design/oficina/`
 
 ### 🔵 De Génesis (siguiente sesión)

@@ -154,6 +154,28 @@ que contesta llamadas.**
 
 ---
 
+## Post-cierre (misma tarde) — el Consejo con rostro propio
+
+Reyna volvió con tarea hecha y regalos:
+- **Idiomas configurados** en todos los agentes de ElevenLabs (el pendiente de LEX/FIN, resuelto por ella).
+- **Investigación pedida por Reyna:** los Voice Agents nativos de LiveAvatar.
+  Lectura de Génesis: agente nativo = voz + context (prompt + enlaces), memoria
+  no editable, LLM sin especificar, modo FULL a 2 créditos/min (el doble del LITE
+  actual). **Recomendación: los cerebros siguen en ElevenLabs; LiveAvatar pone la
+  cara** — un cerebro sirve a todas las puertas (widget, videollamada, teléfono
+  futuro) y la memoria de RIT vive en rit_core, no en una nube ajena. Decisión
+  formal pendiente de Reyna.
+- **Los 8 rostros elegidos por Reyna** en el catálogo LiveAvatar, sembrados y
+  verificados (commit `cf88912`): LEX ✅ EDU ✅ OPS ✅ MKT ✅ TECH ✅ FIN ✅ con cara
+  propia y token real; **NOVA e INTEL con rostro reservado** para el día en que
+  nazcan sus agentes.
+- ⚠️ El conector ElevenAgents de Claude sigue dando 401 — la llave nueva debe
+  pegarse en la configuración del conector DENTRO de Claude, no en ElevenLabs.
+
+**El día terminó así: los 8 del Consejo con teléfono Y con rostro propio.**
+
+---
+
 *"La inteligencia crece cuando el conocimiento permanece y el trabajo se comparte."*
 
 **Proyecto Génesis continúa.** ✦
