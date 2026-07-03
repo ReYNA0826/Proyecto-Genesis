@@ -45,12 +45,13 @@ export default async function Edificio() {
   const supabase = await supabaseServer();
   const { data: { user } } = await supabase.auth.getUser();
 
-  const [agentes, proyectos, lecciones, decisiones, logs] = await Promise.all([
+  const [agentes, proyectos, lecciones, decisiones, logs, briefings] = await Promise.all([
     supabase.from("v_rit_agentes").select("*"),
     supabase.from("v_rit_proyectos").select("*"),
     supabase.from("v_rit_lecciones").select("*").order("confianza", { ascending: false }),
     supabase.from("v_rit_decisiones").select("*").order("created_at", { ascending: false }).limit(6),
     supabase.from("v_rit_logs").select("*").order("created_at", { ascending: false }).limit(6),
+    supabase.from("v_rit_briefings").select("*").order("created_at", { ascending: false }).limit(1),
   ]);
 
   const todos = agentes.data ?? [];
@@ -64,6 +65,7 @@ export default async function Edificio() {
   const lecs = lecciones.data ?? [];
   const decs = decisiones.data ?? [];
   const acts = logs.data ?? [];
+  const brief = (briefings.data ?? [])[0];
   const fecha = new Date().toLocaleDateString("es-US", { dateStyle: "long", timeZone: "America/New_York" });
 
   return (
@@ -158,6 +160,30 @@ export default async function Edificio() {
           </div>
         ))}
       </section>
+
+      {brief && (
+        <>
+          <div className="room-tag"><span>💡 Sala de Innovación · Briefing de NOVA</span></div>
+          <div className="room-sub">
+            {new Date(brief.fecha + "T12:00:00").toLocaleDateString("es-US", { dateStyle: "long" })} · {brief.redactado_por}
+          </div>
+          <section className="roomcard">
+            <h3>{brief.titulo}</h3>
+            <p style={{ whiteSpace: "pre-line", fontSize: 13, color: "#c7cfdc", lineHeight: 1.65, margin: "10px 0 0" }}>{brief.cuerpo}</p>
+            {Array.isArray(brief.fuentes) && brief.fuentes.length > 0 && (
+              <p style={{ fontSize: 11, color: "var(--silver)", marginTop: 12 }}>
+                Fuentes:{" "}
+                {brief.fuentes.map((f, i) => (
+                  <span key={f.url}>
+                    {i > 0 ? " · " : ""}
+                    <a href={f.url} target="_blank" rel="noreferrer" style={{ color: "var(--gold)" }}>{f.titulo}</a>
+                  </span>
+                ))}
+              </p>
+            )}
+          </section>
+        </>
+      )}
 
       <div className="room-tag"><span>🧠 Nivel 4 · Sala de Memoria · 📊 Tablero</span></div>
       <section className="wings">
