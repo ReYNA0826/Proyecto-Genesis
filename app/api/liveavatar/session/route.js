@@ -55,6 +55,28 @@ async function ensureSecretId(laKey) {
   return secretIdCache;
 }
 
+// Diagnóstico temporal: prueba las llaves contra sus APIs SIN exponerlas.
+// Devuelve solo presencia, largo y códigos de estado.
+export async function GET() {
+  const elAgents = process.env.ELEVENLABS_AGENTS_KEY || "";
+  const elTts = process.env.ELEVENLABS_API_KEY || "";
+  const la = process.env.LIVEAVATAR_API_KEY || "";
+  const probar = async (key) => {
+    if (!key) return { presente: false };
+    const [user, agents, voices] = await Promise.all([
+      fetch("https://api.elevenlabs.io/v1/user", { headers: { "xi-api-key": key } }).then((r) => r.status).catch(() => -1),
+      fetch("https://api.elevenlabs.io/v1/convai/agents?page_size=1", { headers: { "xi-api-key": key } }).then((r) => r.status).catch(() => -1),
+      fetch("https://api.elevenlabs.io/v1/voices", { headers: { "xi-api-key": key } }).then((r) => r.status).catch(() => -1),
+    ]);
+    return { presente: true, largo: key.length, user_read: user, convai_read: agents, voices_read: voices };
+  };
+  return NextResponse.json({
+    ELEVENLABS_AGENTS_KEY: await probar(elAgents),
+    ELEVENLABS_API_KEY: await probar(elTts),
+    LIVEAVATAR_API_KEY: { presente: Boolean(la), largo: la.length },
+  });
+}
+
 export async function POST(req) {
   const laKey = process.env.LIVEAVATAR_API_KEY;
   if (!laKey) {
