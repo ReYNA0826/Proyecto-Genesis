@@ -14,6 +14,17 @@ const HABILITADOS = ["ALMA", "Génesis", "LEX", "TECH", "OPS", "FIN", "MKT", "ED
 const ROSTROS = {
   "ALMA": "bf00036b-558a-44b5-b2ff-1e3cec0f4ceb", // elegido por Reyna (S07) — el de S06 rotó del catálogo
   "Génesis": "073b60a9-89a8-45aa-8902-c358f64d2852",
+  // Directores — rostros elegidos por Reyna (S07, tarde):
+  "LEX": "dc2935cf-5863-4f08-943b-c7478aea59fb",
+  "EDU": "64b526e4-741c-43b6-a918-4e40f3261c7a",
+  "OPS": "9650a758-1085-4d49-8bf3-f347565ec229",
+  "MKT": "65f9e3c9-d48b-4118-b73a-4ae2e3cbb8f0",
+  "TECH": "e9844e6d-847e-4964-a92b-7ecd066f69df",
+  "FIN": "5e826887-4aa4-4479-9a9d-d9810263975f",
+  // NOVA e INTEL aún no tienen agente de ElevenLabs (estado: diseñado) —
+  // sus rostros quedan listos para cuando nazcan:
+  "NOVA": "6a1906e3-6caa-4aba-995f-c49088661560",
+  "INTEL": "0930fd59-c8ad-434d-ad53-b391a1768720",
 };
 const SANDBOX_AVATAR = "dd73ea75-1218-4ef3-92ce-606d5f7fbc0a";
 
