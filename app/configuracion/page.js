@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { redirect } from "next/navigation";
 import { supabaseServer } from "../../lib/supabase";
 import ConfigAvatares from "../../components/ConfigAvatares";
 
@@ -6,6 +7,9 @@ export const dynamic = "force-dynamic";
 
 export default async function Configuracion() {
   const supabase = await supabaseServer();
+  // Página de administración: solo la Fundadora (el Edificio es público, esto no).
+  const { data: { user } } = await supabase.auth.getUser();
+  if (!user) redirect("/login");
   // Los agentes en producción (Mi alma, Andrés Felipe) NO aparecen aquí: no se tocan.
   const { data: agentes } = await supabase
     .from("v_rit_agentes")
