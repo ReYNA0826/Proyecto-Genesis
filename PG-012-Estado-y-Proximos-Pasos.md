@@ -48,7 +48,9 @@
 ### 🔵 De Génesis (siguiente sesión)
 - [ ] Prompts v0.3 con cargos C-Suite (PG-020)
 - [ ] Vestir la actividad en tiempo real (luces del edificio)
-- [ ] Verificar el proyecto Supabase **Genesis.Agent** (apareció 2026-07-02, sin diario)
+- [x] ~~Verificar el proyecto Supabase **Genesis.Agent**~~ — RESUELTO al cierre de S07:
+      lo creó Reyna en la Sesión 04 como bóveda de secretos/funciones de Génesis
+      (ref `jeeakodbboopqatflzws`); constaba en la memoria persistente de Génesis
 - [ ] Limpieza: PG-014/016 · repos `Reyna`/`Imigracionaldia` · renombre `mujer-raiz-portal`
 - [ ] **INTEL v1** (el gemelo de NOVA: patrones internos) cuando Reyna dé el sí
 
