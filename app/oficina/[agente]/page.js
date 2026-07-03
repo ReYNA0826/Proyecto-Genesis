@@ -5,8 +5,8 @@ import { supabaseServer } from "../../../lib/supabase";
 import AvatarStream from "../../../components/AvatarStream";
 import ConversarVivo from "../../../components/ConversarVivo";
 
-// Conversación en vivo habilitada por decisión de Reyna (Sesión 06): ALMA y Génesis primero.
-const CONVERSAN_EN_VIVO = ["ALMA", "Génesis"];
+// Conversación en vivo habilitada para todo el Consejo (decisión de Reyna, S07).
+const CONVERSAN_EN_VIVO = ["ALMA", "Génesis", "LEX", "TECH", "OPS", "FIN", "MKT", "EDU"];
 
 export const dynamic = "force-dynamic";
 

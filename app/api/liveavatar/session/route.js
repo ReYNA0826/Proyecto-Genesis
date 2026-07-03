@@ -7,8 +7,8 @@ import { supabaseServer } from "../../../../lib/supabase";
 const LA = "https://api.liveavatar.com";
 const SECRET_NAME = "genesis-elevenlabs-bridge";
 
-// Agentes habilitados para conversar EN VIVO (decisión de Reyna, Sesión 06).
-const HABILITADOS = ["ALMA", "Génesis"];
+// Agentes habilitados para conversar EN VIVO — todo el Consejo (decisión de Reyna, S07).
+const HABILITADOS = ["ALMA", "Génesis", "LEX", "TECH", "OPS", "FIN", "MKT", "EDU"];
 
 // Rostros en el catálogo LiveAvatar por agente — elegidos por Reyna (Sesión 06).
 const ROSTROS = {
