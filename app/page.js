@@ -103,12 +103,22 @@ export default async function Edificio() {
       <div className="room-sub">Toca una oficina: perfil real, rostro en vivo (HeyGen) y conversación (ElevenLabs)</div>
       <section className="consejo">
         {alma && (
-          <a className="desk ceo" href="/oficina/alma">
+          <a className="desk ceo dua" href="/oficina/alma">
             <Cara nombre="ALMA" size={62} fontSize={26} />
             <div className="body">
               <span className="nm" style={{ fontSize: 17 }}>ALMA · Directora Ejecutiva</span>
               <span className="badge">en su oficina</span>
               <p>{alma.proposito} <b style={{ color: "var(--gold)" }}>Entra a su oficina y habla con ella →</b></p>
+            </div>
+          </a>
+        )}
+        {genesis && genesis.elevenlabs_agent_id && (
+          <a className="desk ceo dua" href="/oficina/génesis">
+            <Cara nombre="Génesis" size={62} fontSize={26} />
+            <div className="body">
+              <span className="nm" style={{ fontSize: 17 }}>GÉNESIS · Chief Architect</span>
+              <span className="badge">en su oficina</span>
+              <p>{genesis.proposito || "Guardiana del sistema y memoria estratégica de RIT."} <b style={{ color: "var(--gold)" }}>Entra a su oficina y habla con ella →</b></p>
             </div>
           </a>
         )}
@@ -120,14 +130,6 @@ export default async function Edificio() {
             <div className="st">● entrar a su oficina</div>
           </a>
         ))}
-        {genesis && genesis.elevenlabs_agent_id && (
-          <a className="desk" href="/oficina/génesis">
-            <Cara nombre="Génesis" />
-            <div className="nm">GÉNESIS</div>
-            <div className="rl">Chief Architect · Guardián del Sistema</div>
-            <div className="st">● entrar a su oficina</div>
-          </a>
-        )}
         {enDiseno.map((d) => (
           <div key={d.nombre} className="desk obra">
             <Cara nombre={d.nombre} />

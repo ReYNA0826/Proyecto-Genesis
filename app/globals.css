@@ -23,6 +23,7 @@ a{color:inherit}
 .desk{background:linear-gradient(180deg,var(--navy),#0c2144);border:1px solid #16294c;border-radius:14px;padding:16px 10px 12px;text-align:center;position:relative;transition:transform .15s,border-color .15s;cursor:pointer;text-decoration:none;display:block}
 .desk:hover{transform:translateY(-3px);border-color:var(--gold)}
 .desk.ceo{grid-column:1/-1;display:flex;align-items:center;text-align:left;gap:16px;padding:16px 20px;border-color:#3a5583;background:linear-gradient(90deg,var(--navy),var(--steel))}
+.desk.ceo.dua{grid-column:span 2}
 .face{width:52px;height:52px;border-radius:50%;border:2px solid var(--gold);margin:0 auto 8px;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:22px;font-weight:700;color:var(--gold);background:rgba(212,175,55,.07);flex:none}
 .desk.ceo .face{width:62px;height:62px;font-size:26px;margin:0}
 .desk .nm{font-weight:700;font-size:14px}
