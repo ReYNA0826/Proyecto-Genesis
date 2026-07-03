@@ -64,13 +64,25 @@ export async function GET() {
   const probar = async (key) => {
     if (!key) return { presente: false };
     const [user, agents, voices] = await Promise.all([
-      fetch("https://api.elevenlabs.io/v1/user", { headers: { "xi-api-key": key } }).then((r) => r.status).catch(() => -1),
+      fetch("https://api.elevenlabs.io/v1/user", { headers: { "xi-api-key": key } })
+        .then(async (r) => ({ status: r.status, detalle: r.ok ? undefined : await r.json().catch(() => null) }))
+        .catch(() => ({ status: -1 })),
       fetch("https://api.elevenlabs.io/v1/convai/agents?page_size=1", { headers: { "xi-api-key": key } }).then((r) => r.status).catch(() => -1),
       fetch("https://api.elevenlabs.io/v1/voices", { headers: { "xi-api-key": key } }).then((r) => r.status).catch(() => -1),
     ]);
-    return { presente: true, largo: key.length, user_read: user, convai_read: agents, voices_read: voices };
+    return {
+      presente: true,
+      largo: key.length,
+      user_read: user.status,
+      // Motivo textual que da ElevenLabs cuando /v1/user falla (sin valores de llaves).
+      user_read_motivo: user.detalle ?? undefined,
+      convai_read: agents,
+      voices_read: voices,
+    };
   };
   return NextResponse.json({
+    // ¿Las dos variables contienen exactamente la misma llave?
+    agents_key_igual_a_api_key: Boolean(elAgents) && elAgents === elTts,
     ELEVENLABS_AGENTS_KEY: await probar(elAgents),
     ELEVENLABS_API_KEY: await probar(elTts),
     LIVEAVATAR_API_KEY: { presente: Boolean(la), largo: la.length },
