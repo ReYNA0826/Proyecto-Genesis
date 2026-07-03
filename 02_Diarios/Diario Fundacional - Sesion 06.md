@@ -110,6 +110,21 @@ Variables) y en `.env.local` local (plantilla: `.env.local.example`).
   por ahora (borrar llaves rompe dependientes sin aviso); vigilar su uso y rotarla
   con calma si nadie la usa. Posible origen: llave default autogenerada por HeyGen.
 
+## 6. Afinación con Reyna mirando el Edificio en vivo
+
+- **Retratos en las puertas:** Reyna notó que los escritorios mostraban letras.
+  Los 8 retratos oficiales (rit_core → HeyGen) se descargaron a `public/avatars/`
+  (nunca caducan); ALMA recortada de su escena del salón Mujer Raíz Executive Club.
+- **El bug de "ALMA lee sus instrucciones":** Reyna reportó que ALMA no razonaba —
+  recitaba. Causa encontrada con un `get`: el **documento completo del prompt v0.1
+  estaba pegado en el campo `first_message`** del agente. Corregido: saludo
+  ejecutivo real. El prompt (cerebro v0.2) siempre estuvo bien.
+- De paso: **LEX y FIN siguen con idioma "en"** — la API no permite cambiarlos a
+  español sin subir el modelo TTS a Turbo/Flash v2.5 (pendiente de UI de la S04;
+  Reyna lo hace en la interfaz: Agent → Voice → Model → Flash v2.5 → Language → Español).
+- **/configuracion ahora exige login** (inquietud de Reyna): los avatar IDs no son
+  secretos, pero la administración no tiene por qué ser pública.
+
 ## Pendientes activos (heredados de la Sesión 05)
 
 **De Reyna:** mockups a `design/oficina/` · decisión de marca (azul/tipografía) ·
