@@ -3,6 +3,10 @@ import Script from "next/script";
 import { notFound } from "next/navigation";
 import { supabaseServer } from "../../../lib/supabase";
 import AvatarStream from "../../../components/AvatarStream";
+import ConversarVivo from "../../../components/ConversarVivo";
+
+// Conversación en vivo habilitada por decisión de Reyna (Sesión 06): ALMA y Génesis primero.
+const CONVERSAN_EN_VIVO = ["ALMA", "Génesis"];
 
 export const dynamic = "force-dynamic";
 
@@ -87,7 +91,10 @@ export default async function OficinaAgente({ params }) {
         </div>
 
         {/* Rostro en vivo — La Unificación (v3.1): código portado del prototipo de Reyna */}
-        <AvatarStream code={a.nombre} avatarId={a.heygen_avatar_id} saludo={saludo} />
+        <div style={{ display: "grid", gap: 14, alignContent: "start" }}>
+          {CONVERSAN_EN_VIVO.includes(a.nombre) && <ConversarVivo code={a.nombre} />}
+          <AvatarStream code={a.nombre} avatarId={a.heygen_avatar_id} saludo={saludo} />
+        </div>
       </section>
 
       {/* Widget de conversación de ElevenLabs, dentro de la Oficina */}

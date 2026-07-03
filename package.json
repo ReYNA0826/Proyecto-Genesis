@@ -9,6 +9,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@heygen/liveavatar-web-sdk": "^0.0.18",
     "@supabase/ssr": "^0.6.1",
     "@supabase/supabase-js": "^2.49.4",
     "hls.js": "^1.6.16",

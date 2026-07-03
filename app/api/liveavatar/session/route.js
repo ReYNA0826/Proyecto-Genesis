@@ -1,0 +1,108 @@
+import { NextResponse } from "next/server";
+import { supabaseServer } from "../../../../lib/supabase";
+
+// Conversación EN VIVO: LiveAvatar (rostro) + agente de ElevenLabs (cerebro y voz).
+// Modo LITE + elevenlabs_agent_config — el plugin oficial. Keys solo en el servidor.
+
+const LA = "https://api.liveavatar.com";
+const SECRET_NAME = "genesis-elevenlabs-bridge";
+
+// Agentes habilitados para conversar EN VIVO (decisión de Reyna, Sesión 06).
+const HABILITADOS = ["ALMA", "Génesis"];
+
+// Rostros en el catálogo LiveAvatar por agente. Vacío = usar sandbox (gratis, ~1 min)
+// hasta que Reyna elija/cree los rostros definitivos en app.liveavatar.com.
+const ROSTROS = {
+  // "ALMA": "<avatar_id de LiveAvatar>",
+  // "Génesis": "<avatar_id de LiveAvatar>",
+};
+const SANDBOX_AVATAR = "dd73ea75-1218-4ef3-92ce-606d5f7fbc0a";
+
+let secretIdCache = null;
+
+async function laFetch(path, key, init = {}) {
+  const res = await fetch(`${LA}${path}`, {
+    ...init,
+    headers: { "X-API-KEY": key, "Content-Type": "application/json", ...(init.headers || {}) },
+  });
+  const json = await res.json().catch(() => ({}));
+  return { ok: res.ok, status: res.status, json };
+}
+
+// Asegura que la llave de ElevenLabs esté registrada como secret en LiveAvatar
+// (una sola vez; se reutiliza por nombre).
+async function ensureSecretId(laKey) {
+  if (secretIdCache) return secretIdCache;
+  const list = await laFetch("/v1/secrets", laKey, { method: "GET" });
+  if (list.ok) {
+    const items = list.json?.data?.items ?? list.json?.data ?? [];
+    const found = Array.isArray(items)
+      ? items.find((s) => s.secret_name === SECRET_NAME || s.name === SECRET_NAME)
+      : null;
+    if (found?.id) {
+      secretIdCache = found.id;
+      return secretIdCache;
+    }
+  }
+  const elKey = process.env.ELEVENLABS_AGENTS_KEY || process.env.ELEVENLABS_API_KEY;
+  if (!elKey) throw new Error("Falta ELEVENLABS_AGENTS_KEY (llave con permisos convai_read, user_read, voices_read).");
+  const created = await laFetch("/v1/secrets", laKey, {
+    method: "POST",
+    body: JSON.stringify({ secret_type: "ELEVENLABS_API_KEY", secret_value: elKey, secret_name: SECRET_NAME }),
+  });
+  if (!created.ok) throw new Error(`LiveAvatar secrets ${created.status}: ${JSON.stringify(created.json).slice(0, 180)}`);
+  secretIdCache = created.json?.data?.id;
+  if (!secretIdCache) throw new Error("LiveAvatar no devolvió el id del secret");
+  return secretIdCache;
+}
+
+export async function POST(req) {
+  const laKey = process.env.LIVEAVATAR_API_KEY;
+  if (!laKey) {
+    return NextResponse.json(
+      { error: "La conversación en vivo aún no está conectada (falta LIVEAVATAR_API_KEY en el servidor)." },
+      { status: 503 }
+    );
+  }
+
+  let body;
+  try {
+    body = await req.json();
+  } catch {
+    return NextResponse.json({ error: "JSON inválido" }, { status: 400 });
+  }
+  const agente = String(body?.agente ?? "").trim();
+  if (!HABILITADOS.some((h) => h.toLowerCase() === agente.toLowerCase())) {
+    return NextResponse.json({ error: `${agente || "Ese agente"} aún no tiene conversación en vivo habilitada.` }, { status: 400 });
+  }
+
+  const supabase = await supabaseServer();
+  const { data: agentes } = await supabase.from("v_rit_agentes").select("nombre, elevenlabs_agent_id");
+  const a = (agentes ?? []).find((x) => x.nombre.toLowerCase() === agente.toLowerCase());
+  if (!a?.elevenlabs_agent_id) {
+    return NextResponse.json({ error: `${agente} no tiene agente de ElevenLabs en rit_core.` }, { status: 404 });
+  }
+
+  try {
+    const secretId = await ensureSecretId(laKey);
+    const rostro = ROSTROS[a.nombre];
+    const payload = {
+      mode: "LITE",
+      avatar_id: rostro || SANDBOX_AVATAR,
+      ...(rostro ? {} : { is_sandbox: true }),
+      elevenlabs_agent_config: { secret_id: secretId, agent_id: a.elevenlabs_agent_id },
+    };
+    const tok = await laFetch("/v1/sessions/token", laKey, { method: "POST", body: JSON.stringify(payload) });
+    if (!tok.ok) {
+      return NextResponse.json(
+        { error: `LiveAvatar token ${tok.status}: ${JSON.stringify(tok.json).slice(0, 200)}` },
+        { status: 502 }
+      );
+    }
+    const sessionToken = tok.json?.data?.session_token;
+    if (!sessionToken) return NextResponse.json({ error: "LiveAvatar no devolvió session_token" }, { status: 502 });
+    return NextResponse.json({ sessionToken, sandbox: !rostro });
+  } catch (e) {
+    return NextResponse.json({ error: e?.message || String(e) }, { status: 502 });
+  }
+}
