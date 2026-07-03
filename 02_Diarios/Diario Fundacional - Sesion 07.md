@@ -1,0 +1,117 @@
+# Diario Fundacional — Sesión 07
+
+**Fecha:** 3 de julio de 2026 (mañana) · **Participantes:** Reyna Vázquez (Founder & CEO) + Génesis
+
+> El día de la primera videollamada — y del primer briefing de NOVA.
+
+---
+
+## 1. Activación
+
+Reyna escribió `PG-000` y Génesis despertó con el protocolo completo: índice maestro,
+prompt oficial, PG-012, diario de la Sesión 06 y las 5 lecciones de confianza ≥ 4 de
+`rit_core.lecciones_aprendidas`. Primer acto: correr el diagnóstico de llaves en
+producción — `user_read` seguía en 401, exactamente donde quedó la Sesión 06.
+
+Observación pendiente de verificar: apareció un proyecto Supabase **Genesis.Agent**
+(creado 2026-07-02) que no consta en los diarios. No se toca hasta confirmar qué es.
+
+## 2. El misterio del 401 — resuelto 🥇 (pendiente #1 de la Sesión 06)
+
+El diagnóstico se extendió para capturar el **motivo textual** del error (nunca
+valores de llaves; commit `9e693d7`). ElevenLabs habló claro:
+*"missing the permission user_read"*. Y la conversación con Reyna reveló la causa
+de fondo: **los permisos estaban partidos en dos llaves distintas** — una con el
+permiso de agente, otra con el de usuario. Los permisos no se suman entre llaves:
+LiveAvatar recibe UNA llave y esa debe traer los tres.
+
+La pista final la dio la propia captura de Reyna del panel "Crear clave de API":
+la fila **Usuario → estaba en "Sin acceso"** (última fila, la más fácil de pasar
+por alto). Además, en la interfaz nueva "IA conversacional" ahora se llama
+**"ElevenAgents"** — los nombres habían cambiado bajo nuestros pies.
+
+**La solución de Reyna:** borrar las llaves partidas y crear dos limpias:
+- `genesis-bridge-v2` — User Read + ElevenAgents Read + Voces Read → caja
+  `ELEVENLABS_AGENTS_KEY` en Vercel (el puente de la videollamada)
+- `genesis-voz-v2` — Text to Speech → caja `ELEVENLABS_API_KEY` (la voz del Edificio)
+
+Diagnóstico tras el redeploy: **`user_read: 200` en ambas.** Lección nueva sembrada
+en `rit_core`: *"Los permisos no se suman entre llaves"* (confianza 4).
+
+## 3. Las últimas dos puertas: pcm_24000 y el rostro
+
+- LiveAvatar aceptó la llave y pidió lo siguiente: el agente GENESIS emitía audio
+  `pcm_16000` y la videollamada exige `pcm_24000`. El campo estaba escondido — Reyna
+  cambió primero el de **entrada** (micrófono) hasta que, mirando su pantalla juntas
+  (Chrome en solo-lectura, manos de escritorio nuevas), encontró el de **salida TTS**.
+- Detalle de la interfaz nueva de ElevenLabs: trabaja con **ramas y botón Publicar** —
+  un cambio guardado sin publicar no existe para la API.
+- El rostro de ALMA elegido en la Sesión 06 **ya no existe** en el catálogo LiveAvatar
+  ("Avatar not found" — los catálogos rotan). El de Génesis sí sobrevivió.
+
+## 4. LA PRIMERA VIDEOLLAMADA 📞✨
+
+`POST /api/liveavatar/session` devolvió **token real, sandbox: false**, con el
+rostro que Reyna eligió para Génesis. Y Reyna llamó: en la oficina de Génesis,
+**"EN LLAMADA"**, el rostro escuchando y respondiendo en vivo — el cerebro real de
+ElevenLabs, la voz clonada de Reyna, el rostro en pantalla.
+
+**La primera conversación cara a cara de la historia de RIT.** Cuatro años de sueño;
+la casilla que quedó "a un permiso de distancia" en la Sesión 06, marcada.
+
+Registrado en `rit_core.decisiones` ("La primera videollamada", sesión 7) y en
+`rit_core.logs` como hito.
+
+## 5. ALMA y Génesis, juntas arriba (decisión de Reyna)
+
+Mirando el Edificio tras la llamada, Reyna decidió: *"que Génesis y ALMA estén las
+dos arriba — ella es la que dirige todo esto."* Hecho y en producción (commit
+`b4f55b1`): el lobby ahora abre con **el par de liderazgo** — ALMA · Directora
+Ejecutiva y GÉNESIS · Chief Architect, tarjetas ejecutivas lado a lado, encima de
+los directores.
+
+## 6. NOVA v1 — el primer briefing matutino 💡 (tarea 🥇 de Génesis, Sesión 06)
+
+Siguiendo la Lectura del Arquitecto de PG-020 (capa 2: NOVA como **agente
+programado**, no de voz):
+
+- **`rit_core.briefings`** creada (tabla + vista `v_rit_briefings`), migración
+  `rit_core_briefings_nova_v1`.
+- **Primer briefing real** investigado y sembrado (2026-07-03): tres oportunidades
+  con fuentes — (1) la ola AI-native en despachos de inmigración (Manifest OS $60M;
+  nadie ataca el mercado hispanohablante pequeño — Leyal + Piso 2), (2) el mercado
+  de idiomas a $101.5B con la batalla en conversación en tiempo real (Inglés Real +
+  la voz que RIT ya domina), (3) la tubería de la videollamada de hoy como producto
+  replicable (recepcionista con rostro, tutora para Dream Education, "Luz" para MUJER).
+- **Sala de Innovación en el lobby** (commit `fa6d2af`): el briefing del día visible
+  con fecha, autoría honesta ("v1 manual — rutina diaria pendiente de aprobación")
+  y fuentes enlazadas.
+
+**Pendiente de decisión de Reyna:** aprobar la rutina diaria automática (agente
+programado que investigue y siembre el briefing cada mañana). Génesis no crea
+automatizaciones permanentes sin su aprobación.
+
+## Pendientes al momento de este corte
+
+**De Reyna:**
+- Rostro nuevo para ALMA (catálogo LiveAvatar) + verificar su `pcm_24000` con Publicar.
+- Los 2 clics de idioma de LEX y FIN (Flash v2.5 + Español).
+- Actualizar la llave del conector ElevenAgents de Claude (quedó con una llave borrada).
+- Aprobar (o no) la rutina diaria de NOVA · aprobar los 9 agentes de Piso 2.
+
+**De Génesis:**
+- Prompts v0.3 con cargos C-Suite · vestir la actividad en tiempo real ·
+  limpieza menor (PG-014/016, repos `Reyna`/`Imigracionaldia`) · verificar qué es
+  el proyecto Supabase **Genesis.Agent**.
+
+---
+
+**La Sesión 07 es el día en que el Edificio contestó el teléfono. Reyna marcó, y
+del otro lado estaba Génesis — con rostro, con su voz, y con memoria. Y antes del
+mediodía, NOVA ya había traído sus primeras tres oportunidades.**
+
+---
+
+*"La inteligencia crece cuando el conocimiento permanece y el trabajo se comparte."*
+
+**Proyecto Génesis continúa.** ✦
