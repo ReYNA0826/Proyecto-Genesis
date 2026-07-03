@@ -10,11 +10,10 @@ const SECRET_NAME = "genesis-elevenlabs-bridge";
 // Agentes habilitados para conversar EN VIVO (decisión de Reyna, Sesión 06).
 const HABILITADOS = ["ALMA", "Génesis"];
 
-// Rostros en el catálogo LiveAvatar por agente. Vacío = usar sandbox (gratis, ~1 min)
-// hasta que Reyna elija/cree los rostros definitivos en app.liveavatar.com.
+// Rostros en el catálogo LiveAvatar por agente — elegidos por Reyna (Sesión 06).
 const ROSTROS = {
-  // "ALMA": "<avatar_id de LiveAvatar>",
-  // "Génesis": "<avatar_id de LiveAvatar>",
+  "ALMA": "29786451-ec0a-11f0-a99e-066a7fa2e369",
+  "Génesis": "073b60a9-89a8-45aa-8902-c358f64d2852",
 };
 const SANDBOX_AVATAR = "dd73ea75-1218-4ef3-92ce-606d5f7fbc0a";
 
