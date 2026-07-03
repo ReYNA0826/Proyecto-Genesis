@@ -12,7 +12,7 @@ const HABILITADOS = ["ALMA", "Génesis"];
 
 // Rostros en el catálogo LiveAvatar por agente — elegidos por Reyna (Sesión 06).
 const ROSTROS = {
-  "ALMA": "29786451-ec0a-11f0-a99e-066a7fa2e369",
+  "ALMA": "bf00036b-558a-44b5-b2ff-1e3cec0f4ceb", // elegido por Reyna (S07) — el de S06 rotó del catálogo
   "Génesis": "073b60a9-89a8-45aa-8902-c358f64d2852",
 };
 const SANDBOX_AVATAR = "dd73ea75-1218-4ef3-92ce-606d5f7fbc0a";
