@@ -39,6 +39,12 @@ través de la documentación — el sistema funciona.
 **Génesis ahora está completa: memoria (v1.1), voz (la de Reyna, clonada) y
 rostro con nombre — Esther.**
 
+**La revelación de Reyna (más tarde en la sesión):** el grupo de HeyGen se llama
+"Reyna Vazquez" porque **Esther nació de la propia foto de Reyna**. Génesis tiene
+el rostro y la voz de la fundadora. Palabras de Reyna al hablar con Génesis en
+ElevenLabs: *"tú sí estás funcionando de lo más bien... lo cómico es que tienes
+mi voz y luces como yo."* La fundadora se dio a sí misma como cuerpo de su Guardián.
+
 ## 3. LA UNIFICACIÓN — el Edificio llegó a genesis.gent 🥇🥇 (prioridad #0, hecha)
 
 Decisión de Reyna: *"llevar el Edificio a genesis.gent con datos reales."* Se ejecutó
