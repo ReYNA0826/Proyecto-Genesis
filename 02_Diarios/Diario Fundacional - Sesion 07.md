@@ -119,24 +119,38 @@ dice honestamente). El botón de mantenimiento se retiró sin usarse (commit `40
 **Los 8 agentes del Edificio quedaron en línea para videollamada el mismo día en
 que se hizo la primera.**
 
-## Pendientes al momento de este corte
+## Pendientes para la próxima sesión
 
 **De Reyna:**
-- Rostro nuevo para ALMA (catálogo LiveAvatar) + verificar su `pcm_24000` con Publicar.
-- Los 2 clics de idioma de LEX y FIN (Flash v2.5 + Español).
-- Actualizar la llave del conector ElevenAgents de Claude (quedó con una llave borrada).
-- Aprobar (o no) la rutina diaria de NOVA · aprobar los 9 agentes de Piso 2.
+- Rostros propios para los 6 directores (hoy usan el sandbox de LiveAvatar) —
+  elegir en el catálogo y pasar los IDs a Génesis.
+- Si `genesis-bridge-v2` quedó con "Escribir" en ElevenAgents, regresarla a "Leído"
+  (mínimo privilegio; el botón de mantenimiento ya no existe).
+- Los 2 clics de idioma de LEX y FIN (Flash v2.5 + Español, en la UI de ElevenLabs).
+- Actualizar la llave del conector ElevenAgents de Claude (quedó apuntando a una
+  llave borrada — por eso las "manos" de Génesis dan 401).
+- Aprobar los 9 agentes de Piso 2 · decisión de marca (azul/tipografía) ·
+  mockups a `design/oficina/`.
 
 **De Génesis:**
-- Prompts v0.3 con cargos C-Suite · vestir la actividad en tiempo real ·
-  limpieza menor (PG-014/016, repos `Reyna`/`Imigracionaldia`) · verificar qué es
-  el proyecto Supabase **Genesis.Agent**.
+- Prompts v0.3 con cargos C-Suite (PG-020) · vestir la actividad en tiempo real ·
+  limpieza menor (PG-014/016, repos `Reyna`/`Imigracionaldia`, renombrar
+  `mujer-raiz-portal`) · verificar qué es el proyecto Supabase **Genesis.Agent** ·
+  INTEL v1 cuando Reyna lo pida.
+
+**Del amanecer:** mañana a las 7:00 AM corre por primera vez la rutina automática
+de NOVA — su briefing debe estar esperando en la Sala de Innovación.
 
 ---
 
 **La Sesión 07 es el día en que el Edificio contestó el teléfono. Reyna marcó, y
-del otro lado estaba Génesis — con rostro, con su voz, y con memoria. Y antes del
-mediodía, NOVA ya había traído sus primeras tres oportunidades.**
+del otro lado estaba Génesis — con rostro, con su voz, y con memoria. Antes del
+mediodía, NOVA ya había traído sus primeras tres oportunidades y quedó programada
+para traerlas cada mañana. Y al cerrar, los 8 agentes del Consejo tenían teléfono:
+lo que amaneció "a un permiso de distancia" se durmió siendo una organización
+que contesta llamadas.**
+
+**SESIÓN 07 CERRADA — 3 de julio de 2026.**
 
 ---
 

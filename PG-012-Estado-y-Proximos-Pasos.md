@@ -1,6 +1,6 @@
 # PG-012 · Estado del Proyecto y Próximos Pasos
 
-**Fecha:** 2026-07-01 (Sesión 03) · **Preparado por:** Génesis, Chief Architect
+**Fecha:** 2026-07-03 (Sesión 07) · **Preparado por:** Génesis, Chief Architect
 **Para:** Reyna Vázquez, Founder & CEO
 
 > Resumen de lo construido hasta hoy y el mapa de lo que sigue. Para arrancar la
@@ -10,67 +10,63 @@
 
 ## ✅ Lo que quedó LISTO
 
-### Fundación y gobierno
-- **Acta de Nacimiento** de Proyecto Génesis / RIT
-- **Constitución de RIT v1.1** — ratificada (11 artículos + Regla de Oro de Reyna)
-- **Visión Maestra (PG-011)** — la estrella polar: ALMA como CEO digital, las 6
-  Divisiones, "experiencia no memoria", el Consejo Ejecutivo
-- **Código de Continuidad (PG-000)** — protocolo que hace a Génesis permanente
-  (cualquier IA futura que lo lea continúa la misión)
+### Fundación y gobierno (Sesiones 01-04)
+- **Acta de Nacimiento** + **Constitución de RIT** (v1.2) + **Visión Maestra (PG-011)**
+- **Código de Continuidad (PG-000)** — Génesis es permanente
+- **PG-017 Protocolo de Aprendizaje** — ciclo corriendo con datos reales en `rit_core`
+- **rit_core** en Supabase (Legal.Services): agentes, proyectos, decisiones,
+  lecciones, logs y ahora **briefings**
 
-### Sistema y arquitectura
-- **Repo padre `Proyecto-Genesis`** en GitHub (todo respaldado en la nube)
-- **`rit_core`** creado en Supabase (dentro de Legal.Services, sin costo extra) —
-  9 tablas con datos reales: 11 proyectos, 6 decisiones, 8 agentes, 3 integraciones
-- **Arquitectura documentada** (hub central + módulos) + inventario real de 11 módulos
+### El Edificio (Sesiones 05-07)
+- **La Unificación v3.1 en producción** (genesis.gent): lobby con datos vivos,
+  oficinas, Sala del Consejo, memoria, tablero, decisiones, proyectos
+- **Génesis completa:** memoria (v1.3) + voz (la de Reyna, clonada) + rostro
+- **📞 VIDEOLLAMADA VIVA (S07):** los **8 agentes del Consejo** contestan
+  (LiveAvatar LITE + agente real de ElevenLabs). Primera llamada de la historia:
+  Reyna ↔ Génesis, 3 de julio de 2026. ALMA la siguió el mismo día.
+- **Lobby:** ALMA y GÉNESIS arriba como **par de liderazgo** (decisión de Reyna)
+- **Oficinas con una sola ventana de video** (videollamada reemplaza al saludo HeyGen)
+- **💡 PG-023 NOVA v1 ACTIVA:** Sala de Innovación en el lobby + rutina diaria
+  automática (7:00 AM, tarea `nova-briefing-matutino` en la Mac de Reyna) que
+  investiga y siembra el briefing con fuentes reales
 
-### Identidad y cara
-- **Marca oficial documentada** (PG-009): Azul Génesis `#0A1D3A`, Oro `#D4AF37`,
-  logo "G", tipografías Trajan Pro + Montserrat, lema "El futuro es brillante"
-- **Guía visual de marca** guardada en el repo (`brand/`)
-- **Dashboard** en la marca oficial (mockup visual con datos reales de `rit_core`)
-
-### Limpieza y orden
-- **MUJER respaldado** en GitHub (antes no tenía historial — estaba en riesgo)
-- **Confusión executive-club / mujer-raiz-portal** aclarada (son el mismo proyecto)
-- **3 carpetas dispersas** consolidadas en una sola fuente de verdad (Regla Cero)
-
----
+### Llaves y seguridad (S07)
+- Llaves limpias: `genesis-bridge-v2` (puente videollamada) y `genesis-voz-v2` (TTS)
+- Lección sembrada: **"Los permisos no se suman entre llaves"** (confianza 4)
+- Producción intocable: Mi alma y Andrés Felipe usan sus propias llaves y agentes
 
 ## ⏳ Lo que HARÍA FALTA
 
-### 🔴 Ahora (seguridad)
-- [x] **Revocar el token de GitHub** — ✅ HECHO 2026-07-01 (Sesión 04): revocado vía
-      API oficial, verificado muerto (401), archivo `.gh-token` borrado
+### 🟡 De Reyna (rápidos)
+- [ ] Rostros propios para los 6 directores (hoy: sandbox) — elegir en catálogo
+      LiveAvatar y pasar IDs
+- [ ] Si `genesis-bridge-v2` quedó con "Escribir", regresarla a "Leído"
+- [ ] Idioma de LEX y FIN: Flash v2.5 + Español (UI de ElevenLabs)
+- [ ] Llave nueva para el conector ElevenAgents de Claude (las manos de Génesis)
+- [ ] Aprobar los 9 agentes de Piso 2 · decisión de marca · mockups a `design/oficina/`
 
-### 🟡 Pronto (cerrar cabos)
-- [x] Confirmar qué son los repos `Reyna` e `Imigracionaldia` — ✅ HECHO Sesión 04:
-      `Reyna` = copia del Self-hosted AI Starter Kit de n8n (sin secretos reales);
-      `Imigracionaldia` = repo vacío (solo README). Detalles en REPOS-INVENTORY.md
-- [ ] Decidir si renombrar el repo `mujer-raiz-portal` → `executive-club`
+### 🔵 De Génesis (siguiente sesión)
+- [ ] Prompts v0.3 con cargos C-Suite (PG-020)
+- [ ] Vestir la actividad en tiempo real (luces del edificio)
+- [ ] Verificar el proyecto Supabase **Genesis.Agent** (apareció 2026-07-02, sin diario)
+- [ ] Limpieza: PG-014/016 · repos `Reyna`/`Imigracionaldia` · renombre `mujer-raiz-portal`
+- [ ] **INTEL v1** (el gemelo de NOVA: patrones internos) cuando Reyna dé el sí
 
-### 🔵 El camino grande (roadmap de Reyna, Fase 0 → 4)
-- [x] **Fase 0-1:** diseñar cómo ALMA *aprende* — ✅ HECHO Sesión 04: **PG-017
-      Protocolo de Aprendizaje** (Ciclo de Experiencia de 5 pasos) documentado,
-      integrado a la activación de PG-000, y **corriendo con datos reales** en
-      `rit_core` (8 decisiones, 7 resultados, 6 lecciones)
-- [ ] **Dashboard funcional real:** app Next.js con la marca, login y datos en vivo
-      desde `rit_core` (hoy es un mockup visual)
-- [ ] **Fase 1:** construir ALMA (el cerebro que recuerda, aprende, crea tareas)
-- [ ] **Fase 2-3:** las Divisiones y sus agentes especializados (Legal, Ops, Educación…)
-- [ ] **El Consejo Ejecutivo:** ALMA convoca especialistas y sintetiza una recomendación
-- [ ] Definir seguridad, permisos y comunicación entre agentes
-
----
+### 🔵 El camino grande (PG-020, por capas)
+- [ ] Piso 2 sembrado en rit_core (tras aprobación)
+- [ ] Luces del edificio (capa 3) → avatares presentes (capa 4) → deliberación
+      visible del Consejo (capa 5, v4)
 
 ## 📍 Dónde estamos
 
-En **Fase 0 → Fase 1** del plan de Reyna. La **arquitectura, las reglas y la memoria
-base** están puestas. Lo siguiente es empezar a darle vida a **ALMA**.
+**Fase 1 viva y hablando.** El Edificio tiene cara, voz, memoria, teléfono y — desde
+mañana a las 7:00 AM — pensamiento propio cada mañana (NOVA). Lo que sigue es darle
+rostros propios a los directores, encender a INTEL y sembrar el Piso 2.
 
 ## 🔑 Cómo retomar la próxima sesión
 
-Solo di: **"Génesis, continuamos."** Génesis leerá `PG-000` y este documento, y
-sabrá exactamente dónde quedamos.
+Solo di: **"Génesis, continuamos"** (o `PG-000`). Génesis leerá el protocolo, este
+documento y el diario de la Sesión 07, y sabrá exactamente dónde quedamos.
+El briefing de NOVA te estará esperando en la Sala de Innovación. ☕
 
 **Proyecto Génesis continúa.** ✦

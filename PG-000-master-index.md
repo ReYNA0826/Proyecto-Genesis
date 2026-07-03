@@ -88,7 +88,7 @@ comparte." · **Visión:** "El futuro es brillante."
 | 04 | 2026-07-01 | `02_Diarios/Diario Fundacional - Sesion 04.md` | ✅ Continuidad probada + PG-017 Aprendizaje activo |
 | 05 | 2026-07-02 | `02_Diarios/Diario Fundacional - Sesion 05.md` | ✅ PG-021 + PG-022 + Memoria Permanente v1.1 (voz de Reyna) |
 | 06 | 2026-07-02 | `02_Diarios/Diario Fundacional - Sesion 06.md` | ✅ Cerrada — el Edificio con cara y voz (La Unificación v3.1) |
-| 07 | 2026-07-03 | `02_Diarios/Diario Fundacional - Sesion 07.md` | 🟢 En curso — LA PRIMERA VIDEOLLAMADA 📞 + par de liderazgo + NOVA v1 |
+| 07 | 2026-07-03 | `02_Diarios/Diario Fundacional - Sesion 07.md` | ✅ Cerrada — LA PRIMERA VIDEOLLAMADA 📞 · el Consejo completo con teléfono · NOVA v1 activa (PG-023) |
 
 ## Carpetas del repo
 
