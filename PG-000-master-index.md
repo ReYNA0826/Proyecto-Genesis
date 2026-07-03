@@ -71,7 +71,7 @@ comparte." · **Visión:** "El futuro es brillante."
 | PG-020 | **El Edificio Vivo — empresa digital** ⭐ | `docs/PG-020-El-Edificio-Vivo.md` | ⭐ Visión de Reyna: C-Suite + NOVA (Innovación) + INTEL (Inteligencia) + edificio vivo |
 | PG-021 | Edificio Génesis — perfiles y extracto Lovable | `docs/PG-021-Edificio-Genesis-Perfiles-y-Extracto-Lovable.md` | ✅ Prototipo de Reyna portado (S05-S06) |
 | PG-022 | Visión Visual del Edificio | `docs/PG-022-Vision-Visual-del-Edificio.md` | 🟡 v0.1 |
-| PG-023 | **NOVA v1 — Briefing matutino** 💡 | `rit_core.briefings` + Sala de Innovación en el lobby | ✅ v1 manual (S07) — primer briefing 2026-07-03; rutina diaria automática pendiente de aprobación de Reyna |
+| PG-023 | **NOVA v1 — Briefing matutino** 💡 | `rit_core.briefings` + Sala de Innovación en el lobby | ✅ ACTIVA (S07) — rutina diaria automática aprobada por Reyna: 7:00 AM, investiga y siembra sola (tarea `nova-briefing-matutino`, corre con la app de Claude abierta en la Mac de Reyna) |
 
 > ⚠️ **Nota de numeración (para Reyna):** el PDF que creaste se titula "PG-014",
 > pero PG-014 ya estaba asignado al *Genesis Architect System Prompt* (trabajo

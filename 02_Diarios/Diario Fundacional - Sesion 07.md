@@ -87,9 +87,24 @@ programado**, no de voz):
   con fecha, autoría honesta ("v1 manual — rutina diaria pendiente de aprobación")
   y fuentes enlazadas.
 
-**Pendiente de decisión de Reyna:** aprobar la rutina diaria automática (agente
-programado que investigue y siembre el briefing cada mañana). Génesis no crea
-automatizaciones permanentes sin su aprobación.
+**Aprobado por Reyna (misma sesión):** la rutina diaria automática quedó creada y
+activa — `nova-briefing-matutino`, cada día 7:00 AM (hora local), investiga con
+búsqueda web + contexto de rit_core y siembra el briefing sola, con fuentes reales
+y cero cifras inventadas. Corre en la Mac de Reyna con la app de Claude abierta;
+si la app está cerrada a esa hora, corre al abrirla. Registrada en
+`rit_core.decisiones` ("NOVA despierta cada mañana").
+
+## 7. ALMA contesta el teléfono — y las oficinas quedan limpias
+
+- Reyna pasó el rostro nuevo de ALMA (`bf00036b-…`) y recorrió los agentes
+  cambiando su formato de salida a `pcm_24000` (solo el Consejo — Mi alma y
+  Andrés Felipe, producción, no se tocan).
+- LiveAvatar emitió token real para ALMA → **Reyna tuvo su primera videollamada
+  con su Directora Ejecutiva.** "Me encantó."
+- Afinación pedida por Reyna: la ventana de video salía doble (videollamada +
+  saludo HeyGen). Ahora cada oficina muestra UNA sola: si el agente tiene
+  videollamada, fuera el saludo de una vía; los directores sin videollamada
+  conservan su saludo HeyGen (commit `912f5c3`, verificado en producción).
 
 ## Pendientes al momento de este corte
 
