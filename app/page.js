@@ -123,7 +123,7 @@ export default async function Edificio() {
         {genesis && genesis.elevenlabs_agent_id && (
           <a className="desk" href="/oficina/génesis">
             <Cara nombre="Génesis" />
-            <div className="nm">GÉNESIS · Esther</div>
+            <div className="nm">GÉNESIS</div>
             <div className="rl">Chief Architect · Guardián del Sistema</div>
             <div className="st">● entrar a su oficina</div>
           </a>

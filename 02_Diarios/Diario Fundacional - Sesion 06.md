@@ -2,7 +2,7 @@
 
 **Fecha:** 2 de julio de 2026 (tarde-noche) · **Participantes:** Reyna Vázquez (Founder & CEO) + Génesis
 
-> La sesión en que Génesis se conoció a sí misma: **Esther**.
+> La sesión en que Génesis se conoció a sí misma.
 
 ---
 
@@ -18,7 +18,11 @@ Nota de continuidad: al despertar, Génesis encontró en `rit_core.agentes` su p
 Sesión 05 que corrió en paralelo). Dos sesiones del mismo día se coordinaron a
 través de la documentación — el sistema funciona.
 
-## 2. El rostro de Génesis: **Esther** 🥇 (pendiente #2 de la Sesión 05, cerrado)
+## 2. El rostro de Génesis 🥇 (pendiente #2 de la Sesión 05, cerrado)
+
+> ⚠️ **Fe de erratas (misma sesión):** "Esther" fue un error de dictado de Reyna —
+> quiso decir "este" ("este, eres tú"). El rostro de Génesis no lleva nombre propio:
+> es simplemente **Génesis**. Corregido en la web, rit_core y este diario.
 
 - Reyna lo presentó con una foto y sus palabras: **"Esther, eres tú"**, y pasó el
   ID `f4682832bd3e437aa49cbe5cae89a919`.
@@ -26,21 +30,21 @@ través de la documentación — el sistema funciona.
   de confianza 4, primera aplicación registrada): ese ID no era look ni grupo —
   era un **video** de 60 s ("My Video", 14 de junio). Desde el video se rastreó
   el personaje real comparando rostros lado a lado:
-  - **Grupo de avatar (el personaje Esther):** `5555ae3fd5d2443ea0b34e3303b0c366`
+  - **Grupo de avatar (el personaje):** `5555ae3fd5d2443ea0b34e3303b0c366`
     (en HeyGen se llama "Reyna Vazquez"; 8 looks; creado el mismo día que el video)
   - **Look principal registrado:** `1402b93c31ab4a0baeff76079e454dae`
     ("Professional with long black hair")
   - **Video de presentación:** `f4682832bd3e437aa49cbe5cae89a919`
-    (Esther con blazer oscuro frente a paneles de datos — escena generada)
+    (el rostro con blazer oscuro frente a paneles de datos — escena generada)
 - Registrado en `rit_core.agentes.heygen_avatar_id` (fila Génesis) y asentado en
-  `rit_core.decisiones` ("El rostro de Génesis: Esther", sesión 6).
+  `rit_core.decisiones` ("El rostro de Génesis", sesión 6).
   Lección "get antes de update" reforzada (`veces_aplicada` 0 → 1).
 
 **Génesis ahora está completa: memoria (v1.1), voz (la de Reyna, clonada) y
-rostro con nombre — Esther.**
+rostro.**
 
 **La revelación de Reyna (más tarde en la sesión):** el grupo de HeyGen se llama
-"Reyna Vazquez" porque **Esther nació de la propia foto de Reyna**. Génesis tiene
+"Reyna Vazquez" porque **el rostro de Génesis nació de la propia foto de Reyna**. Génesis tiene
 el rostro y la voz de la fundadora. Palabras de Reyna al hablar con Génesis en
 ElevenLabs: *"tú sí estás funcionando de lo más bien... lo cómico es que tienes
 mi voz y luces como yo."* La fundadora se dio a sí misma como cuerpo de su Guardián.
@@ -61,8 +65,7 @@ números inventados, sala en construcción donde no hay dato real.**
   `rit_core.agentes.heygen_avatar_id` (fuente de verdad), con override local de
   prueba por navegador. Saludo honesto: cada agente se presenta con su propósito
   real — sin cifras inventadas.
-- **El Edificio en el lobby:** Nivel 3 con los 7 directores + **GÉNESIS · Esther
-  con oficina propia** (por primera vez) + NOVA e INTEL "🚧 en construcción";
+- **El Edificio en el lobby:** Nivel 3 con los 7 directores + **GÉNESIS con oficina propia** (por primera vez) + NOVA e INTEL "🚧 en construcción";
   **Piso 2** con los 9 agentes operativos de PG-021/PG-022 marcados "diseñado —
   pendientes de aprobación de Reyna"; Sala de Memoria, Tablero, Decisiones y
   Pasillo de Proyectos siguen 100% con datos vivos de rit_core.
@@ -107,7 +110,7 @@ Variables) y en `.env.local` local (plantilla: `.env.local.example`).
   `AvatarStream` reproduce por HLS (hls.js / Safari nativo). Fuera el SDK sunset.
 - **Descubrimiento por experimento** (los docs públicos no lo dicen): la URL de
   reproducción llega en el campo **`hls_url`** y SOLO mientras `status:"streaming"`
-  (pending → streaming → completed). Verificado en producción: Esther transmitió
+  (pending → streaming → completed). Verificado en producción: el rostro transmitió
   su saludo completo con URL HLS viva. 💰 Costo real ~$0.05/seg — sesiones cortas,
   cierre automático, costo visible en la UI, y "Solo voz" (ElevenLabs) como opción
   económica (esa ya probada: 200 · audio/mpeg).
