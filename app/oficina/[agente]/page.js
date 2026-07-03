@@ -90,10 +90,15 @@ export default async function OficinaAgente({ params }) {
           )}
         </div>
 
-        {/* Rostro en vivo — La Unificación (v3.1): código portado del prototipo de Reyna */}
+        {/* Rostro en vivo — La Unificación (v3.1): código portado del prototipo de Reyna.
+            Una sola ventana de video por oficina (decisión de Reyna, S07): si el agente
+            tiene videollamada (ConversarVivo), el saludo HeyGen de una vía sobra. */}
         <div style={{ display: "grid", gap: 14, alignContent: "start" }}>
-          {CONVERSAN_EN_VIVO.includes(a.nombre) && <ConversarVivo code={a.nombre} />}
-          <AvatarStream code={a.nombre} avatarId={a.heygen_avatar_id} saludo={saludo} />
+          {CONVERSAN_EN_VIVO.includes(a.nombre) ? (
+            <ConversarVivo code={a.nombre} />
+          ) : (
+            <AvatarStream code={a.nombre} avatarId={a.heygen_avatar_id} saludo={saludo} />
+          )}
         </div>
       </section>
 
