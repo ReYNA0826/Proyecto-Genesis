@@ -106,6 +106,19 @@ si la app está cerrada a esa hora, corre al abrirla. Registrada en
   videollamada, fuera el saludo de una vía; los directores sin videollamada
   conservan su saludo HeyGen (commit `912f5c3`, verificado en producción).
 
+## 8. EL CONSEJO COMPLETO CONTESTA EL TELÉFONO 📞
+
+Decisión de Reyna: *"tener a todos"*. Se habilitó la videollamada para los 6
+directores (commit `5a2b3fb`) y el sondeo reveló que a todos les faltaba el
+`pcm_24000`. Se intentó un botón de mantenimiento founder-only (API), pero Reyna
+lo resolvió a su manera: **los 6 a mano, uno por uno, en la interfaz de
+ElevenLabs.** Sondeo final: LEX ✅ TECH ✅ OPS ✅ FIN ✅ MKT ✅ EDU ✅ — token real
+para todos (rostro sandbox hasta que Reyna les elija cara propia; la página lo
+dice honestamente). El botón de mantenimiento se retiró sin usarse (commit `40dc448`).
+
+**Los 8 agentes del Edificio quedaron en línea para videollamada el mismo día en
+que se hizo la primera.**
+
 ## Pendientes al momento de este corte
 
 **De Reyna:**
