@@ -131,6 +131,32 @@ Variables) y en `.env.local` local (plantilla: `.env.local.example`).
 - **/configuracion ahora exige login** (inquietud de Reyna): los avatar IDs no son
   secretos, pero la administración no tiene por qué ser pública.
 
+## 7. El cierre del día: "Conversar EN VIVO" construido para ALMA y Génesis 📞
+
+Decisión de Reyna para cerrar la sesión: *"vamos a activar el avatar en vivo para
+Génesis y para Alma... por lo menos ellas dos."* Construido y publicado:
+
+- **`/api/liveavatar/session`** — puente LiveAvatar LITE + plugin de ElevenLabs:
+  el cerebro y la voz son el agente REAL de ElevenLabs (la voz de Génesis = la voz
+  clonada de Reyna); el rostro lo pone LiveAvatar. El secret del puente se gestiona
+  solo (se crea una vez con nombre `genesis-elevenlabs-bridge`).
+- **Componente `ConversarVivo`** en las oficinas de ALMA y Génesis: botón "Llamar",
+  micrófono del navegador, video del rostro respondiendo EN la página — ya no hay
+  que saltar a la página de ElevenLabs.
+- Mientras no haya rostros propios en el catálogo LiveAvatar, usa el **avatar
+  sandbox (gratis, ~1 min)** — y lo dice honestamente en pantalla.
+- También: botón ▶ cuando el navegador bloquea el video del saludo, cierre limpio
+  al terminar, y fuera la línea `avatar_id` de las oficinas.
+
+**Para encenderlo faltan 2 llaves en Vercel** (nunca por chat):
+1. `LIVEAVATAR_API_KEY` — de app.liveavatar.com → Developers. ⚠️ Verificar si la
+   llave misteriosa de enero que Reyna encontró es de ESTA página — si sí, es usarla.
+2. `ELEVENLABS_AGENTS_KEY` — llave de ElevenLabs con permisos `convai_read`,
+   `user_read`, `voices_read` (la del Edificio quizá es solo TTS).
+
+Después: Génesis revisa el catálogo (`/api/liveavatar/avatars`, solo con login),
+Reyna elige los rostros definitivos y se mapean en `ROSTROS`.
+
 ## Pendientes activos (heredados de la Sesión 05)
 
 **De Reyna:** mockups a `design/oficina/` · decisión de marca (azul/tipografía) ·
