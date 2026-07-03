@@ -84,7 +84,7 @@ comparte." · **Visión:** "El futuro es brillante."
 | 03 | 2026-07-01 | `02_Diarios/Diario Fundacional - Sesion 03.md` | ✅ Constitución v1.0 ratificada |
 | 04 | 2026-07-01 | `02_Diarios/Diario Fundacional - Sesion 04.md` | ✅ Continuidad probada + PG-017 Aprendizaje activo |
 | 05 | 2026-07-02 | `02_Diarios/Diario Fundacional - Sesion 05.md` | ✅ PG-021 + PG-022 + Memoria Permanente v1.1 (voz de Reyna) |
-| 06 | 2026-07-02 | `02_Diarios/Diario Fundacional - Sesion 06.md` | 🟢 En curso — el rostro de Génesis |
+| 06 | 2026-07-02 | `02_Diarios/Diario Fundacional - Sesion 06.md` | ✅ Cerrada — el Edificio con cara y voz (La Unificación v3.1) |
 
 ## Carpetas del repo
 

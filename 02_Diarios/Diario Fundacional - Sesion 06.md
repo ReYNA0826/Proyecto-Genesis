@@ -151,25 +151,58 @@ Génesis y para Alma... por lo menos ellas dos."* Construido y publicado:
 - También: botón ▶ cuando el navegador bloquea el video del saludo, cierre limpio
   al terminar, y fuera la línea `avatar_id` de las oficinas.
 
-**Para encenderlo faltan 2 llaves en Vercel** (nunca por chat):
-1. `LIVEAVATAR_API_KEY` — de app.liveavatar.com → Developers. ⚠️ Verificar si la
-   llave misteriosa de enero que Reyna encontró es de ESTA página — si sí, es usarla.
-2. `ELEVENLABS_AGENTS_KEY` — llave de ElevenLabs con permisos `convai_read`,
-   `user_read`, `voices_read` (la del Edificio quizá es solo TTS).
+**Rostros elegidos por Reyna** (catálogo LiveAvatar, mapeados en `ROSTROS`):
+- ALMA → `29786451-ec0a-11f0-a99e-066a7fa2e369`
+- Génesis → `073b60a9-89a8-45aa-8902-c358f64d2852`
 
-Después: Génesis revisa el catálogo (`/api/liveavatar/avatars`, solo con login),
-Reyna elige los rostros definitivos y se mapean en `ROSTROS`.
+### Dónde quedó al cierre (a UN permiso de la primera videollamada)
 
-## Pendientes activos (heredados de la Sesión 05)
+Se agregó un diagnóstico temporal (`GET /api/liveavatar/session`) que prueba las
+llaves contra sus APIs **sin exponer valores** (solo códigos). Estado al cerrar:
 
-**De Reyna:** mockups a `design/oficina/` · decisión de marca (azul/tipografía) ·
-tabla de avatares HeyGen del Consejo · aprobar los 9 agentes de Piso 2.
+| Llave | Estado |
+|---|---|
+| `LIVEAVATAR_API_KEY` | ✅ presente y válida (el puente responde) |
+| `ELEVENLABS_AGENTS_KEY` | `convai_read` ✅200 · `voices_read` ✅200 · **`user_read` ❌401** |
 
-**De Génesis:** 🥇🥇 La Unificación (Edificio del prototipo → genesis.gent con datos
-reales) · 🥇 NOVA v1 · prompts v0.3 · LiveAvatar v3.1 · actividad en tiempo real ·
-voces definitivas · limpieza menor (PG-014/016, repos).
+LiveAvatar exige los TRES permisos; rechaza la llave (error 4051) por el
+`user_read` faltante. Reyna intentó agregarlo varias veces pero el diagnóstico
+siguió en 401 — señal de que el valor nuevo no llegó a Vercel (posible espacio al
+pegar o ambiente equivocado) **o** que el scope "User → Read" no quedó marcado en
+la llave.
 
-*Sesión en curso — este diario se completa al cierre.*
+**Para encender la videollamada la próxima sesión (arreglo de 2 minutos):**
+1. En ElevenLabs, crear/editar la llave del puente y marcar **User → Read**
+   (además de Conversational AI Read y Voices Read).
+2. En Vercel, pegar ese valor en `ELEVENLABS_AGENTS_KEY` (verificar que se guarde
+   sin espacios y en los 3 ambientes).
+3. Redeploy → correr el diagnóstico → cuando `user_read`=200, la llamada funciona.
+4. Después: quitar el diagnóstico `GET` temporal de `route.js` (es solo andamio).
+
+Todo lo demás de la videollamada está construido, probado y desplegado. No se
+perdió nada: es literalmente la última casilla.
+
+## Estado del Edificio al cerrar la Sesión 06
+
+Memoria (v1.3) · voz (la de Reyna, clonada) · rostro (nacido de la foto de Reyna) ·
+La Unificación v3.1 en producción · los 8 directores con retrato · saludo en video
+(HeyGen Realtime) · ALMA razonando · "Solo voz" funcionando · Conversar EN VIVO
+construido y a un permiso. `rit_core.logs` cuenta el día real de la organización.
+
+## Pendientes para la próxima sesión
+
+**🥇 Primero (2 min):** encender la videollamada (el `user_read` de arriba).
+**De Reyna:** los 2 clics de idioma de **LEX y FIN** (Flash v2.5 + Español en la UI) ·
+mockups a `design/oficina/` · decisión de marca (azul/tipografía) · aprobar los 9
+agentes de Piso 2.
+**De Génesis:** 🥇 NOVA v1 (briefing matutino) · prompts v0.3 con cargos C-Suite ·
+actividad en tiempo real vestida · limpieza menor (PG-014/016, repos `Reyna` / `Imigracionaldia`).
+
+---
+
+**La Sesión 06 fue el día en que el Edificio cobró cara y voz — la cara y la voz de
+Reyna. Génesis dejó de ser solo texto: ahora habla, se ve, y recuerda. Y la primera
+conversación cara a cara espera, a un permiso de distancia, para la próxima vez.**
 
 ---
 
