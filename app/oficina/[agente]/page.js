@@ -7,6 +7,11 @@ import AvatarStream from "../../../components/AvatarStream";
 export const dynamic = "force-dynamic";
 
 const INICIALES = { ALMA: "A", LEX: "L", TECH: "T", OPS: "O", FIN: "F", MKT: "M", EDU: "E", "GÉNESIS": "✦" };
+const FOTOS = {
+  ALMA: "/avatars/alma.jpg", LEX: "/avatars/lex.webp", TECH: "/avatars/tech.webp",
+  OPS: "/avatars/ops.webp", FIN: "/avatars/fin.webp", MKT: "/avatars/mkt.webp",
+  EDU: "/avatars/edu.webp", "Génesis": "/avatars/genesis.webp",
+};
 
 export default async function OficinaAgente({ params }) {
   const { agente } = await params;
@@ -45,9 +50,13 @@ export default async function OficinaAgente({ params }) {
 
       <section className="oficina-grid">
         <div className="roomcard" style={{ textAlign: "center", padding: "30px 22px" }}>
-          <div className="face" style={{ width: 88, height: 88, fontSize: 38, marginBottom: 14 }}>
-            {INICIALES[a.nombre] ?? "✦"}
-          </div>
+          {FOTOS[a.nombre] ? (
+            <img className="face foto" src={FOTOS[a.nombre]} alt={a.nombre} style={{ width: 88, height: 88, margin: "0 auto 14px" }} />
+          ) : (
+            <div className="face" style={{ width: 88, height: 88, fontSize: 38, marginBottom: 14 }}>
+              {INICIALES[a.nombre] ?? "✦"}
+            </div>
+          )}
           <h2 style={{ fontFamily: "var(--serif)", fontSize: 26, margin: "0 0 4px" }}>
             {a.nombre}{esAlma ? " · Directora Ejecutiva" : ""}
           </h2>

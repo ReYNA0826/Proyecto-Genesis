@@ -12,6 +12,21 @@ async function signOut() {
 
 const INICIALES = { ALMA: "A", LEX: "L", TECH: "T", OPS: "O", FIN: "F", MKT: "M", EDU: "E", "GÉNESIS": "✦", NOVA: "N", INTEL: "I" };
 
+// Retratos oficiales (rit_core → HeyGen), servidos como archivos propios para no caducar.
+const FOTOS = {
+  ALMA: "/avatars/alma.jpg", LEX: "/avatars/lex.webp", TECH: "/avatars/tech.webp",
+  OPS: "/avatars/ops.webp", FIN: "/avatars/fin.webp", MKT: "/avatars/mkt.webp",
+  EDU: "/avatars/edu.webp", "Génesis": "/avatars/genesis.webp",
+};
+
+function Cara({ nombre, size = 52, fontSize = 22 }) {
+  const foto = FOTOS[nombre];
+  if (foto) {
+    return <img className="face foto" src={foto} alt={nombre} style={{ width: size, height: size }} />;
+  }
+  return <div className="face" style={{ width: size, height: size, fontSize }}>{INICIALES[nombre] ?? "✦"}</div>;
+}
+
 // Piso 2 — perfiles diseñados en PG-021 (prototipo de Reyna). Aún NO sembrados en
 // rit_core: requieren aprobación de Reyna (regla de Génesis). Cero métricas inventadas.
 const PISO2 = [
@@ -89,7 +104,7 @@ export default async function Edificio() {
       <section className="consejo">
         {alma && (
           <a className="desk ceo" href="/oficina/alma">
-            <div className="face">A</div>
+            <Cara nombre="ALMA" size={62} fontSize={26} />
             <div className="body">
               <span className="nm" style={{ fontSize: 17 }}>ALMA · Directora Ejecutiva</span>
               <span className="badge">en su oficina</span>
@@ -99,7 +114,7 @@ export default async function Edificio() {
         )}
         {directores.filter((d) => d.nombre !== "Génesis").map((d) => (
           <a key={d.nombre} className="desk" href={`/oficina/${d.nombre.toLowerCase()}`}>
-            <div className="face">{INICIALES[d.nombre]}</div>
+            <Cara nombre={d.nombre} />
             <div className="nm">{d.nombre}</div>
             <div className="rl">{(d.proposito || "").split("—")[0]}</div>
             <div className="st">● entrar a su oficina</div>
@@ -107,7 +122,7 @@ export default async function Edificio() {
         ))}
         {genesis && genesis.elevenlabs_agent_id && (
           <a className="desk" href="/oficina/génesis">
-            <div className="face">✦</div>
+            <Cara nombre="Génesis" />
             <div className="nm">GÉNESIS · Esther</div>
             <div className="rl">Chief Architect · Guardián del Sistema</div>
             <div className="st">● entrar a su oficina</div>
@@ -115,7 +130,7 @@ export default async function Edificio() {
         )}
         {enDiseno.map((d) => (
           <div key={d.nombre} className="desk obra">
-            <div className="face">{INICIALES[d.nombre]}</div>
+            <Cara nombre={d.nombre} />
             <div className="nm">{d.nombre}</div>
             <div className="rl">{(d.proposito || "").split("—")[0]}</div>
             <div className="st" style={{ color: "var(--silver)" }}>🚧 oficina en construcción</div>
