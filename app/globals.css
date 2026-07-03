@@ -73,6 +73,7 @@ a{color:inherit}
 .avmeta{font-size:9.5px;color:var(--silver);margin-top:8px;font-family:ui-monospace,monospace;word-break:break-all}
 .avmeta a{color:var(--gold)}
 .averr{font-size:10.5px;color:#ff9d9d;margin-top:8px;line-height:1.5}
+.avplay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(5,18,38,.75);border:none;color:var(--gold);font-family:inherit;font-size:13px;font-weight:700;letter-spacing:.06em;cursor:pointer}
 .cfg{width:100%;border-collapse:collapse;font-size:12px}
 .cfg th{text-align:left;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--silver);padding:6px 8px;border-bottom:1px solid #17294a}
 .cfg td{padding:8px;border-bottom:1px dashed #17294a;vertical-align:middle}

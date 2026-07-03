@@ -27,6 +27,8 @@ export default function AvatarStream({ code, avatarId, saludo }) {
   const [voz, setVoz] = useState("idle"); // idle | loading | playing | error
   const [mensaje, setMensaje] = useState("");
   const [idActivo, setIdActivo] = useState(avatarId || null);
+  const [necesitaToque, setNecesitaToque] = useState(false); // autoplay bloqueado
+  const streamIdRef = useRef(null);
 
   useEffect(() => {
     setIdActivo(getOverride(code) || avatarId || null);
@@ -51,12 +53,17 @@ export default function AvatarStream({ code, avatarId, saludo }) {
 
   useEffect(() => () => { limpiar(); audioRef.current?.pause(); }, [code]);
 
+  // Si el navegador bloquea la reproducción automática, pedimos un toque.
+  const intentarPlay = (video) => {
+    video.play().then(() => setNecesitaToque(false)).catch(() => setNecesitaToque(true));
+  };
+
   const reproducirHls = async (url) => {
     const video = videoRef.current;
     if (!video) return;
     if (video.canPlayType("application/vnd.apple.mpegurl")) {
       video.src = url; // Safari: HLS nativo
-      await video.play().catch(() => undefined);
+      intentarPlay(video);
     } else {
       const { default: Hls } = await import("hls.js");
       if (!Hls.isSupported()) throw new Error("Este navegador no soporta HLS");
@@ -64,10 +71,23 @@ export default function AvatarStream({ code, avatarId, saludo }) {
       hlsRef.current = hls;
       hls.loadSource(url);
       hls.attachMedia(video);
-      hls.on(Hls.Events.MANIFEST_PARSED, () => video.play().catch(() => undefined));
+      hls.on(Hls.Events.MANIFEST_PARSED, () => intentarPlay(video));
     }
     video.onended = () => { limpiar(); setEstado("done"); };
     setEstado("live");
+
+    // El saludo es corto: cuando HeyGen marque la sesión como terminada, cerramos limpio.
+    pollRef.current = setInterval(async () => {
+      try {
+        const s = await fetch(`/api/heygen/realtime?id=${encodeURIComponent(streamIdRef.current)}`);
+        const sj = await s.json().catch(() => ({}));
+        if (sj.status === "completed") {
+          setTimeout(() => { limpiar(); setEstado("done"); setNecesitaToque(false); }, 2500);
+          clearInterval(pollRef.current);
+          pollRef.current = null;
+        }
+      } catch {}
+    }, 3000);
   };
 
   const iniciar = async () => {
@@ -82,6 +102,7 @@ export default function AvatarStream({ code, avatarId, saludo }) {
       });
       const j = await r.json().catch(() => ({}));
       if (!r.ok) throw new Error(j.error || `HTTP ${r.status}`);
+      streamIdRef.current = j.streamId;
 
       // Sondear hasta que el stream HLS esté listo (máx ~30s)
       let intentos = 0;
@@ -153,6 +174,11 @@ export default function AvatarStream({ code, avatarId, saludo }) {
         <>
           <div className="avvideo">
             <video ref={videoRef} playsInline autoPlay />
+            {estado === "live" && necesitaToque && (
+              <button className="avplay" onClick={() => { const v = videoRef.current; if (v) { v.muted = false; intentarPlay(v); } }}>
+                ▶ Toca para ver y oír a {code}
+              </button>
+            )}
             {estado !== "live" && (
               <div className="avwait">
                 {estado === "connecting"
@@ -173,8 +199,8 @@ export default function AvatarStream({ code, avatarId, saludo }) {
             </button>
           </div>
           <div className="avmeta">
-            avatar_id: {idActivo} · <a href="/configuracion">configurar →</a>
-            <br />transmisión HeyGen ≈ $0.05/seg · "Solo voz" (ElevenLabs) es la opción económica
+            El video saluda pero no escucha — para CONVERSAR usa la burbuja de llamada (ElevenLabs).
+            <br />Transmisión HeyGen ≈ $0.05/seg · "Solo voz" es la opción económica · <a href="/configuracion">configurar →</a>
           </div>
         </>
       ) : (
