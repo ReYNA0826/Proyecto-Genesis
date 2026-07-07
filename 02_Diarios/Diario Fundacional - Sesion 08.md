@@ -1,6 +1,6 @@
 # Diario Fundacional — Sesión 08
 
-**Fecha:** 2026-07-06 · **Estado:** ✅ Cerrada — la limpieza de S04 quedó en cero
+**Fecha:** 2026-07-06 · **Estado:** ✅ Cerrada — limpieza de S04 en cero + Consejo en v0.3 (C-Suite)
 **Escrito por:** Génesis, Chief Architect
 
 ---
@@ -61,10 +61,37 @@ Reyna retomó la sesión y eligió cerrar la limpieza. Los cuatro puntos quedaro
 cada cambio por SSH antes de darlo por hecho, y así atrapó tanto el intento que no se
 guardó como el guion de más. Reportar el estado real evitó documentar algo falso.
 
-## 4. Estado al cierre
+## 4. Prompts v0.3 — el Consejo se vuelve C-Suite (PG-020)
+
+Reyna eligió el siguiente frente: **prompts v0.3**, ya sin bloqueo (el conector funciona).
+PG-020 lo definía como el primer paso del Edificio Vivo: cada agente no solo ejecuta —
+**dirige un departamento** con su cargo C-Suite.
+
+**Lo aplicado a los 7 del Consejo (repo + cerebros de ElevenLabs):**
+- ALMA = **CEO** · LEX = **CLO** · TECH = **CTO** · OPS = **COO** · FIN = **CFO** ·
+  EDU = **Chief Learning Officer** · MKT = **CGO (Chief Growth Officer)** — la expansión
+  grande de PG-020: pasa de "hace publicidad" a "hace crecer toda la organización", con el
+  **Departamento de Inteligencia Comercial** (Meta Ads, Google Trends, USCIS/DOJ/EOIR, CPL,
+  ROI, embudos) traduciendo el mercado en oportunidades cada mañana.
+- Génesis mantiene su propia vía (`memoria-v1.0`), como corresponde al Arquitecto.
+
+**La lección de S07 volvió a pagar.** Al leer el primer cerebro (ALMA) antes de tocarlo,
+Génesis descubrió que ElevenLabs tenía dos bloques que el repo NO: la directiva de `Idioma`
+y la salvaguarda `IMPORTANTE: no eres "Mi alma"` (la que la distingue del agente de
+producción de la app). Un push ciego del repo las habría borrado. Se hizo **get-before-update**
+por agente y se preservaron. Piloto en ALMA verificado antes de tocar los otros 6.
+
+**Pendiente menor detectado (para Reyna):** FIN tiene `language:"en"` en ElevenLabs aunque
+opera en español (directiva + saludo + prompt todo en español). No se tocó — decisión de Reyna.
+
+**Actualizado:** `rit_core.agentes` (7 en v0.3) · decisión sembrada · índice PG-000 (fila
+PG-016) · PG-012. Prompts del repo commiteados.
+
+## 5. Estado al cierre
 
 **Limpieza de repos de S04: cero pendientes.** Repos vivos y con nombre correcto,
 inventario y PG-012 al día, decisiones sembradas en `rit_core`.
+**Prompts v0.3: el Consejo ya es un C-Suite** — en el repo y hablando por ElevenLabs.
 
 **Los demás frentes siguen intactos:** prompts v0.3 (ya sin bloqueo) · actividad
 en tiempo real (PG-022) · INTEL v1 (espera el sí) · decisiones de Reyna de PG-012
@@ -72,9 +99,11 @@ en tiempo real (PG-022) · INTEL v1 (espera el sí) · decisiones de Reyna de PG
 
 ---
 
-**La Sesión 08 fue corta y quirúrgica: la limpieza de S04 cerrada por completo,
-el conector de vuelta y NOVA puntual a su cita de las 7. Génesis verificó cada
-paso antes de escribirlo — la memoria del proyecto solo vale si nunca miente.**
+**La Sesión 08 empezó quirúrgica y terminó fundacional: la limpieza de S04 cerrada por
+completo, y el Consejo dio un salto — de seis directores a un C-Suite digital con cargos
+reales (PG-020). Génesis verificó cada paso antes de escribirlo, y esa disciplina atrapó
+un borrado silencioso antes de que ocurriera. La memoria del proyecto solo vale si nunca
+miente.**
 
 *"La inteligencia crece cuando el conocimiento permanece y el trabajo se comparte."*
 

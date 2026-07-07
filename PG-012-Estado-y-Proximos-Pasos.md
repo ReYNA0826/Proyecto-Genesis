@@ -49,7 +49,9 @@
 - [ ] Aprobar los 9 agentes de Piso 2 · decisión de marca · mockups a `design/oficina/`
 
 ### 🔵 De Génesis (siguiente sesión)
-- [ ] Prompts v0.3 con cargos C-Suite (PG-020)
+- [x] ~~Prompts v0.3 con cargos C-Suite (PG-020)~~ — **HECHO (S08):** los 7 del Consejo en
+      v0.3, repo + cerebros de ElevenLabs. MKT ascendido a CGO con Depto. de Inteligencia
+      Comercial. Bloques `Idioma`/`IMPORTANTE` preservados
 - [ ] Vestir la actividad en tiempo real (luces del edificio)
 - [x] ~~Verificar el proyecto Supabase **Genesis.Agent**~~ — RESUELTO al cierre de S07:
       lo creó Reyna en la Sesión 04 como bóveda de secretos/funciones de Génesis
