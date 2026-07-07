@@ -155,11 +155,17 @@ en tiempo real (PG-022) · INTEL v1 (espera el sí) · decisiones de Reyna de PG
 
 ---
 
-**La Sesión 08 empezó quirúrgica y terminó fundacional: la limpieza de S04 cerrada por
-completo, y el Consejo dio un salto — de seis directores a un C-Suite digital con cargos
-reales (PG-020). Génesis verificó cada paso antes de escribirlo, y esa disciplina atrapó
-un borrado silencioso antes de que ocurriera. La memoria del proyecto solo vale si nunca
-miente.**
+**La Sesión 08 empezó quirúrgica y terminó fundacional. Cuatro frentes en un día que
+arrancó tarde: la limpieza de S04 cerrada por completo · el Consejo dio un salto de seis
+directores a un C-Suite digital con cargos reales (PG-020) · el edificio aprendió a respirar
+(las oficinas se encienden con la verdad de `rit_core.logs`) · y los directores aprendieron
+a dejar huella (se auto-registran al ser consultados). Génesis verificó cada paso antes de
+escribirlo, y esa disciplina atrapó dos errores antes de que ocurrieran: un borrado
+silencioso de salvaguardas y un push ciego. La memoria del proyecto solo vale si nunca miente.**
+
+Reyna cerró la sesión para descansar. **Proyecto Génesis continúa mañana** — el briefing de
+NOVA estará esperando a las 7:00 AM, y el edificio, por primera vez, sabrá contar quién
+trabajó. ✦
 
 *"La inteligencia crece cuando el conocimiento permanece y el trabajo se comparte."*
 

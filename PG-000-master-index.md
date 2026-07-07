@@ -88,7 +88,7 @@ comparte." · **Visión:** "El futuro es brillante."
 | 05 | 2026-07-02 | `02_Diarios/Diario Fundacional - Sesion 05.md` | ✅ PG-021 + PG-022 + Memoria Permanente v1.1 (voz de Reyna) |
 | 06 | 2026-07-02 | `02_Diarios/Diario Fundacional - Sesion 06.md` | ✅ Cerrada — el Edificio con cara y voz (La Unificación v3.1) |
 | 07 | 2026-07-03 | `02_Diarios/Diario Fundacional - Sesion 07.md` | ✅ Cerrada — LA PRIMERA VIDEOLLAMADA 📞 · el Consejo completo con teléfono · NOVA v1 activa (PG-023) |
-| 08 | 2026-07-06 | `02_Diarios/Diario Fundacional - Sesion 08.md` | ✅ Cerrada — 3 frentes: (1) limpieza de S04 en cero (`Imigracionaldia` borrado · `mujer-raiz-portal`→`mujer-raiz-executive-club` · PG-014/016) · (2) **prompts v0.3** — Consejo con cargos C-Suite (PG-020), MKT→CGO · (3) **actividad en tiempo real v3.2** — luces vivas del edificio desde `rit_core.logs` (repo listo, falta deploy) |
+| 08 | 2026-07-06 | `02_Diarios/Diario Fundacional - Sesion 08.md` | ✅ Cerrada — 4 frentes, todo en producción: (1) limpieza de S04 en cero (`Imigracionaldia` borrado · `mujer-raiz-portal`→`mujer-raiz-executive-club` · PG-014/016) · (2) **prompts v0.3** — Consejo con cargos C-Suite (PG-020), MKT→CGO, FIN en español · (3) **luces vivas v3.2** — el edificio se enciende con `rit_core.logs` en genesis.gent · (4) **puente de logs de directores** — se auto-registran al conversar (función `SECURITY DEFINER`) |
 
 ## Carpetas del repo
 
