@@ -81,8 +81,11 @@ y la salvaguarda `IMPORTANTE: no eres "Mi alma"` (la que la distingue del agente
 producción de la app). Un push ciego del repo las habría borrado. Se hizo **get-before-update**
 por agente y se preservaron. Piloto en ALMA verificado antes de tocar los otros 6.
 
-**Pendiente menor detectado (para Reyna):** FIN tiene `language:"en"` en ElevenLabs aunque
-opera en español (directiva + saludo + prompt todo en español). No se tocó — decisión de Reyna.
+**Pendiente menor detectado y RESUELTO:** FIN tenía `language:"en"` en ElevenLabs pese a
+operar en español. La API rechazaba el cambio ("Non-english Agents must use turbo or flash
+v2_5") porque su modelo de voz era inglés. Reyna cambió el modelo a **Flash v2.5** en la UI,
+y entonces la API aceptó `language:"es"`. FIN quedó completo en español. Todo el Consejo:
+v0.3 + español.
 
 **Actualizado:** `rit_core.agentes` (7 en v0.3) · decisión sembrada · índice PG-000 (fila
 PG-016) · PG-012. Prompts del repo commiteados.
