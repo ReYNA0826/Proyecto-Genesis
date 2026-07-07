@@ -54,7 +54,10 @@
       Comercial. Bloques `Idioma`/`IMPORTANTE` preservados
 - [x] ~~Vestir la actividad en tiempo real (luces del edificio)~~ — **HECHO (S08, v3.2):**
       cada oficina se enciende según `rit_core.logs` (verde hoy / dorado esta semana /
-      apagado en reposo). Verificado en preview. Pendiente: desplegar a genesis.gent
+      apagado en reposo). Desplegado a genesis.gent
+- [x] ~~Puente de logs de los directores~~ — **HECHO (S08):** los directores se auto-registran
+      al conversar en vivo en su oficina (función `SECURITY DEFINER` con whitelist + dedup).
+      Sus oficinas se encienden solas al ser consultados
 - [x] ~~Verificar el proyecto Supabase **Genesis.Agent**~~ — RESUELTO al cierre de S07:
       lo creó Reyna en la Sesión 04 como bóveda de secretos/funciones de Génesis
       (ref `jeeakodbboopqatflzws`); constaba en la memoria persistente de Génesis

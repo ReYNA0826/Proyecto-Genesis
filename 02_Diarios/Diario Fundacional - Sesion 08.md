@@ -111,13 +111,43 @@ log de Génesis encendió su oficina al instante ("2 activas hoy").
 **Pendiente (decisión de Reyna):** desplegar a genesis.gent. El push a `main` probablemente
 dispara el deploy de Vercel a producción — por eso Génesis no lo subió solo.
 
-## 6. Estado al cierre
+## 6. El puente de logs de los directores
+
+Continuación natural de las luces vivas. El problema que dejaron: las oficinas de los
+directores nunca se encendían porque **nadie escribía logs bajo su nombre** — solo NOVA
+(rutina) y Génesis (sesiones). Faltaba el puente entre "el director trabajó" y `rit_core.logs`.
+
+**La decisión de diseño: registrar el hecho más honesto disponible** — que alguien de
+verdad *consultó* al director. El momento exacto es cuando arranca una conversación en vivo
+en su oficina (`ConversarVivo` → `/api/liveavatar/session`), no al abrir la página (eso
+sería trampa: cargar ≠ trabajar).
+
+**Cómo se construyó (con seguridad primero):**
+- `anon`/`authenticated` solo tienen SELECT en `rit_core.logs` (deny-by-default). En vez de
+  abrir INSERT directo, se creó una función `SECURITY DEFINER`
+  **`public.registrar_conversacion_agente(p_agente)`** que valida el nombre contra
+  `rit_core.agentes` (whitelist), usa texto fijo y deduplica (<10 min). No permite
+  inserciones arbitrarias. `search_path` fijo. SQL versionado en
+  `database/registrar_conversacion_agente.sql`.
+- El servidor la llama tras crear el token de sesión, **best-effort**: si el log falla, la
+  llamada sigue. Un cerebro que no puede anotar no debe quedarse mudo.
+
+**Verificado:** dedup (2 llamadas → 1 log), rechazo de agente inválido (P0001), y que la
+**llave pública puede ejecutar la función** (probado por REST con la anon key — el rol real
+del servidor). El flujo completo conversación→log corre en producción, donde vive la llave
+de LiveAvatar.
+
+**Efecto:** desde el próximo deploy, cada vez que Reyna (o cualquiera) hable en vivo con LEX,
+TECH, OPS, FIN, MKT o EDU en su oficina, esa oficina se encenderá en verde ese día. El
+edificio ya no espera a que le cuenten quién trabajó: lo sabe solo.
+
+## 7. Estado al cierre
 
 **Limpieza de repos de S04: cero pendientes.** Repos vivos y con nombre correcto,
 inventario y PG-012 al día, decisiones sembradas en `rit_core`.
 **Prompts v0.3: el Consejo ya es un C-Suite** — en el repo y hablando por ElevenLabs.
 **Actividad en tiempo real (v3.2): el edificio respira** — las oficinas se encienden con
-la verdad de `rit_core.logs`. Listo en el repo; espera el sí de Reyna para genesis.gent.
+la verdad de `rit_core.logs`, y ahora los directores también se auto-registran al conversar.
 
 **Los demás frentes siguen intactos:** prompts v0.3 (ya sin bloqueo) · actividad
 en tiempo real (PG-022) · INTEL v1 (espera el sí) · decisiones de Reyna de PG-012

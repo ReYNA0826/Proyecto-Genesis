@@ -145,6 +145,15 @@ export async function POST(req) {
     }
     const sessionToken = tok.json?.data?.session_token;
     if (!sessionToken) return NextResponse.json({ error: "LiveAvatar no devolvió session_token" }, { status: 502 });
+
+    // Puente de logs (PG-022): la conversación arrancó de verdad → registra la actividad
+    // del agente en rit_core.logs para que su oficina se encienda. Best-effort: un fallo
+    // de log NUNCA debe romper la llamada. La función valida el agente y deduplica (<10 min).
+    supabase.rpc("registrar_conversacion_agente", { p_agente: a.nombre }).then(
+      ({ error }) => { if (error) console.error("registrar_conversacion_agente:", error.message); },
+      (e) => console.error("registrar_conversacion_agente:", e?.message || e)
+    );
+
     return NextResponse.json({ sessionToken, sandbox: !rostro });
   } catch (e) {
     return NextResponse.json({ error: e?.message || String(e) }, { status: 502 });
