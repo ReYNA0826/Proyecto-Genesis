@@ -35,6 +35,23 @@
 - Lección sembrada: **"Los permisos no se suman entre llaves"** (confianza 4)
 - Producción intocable: Mi alma y Andrés Felipe usan sus propias llaves y agentes
 
+## 🎯 Plan de la Sesión 10 — dicho por Reyna (al cierre de S09)
+
+Dos objetivos, en orden:
+
+1. **Terminar INTEL v1** — el gemelo interno de NOVA: lee los patrones de `rit_core`
+   (decisiones, logs, lecciones) y entrega un briefing de **inteligencia interna**.
+2. **Poner a andar a los directores con herramientas reales** — cada director (LEX, OPS,
+   FIN, MKT, TECH, EDU) recibe las herramientas/integraciones que necesita para operar de
+   verdad, y pasa a **encargarse de sus agentes de Piso 2**: los activa (`diseñado`→`activo`)
+   y delega en ellos **conforme se vayan necesitando** (LEX→LEX-IA/INV-IA · OPS→DOC-IA/
+   PROC-IA/CRM-IA · FIN→FIN-IA · MKT→CONT-IA).
+
+> **La visión:** el edificio deja de ser sembrado a mano por Génesis y empieza a
+> **operarse solo** — cada director gestiona su propio equipo bajo demanda. El organigrama
+> `reporta_a` sembrado en S09 es justo el cableado de esta delegación (PG-020: "cada agente
+> dirige un departamento").
+
 ## ⏳ Lo que HARÍA FALTA
 
 ### 🟡 De Reyna (rápidos)
