@@ -1,6 +1,6 @@
 # PG-012 · Estado del Proyecto y Próximos Pasos
 
-**Fecha:** 2026-07-03 (Sesión 07) · **Preparado por:** Génesis, Chief Architect
+**Fecha:** 2026-07-07 (Sesión 09) · **Preparado por:** Génesis, Chief Architect
 **Para:** Reyna Vázquez, Founder & CEO
 
 > Resumen de lo construido hasta hoy y el mapa de lo que sigue. Para arrancar la
@@ -46,7 +46,9 @@
       conector DENTRO de Claude (sigue 401 — es ahí, no en ElevenLabs)
 - [ ] Decidir: ¿los cerebros de futuros agentes siguen naciendo en ElevenLabs?
       (recomendación de Génesis: sí — LiveAvatar solo pone la cara; ver diario S07)
-- [ ] Aprobar los 9 agentes de Piso 2 · decisión de marca · mockups a `design/oficina/`
+- [x] ~~Aprobar los 9 agentes de Piso 2~~ — **HECHO (S09):** reconciliado a **7** (PG-021);
+      sembrados en `rit_core` como `diseñado` + organigrama `reporta_a` + visibles en el lobby.
+      Pendiente aún: darles voz/rostro/prompts · decisión de marca · mockups a `design/oficina/`
 
 ### 🔵 De Génesis (siguiente sesión)
 - [x] ~~Prompts v0.3 con cargos C-Suite (PG-020)~~ — **HECHO (S08):** los 7 del Consejo en
@@ -67,20 +69,24 @@
 - [ ] **INTEL v1** (el gemelo de NOVA: patrones internos) cuando Reyna dé el sí
 
 ### 🔵 El camino grande (PG-020, por capas)
-- [ ] Piso 2 sembrado en rit_core (tras aprobación)
+- [x] ~~Piso 2 sembrado en rit_core (tras aprobación)~~ — **HECHO (S09):** 7 agentes +
+      organigrama `reporta_a`, visibles en el lobby (data-driven)
+- [ ] **INTEL v1** — el gemelo interno de NOVA (recomendación de Génesis para la próxima sesión)
+- [ ] Dar voz/rostro/prompts a los 7 de Piso 2 (siguiente capa del edificio vivo)
 - [ ] Luces del edificio (capa 3) → avatares presentes (capa 4) → deliberación
       visible del Consejo (capa 5, v4)
 
 ## 📍 Dónde estamos
 
-**Fase 1 viva y hablando.** El Edificio tiene cara, voz, memoria, teléfono y — desde
-mañana a las 7:00 AM — pensamiento propio cada mañana (NOVA). Lo que sigue es darle
-rostros propios a los directores, encender a INTEL y sembrar el Piso 2.
+**Fase 1 viva y hablando.** El Edificio tiene cara, voz, memoria, teléfono, pensamiento
+propio cada mañana (NOVA) y — desde S09 — un **organigrama real de 19 agentes** con el
+Piso 2 sembrado y visible. Lo que sigue es **encender a INTEL v1** (el gemelo interno),
+darles voz/rostro a los 7 de Piso 2, y resolver marca + avatares.
 
 ## 🔑 Cómo retomar la próxima sesión
 
 Solo di: **"Génesis, continuamos"** (o `PG-000`). Génesis leerá el protocolo, este
-documento y el diario de la Sesión 07, y sabrá exactamente dónde quedamos.
+documento y el diario de la Sesión 09, y sabrá exactamente dónde quedamos.
 El briefing de NOVA te estará esperando en la Sala de Innovación. ☕
 
 **Proyecto Génesis continúa.** ✦

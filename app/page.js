@@ -27,20 +27,6 @@ function Cara({ nombre, size = 52, fontSize = 22 }) {
   return <div className="face" style={{ width: size, height: size, fontSize }}>{INICIALES[nombre] ?? "✦"}</div>;
 }
 
-// Piso 2 — perfiles diseñados en PG-021 (prototipo de Reyna). Aún NO sembrados en
-// rit_core: requieren aprobación de Reyna (regla de Génesis). Cero métricas inventadas.
-const PISO2 = [
-  { code: "LEX-IA", rol: "Agente Legal", reporta: "LEX" },
-  { code: "INV-IA", rol: "Agente de Investigación", reporta: "LEX" },
-  { code: "DOC-IA", rol: "Agente Documental", reporta: "OPS" },
-  { code: "PROC-IA", rol: "Agente Procesal", reporta: "OPS" },
-  { code: "FIN-IA", rol: "Agente Financiero", reporta: "FIN" },
-  { code: "CRM-IA", rol: "Agente de Clientes", reporta: "OPS" },
-  { code: "CONT-IA", rol: "Agente de Contenido", reporta: "MKT" },
-  { code: "DIS-IA", rol: "Agente de Diseño", reporta: "MKT" },
-  { code: "ANA-IA", rol: "Agente de Análisis", reporta: "INTEL" },
-];
-
 export default async function Edificio() {
   const supabase = await supabaseServer();
   const { data: { user } } = await supabase.auth.getUser();
@@ -61,6 +47,11 @@ export default async function Edificio() {
     (a) => a.elevenlabs_agent_id && INICIALES[a.nombre] && !["ALMA"].includes(a.nombre)
   );
   const enDiseno = todos.filter((a) => a.estado === "diseñado" && INICIALES[a.nombre]);
+  // Piso 2 — agentes operativos, leídos de rit_core (sembrados en S09). Reservados:
+  // 'diseñado', sin voz ni rostro. El organigrama sale de reporta_a — cero hardcode.
+  const piso2 = todos
+    .filter((a) => a.estado === "diseñado" && a.nombre.endsWith("-IA"))
+    .sort((a, b) => (a.reporta_a || "").localeCompare(b.reporta_a || "") || a.nombre.localeCompare(b.nombre));
   const proys = (proyectos.data ?? []).filter((p) => p.estado === "activo");
   const lecs = lecciones.data ?? [];
   const decs = decisiones.data ?? [];
@@ -193,13 +184,16 @@ export default async function Edificio() {
       </section>
 
       <div className="room-tag"><span>⚙️ Piso 2 · Agentes Operativos</span></div>
-      <div className="room-sub">Perfiles diseñados en PG-021/PG-022 — pendientes de tu aprobación para sembrarse en rit_core</div>
+      <div className="room-sub">
+        {piso2.length} agentes sembrados en <code style={{ color: "var(--gold)" }}>rit_core</code> (S09, PG-021) ·
+        reservados: reportan a su director, aún sin voz ni rostro
+      </div>
       <section className="piso2">
-        {PISO2.map((p) => (
-          <div key={p.code} className="desk obra" style={{ padding: "12px 8px 10px" }}>
-            <div className="nm" style={{ fontSize: 12 }}>{p.code}</div>
-            <div className="rl">{p.rol}</div>
-            <div className="st" style={{ color: "var(--silver)" }}>→ {p.reporta} · 🚧 diseñado</div>
+        {piso2.map((p) => (
+          <div key={p.nombre} className="desk obra" style={{ padding: "12px 8px 10px" }}>
+            <div className="nm" style={{ fontSize: 12 }}>{p.nombre}</div>
+            <div className="rl">{(p.proposito || "").split(" (")[0]}</div>
+            <div className="st" style={{ color: "var(--silver)" }}>→ {p.reporta_a || "—"} · 🚧 diseñado</div>
           </div>
         ))}
       </section>

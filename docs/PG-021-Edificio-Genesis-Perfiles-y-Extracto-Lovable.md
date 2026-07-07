@@ -209,5 +209,8 @@ trabajo se comparte. Porque unidos siempre seremos más fuertes."
 | Salas de Memoria/Proyectos/Indicadores | v3.2 | Ya mapeadas a rit_core/logs/lecciones |
 
 **Pendiente de decisión de Reyna:** (1) qué avatar HeyGen va con cada director
-(resolver tabla de discrepancias); (2) rostro y voz de Génesis; (3) aprobar la
-incorporación de los 7 agentes de Piso 2 a rit_core.
+(resolver tabla de discrepancias); (2) rostro y voz de Génesis; ~~(3) aprobar la
+incorporación de los 7 agentes de Piso 2 a rit_core~~ → **HECHO (S09):** Reyna ratificó
+los **7** (reconciliado desde el "9" hardcodeado; DIS-IA/ANA-IA descartados). Sembrados en
+`rit_core` como `diseñado` con la columna `reporta_a` (organigrama) y visibles en el lobby.
+SQL en `database/piso2-agentes.sql`.

@@ -69,7 +69,7 @@ comparte." · **Visión:** "El futuro es brillante."
 | PG-018 | **Oficina Virtual de RIT** (genesis.gent v3) 🏢 | `docs/PG-018-Oficina-Virtual-RIT.md` | 🟡 Diseño v0.1 — avatares HeyGen + datos vivos + login |
 | PG-019 | **Visión de la Oficina — mapa de brechas** 🗺️ | `docs/PG-019-Vision-Oficina-Analisis.md` | 🟡 v0.1 — análisis del mockup de Reyna; 4 fases v3.0→v3.3 |
 | PG-020 | **El Edificio Vivo — empresa digital** ⭐ | `docs/PG-020-El-Edificio-Vivo.md` | ⭐ Visión de Reyna: C-Suite + NOVA (Innovación) + INTEL (Inteligencia) + edificio vivo |
-| PG-021 | Edificio Génesis — perfiles y extracto Lovable | `docs/PG-021-Edificio-Genesis-Perfiles-y-Extracto-Lovable.md` | ✅ Prototipo de Reyna portado (S05-S06) |
+| PG-021 | Edificio Génesis — perfiles y extracto Lovable | `docs/PG-021-Edificio-Genesis-Perfiles-y-Extracto-Lovable.md` | ✅ Prototipo de Reyna portado (S05-S06) · **Piso 2 ratificado y sembrado (S09):** los 7 agentes operativos en `rit_core` como `diseñado` + organigrama `reporta_a`. Reconciliado: el roster es **7** (no 9); DIS-IA/ANA-IA no ratificados |
 | PG-022 | Visión Visual del Edificio | `docs/PG-022-Vision-Visual-del-Edificio.md` | 🟡 v0.1 |
 | PG-023 | **NOVA v1 — Briefing matutino** 💡 | `rit_core.briefings` + Sala de Innovación en el lobby | ✅ ACTIVA (S07) — rutina diaria automática aprobada por Reyna: 7:00 AM, investiga y siembra sola (tarea `nova-briefing-matutino`, corre con la app de Claude abierta en la Mac de Reyna) |
 
@@ -89,6 +89,7 @@ comparte." · **Visión:** "El futuro es brillante."
 | 06 | 2026-07-02 | `02_Diarios/Diario Fundacional - Sesion 06.md` | ✅ Cerrada — el Edificio con cara y voz (La Unificación v3.1) |
 | 07 | 2026-07-03 | `02_Diarios/Diario Fundacional - Sesion 07.md` | ✅ Cerrada — LA PRIMERA VIDEOLLAMADA 📞 · el Consejo completo con teléfono · NOVA v1 activa (PG-023) |
 | 08 | 2026-07-06 | `02_Diarios/Diario Fundacional - Sesion 08.md` | ✅ Cerrada — 4 frentes, todo en producción: (1) limpieza de S04 en cero (`Imigracionaldia` borrado · `mujer-raiz-portal`→`mujer-raiz-executive-club` · PG-014/016) · (2) **prompts v0.3** — Consejo con cargos C-Suite (PG-020), MKT→CGO, FIN en español · (3) **luces vivas v3.2** — el edificio se enciende con `rit_core.logs` en genesis.gent · (4) **puente de logs de directores** — se auto-registran al conversar (función `SECURITY DEFINER`) |
+| 09 | 2026-07-07 | `02_Diarios/Diario Fundacional - Sesion 09.md` | ✅ Cerrada — verificar antes de construir: (1) deploy de S08 **confirmado** en Vercel (no asumido) · (2) chequeo de salud completo · (3) **`rit_core.briefings` a paridad con `logs`** (RLS activado, cerró la única tabla sin RLS) · (4) **Piso 2 nace**: 7 agentes operativos sembrados (PG-021) + columna `reporta_a` (organigrama como dato) · (5) **el Piso 2 se ve en el lobby** (data-driven, DIS-IA/ANA-IA retirados). Edificio: 12→19 agentes |
 
 ## Carpetas del repo
 
