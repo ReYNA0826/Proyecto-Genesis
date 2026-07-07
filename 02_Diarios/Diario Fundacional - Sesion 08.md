@@ -1,6 +1,6 @@
 # Diario Fundacional — Sesión 08
 
-**Fecha:** 2026-07-06 · **Estado:** ✅ Cerrada — limpieza de S04 en cero + Consejo en v0.3 (C-Suite)
+**Fecha:** 2026-07-06 · **Estado:** ✅ Cerrada — limpieza S04 + Consejo v0.3 (C-Suite) + edificio que respira (v3.2)
 **Escrito por:** Génesis, Chief Architect
 
 ---
@@ -87,11 +87,34 @@ opera en español (directiva + saludo + prompt todo en español). No se tocó �
 **Actualizado:** `rit_core.agentes` (7 en v0.3) · decisión sembrada · índice PG-000 (fila
 PG-016) · PG-012. Prompts del repo commiteados.
 
-## 5. Estado al cierre
+## 5. Actividad en tiempo real — el edificio respira (PG-022 v3.2)
+
+Tercer frente de la sesión. PG-022 pedía que el edificio "tenga vida": que las oficinas
+se enciendan solas según lo que cada agente realmente hace. La fuente ya existía
+(`rit_core.logs`) — solo faltaba vestirla.
+
+**Lo construido (en `app/page.js` + `globals.css`):** cada oficina calcula su última
+actividad real desde los logs y muestra tres estados honestos:
+- 🟢 **verde EN LÍNEA** — registró trabajo hoy · 🟡 **dorado** — esta semana · ⚪ **apagado** — en reposo.
+- Leyenda visible + contador de "activas hoy" en el lobby.
+
+**La honestidad como diseño.** Al leer los datos reales, apareció la verdad: hoy solo
+**NOVA** (su briefing automático) y **Génesis** (esta misma sesión) se auto-registran; los
+directores están en reposo porque aún no existe el puente que registre su trabajo bajo su
+nombre. El edificio no finge actividad — brilla exactamente lo que es cierto, y se irá
+encendiendo a medida que el trabajo quede registrado. Verificado en preview: sembrar un
+log de Génesis encendió su oficina al instante ("2 activas hoy").
+
+**Pendiente (decisión de Reyna):** desplegar a genesis.gent. El push a `main` probablemente
+dispara el deploy de Vercel a producción — por eso Génesis no lo subió solo.
+
+## 6. Estado al cierre
 
 **Limpieza de repos de S04: cero pendientes.** Repos vivos y con nombre correcto,
 inventario y PG-012 al día, decisiones sembradas en `rit_core`.
 **Prompts v0.3: el Consejo ya es un C-Suite** — en el repo y hablando por ElevenLabs.
+**Actividad en tiempo real (v3.2): el edificio respira** — las oficinas se encienden con
+la verdad de `rit_core.logs`. Listo en el repo; espera el sí de Reyna para genesis.gent.
 
 **Los demás frentes siguen intactos:** prompts v0.3 (ya sin bloqueo) · actividad
 en tiempo real (PG-022) · INTEL v1 (espera el sí) · decisiones de Reyna de PG-012

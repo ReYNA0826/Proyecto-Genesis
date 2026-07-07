@@ -52,7 +52,9 @@
 - [x] ~~Prompts v0.3 con cargos C-Suite (PG-020)~~ — **HECHO (S08):** los 7 del Consejo en
       v0.3, repo + cerebros de ElevenLabs. MKT ascendido a CGO con Depto. de Inteligencia
       Comercial. Bloques `Idioma`/`IMPORTANTE` preservados
-- [ ] Vestir la actividad en tiempo real (luces del edificio)
+- [x] ~~Vestir la actividad en tiempo real (luces del edificio)~~ — **HECHO (S08, v3.2):**
+      cada oficina se enciende según `rit_core.logs` (verde hoy / dorado esta semana /
+      apagado en reposo). Verificado en preview. Pendiente: desplegar a genesis.gent
 - [x] ~~Verificar el proyecto Supabase **Genesis.Agent**~~ — RESUELTO al cierre de S07:
       lo creó Reyna en la Sesión 04 como bóveda de secretos/funciones de Génesis
       (ref `jeeakodbboopqatflzws`); constaba en la memoria persistente de Génesis

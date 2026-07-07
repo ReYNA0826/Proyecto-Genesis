@@ -64,7 +64,7 @@ Los mockups además refinan el organigrama en pisos:
 |---|---|---|
 | Edificio por pisos + oficinas con rostro | v3.0/v3.1 | genesis.gent v3.0 vivo; rostros = migración LiveAvatar en curso |
 | ALMA en vivo (voz+rostro+chat) | v3.1 | Widget ElevenLabs ya embebido; falta rostro streaming |
-| Actividad en tiempo real | v3.0+ | `rit_core.logs` ya registra — solo vestirlo |
+| Actividad en tiempo real | v3.0+ | ✅ **HECHO (S08, v3.2):** las oficinas se encienden por actividad real de `rit_core.logs` (verde=hoy · dorado=esta semana · apagado=en reposo) + leyenda + contador de activas hoy. En `app/page.js` + `globals.css`. Verificado en preview; pendiente desplegar a genesis.gent |
 | Indicadores/alertas de negocio | v3.2 | Requiere puentes Leyal/Monday/Stripe (n8n) |
 | Flujo de Trabajo Inteligente visible | v4 | Deliberación multi-agente (PG-011) |
 | Consejo reunido EN VIVO | v4 | La joya final |

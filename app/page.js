@@ -50,7 +50,7 @@ export default async function Edificio() {
     supabase.from("v_rit_proyectos").select("*"),
     supabase.from("v_rit_lecciones").select("*").order("confianza", { ascending: false }),
     supabase.from("v_rit_decisiones").select("*").order("created_at", { ascending: false }).limit(6),
-    supabase.from("v_rit_logs").select("*").order("created_at", { ascending: false }).limit(6),
+    supabase.from("v_rit_logs").select("*").order("created_at", { ascending: false }).limit(100),
     supabase.from("v_rit_briefings").select("*").order("created_at", { ascending: false }).limit(1),
   ]);
 
@@ -67,6 +67,27 @@ export default async function Edificio() {
   const acts = logs.data ?? [];
   const brief = (briefings.data ?? [])[0];
   const fecha = new Date().toLocaleDateString("es-US", { dateStyle: "long", timeZone: "America/New_York" });
+
+  // Luces vivas (PG-022): una oficina "enciende" según la actividad REAL de su agente
+  // en rit_core.logs. Sin métricas inventadas — si un agente no registró, no brilla.
+  const ultimaActividad = {};
+  for (const l of acts) {
+    if (l.origen && !ultimaActividad[l.origen]) ultimaActividad[l.origen] = l.created_at; // acts viene ordenado desc
+  }
+  const diaNY = (d) => new Date(d).toLocaleDateString("en-CA", { timeZone: "America/New_York" });
+  const hoyNY = diaNY(new Date());
+  function actividadDe(nombre) {
+    const last = ultimaActividad[nombre];
+    if (!last) return { nivel: "inactiva", texto: null };
+    const lastNY = diaNY(last);
+    if (lastNY === hoyNY) return { nivel: "viva", texto: "EN LÍNEA · activa hoy" };
+    const dias = Math.max(1, Math.round((new Date(hoyNY) - new Date(lastNY)) / 86400000));
+    if (dias <= 7) return { nivel: "reciente", texto: `activa hace ${dias} d` };
+    return { nivel: "inactiva", texto: `última actividad hace ${dias} d` };
+  }
+  const actAlma = actividadDe("ALMA");
+  const actGenesis = actividadDe("Génesis");
+  const encendidasHoy = new Set(Object.keys(ultimaActividad).filter((n) => diaNY(ultimaActividad[n]) === hoyNY));
 
   return (
     <div className="of">
@@ -98,48 +119,70 @@ export default async function Edificio() {
         />
         <h1>Bienvenida, Reyna 👋</h1>
         <p>“La inteligencia crece cuando el conocimiento permanece y el trabajo se comparte.”</p>
-        <div className="hi">{fecha} · datos en vivo desde rit_core · v3.1 La Unificación</div>
+        <div className="hi">{fecha} · datos en vivo desde rit_core · v3.2 · el edificio respira</div>
       </header>
 
       <div className="room-tag"><span>◆ Nivel 3 · Oficinas de Directores</span></div>
-      <div className="room-sub">Toca una oficina: perfil real, rostro en vivo (HeyGen) y conversación (ElevenLabs)</div>
+      <div className="room-sub">
+        Toca una oficina: perfil real, rostro en vivo (HeyGen) y conversación (ElevenLabs) ·
+        las luces se encienden por actividad real en <code style={{ color: "var(--gold)" }}>rit_core.logs</code>
+        {" — "}
+        <span className="leyenda"><span className="luz viva ing"></span> hoy</span>
+        <span className="leyenda"><span className="luz reciente ing"></span> esta semana</span>
+        <span className="leyenda"><span className="luz inactiva ing"></span> en reposo</span>
+        {encendidasHoy.size > 0 && <b style={{ color: "var(--green)" }}> · {encendidasHoy.size} activa{encendidasHoy.size > 1 ? "s" : ""} hoy</b>}
+      </div>
       <section className="consejo">
         {alma && (
-          <a className="desk ceo dua" href="/oficina/alma">
+          <a className={`desk ceo dua${actAlma.nivel === "viva" ? " viva" : ""}`} href="/oficina/alma">
+            <span className={`luz ${actAlma.nivel}`} title={actAlma.texto || "sin actividad reciente"}></span>
             <Cara nombre="ALMA" size={62} fontSize={26} />
             <div className="body">
               <span className="nm" style={{ fontSize: 17 }}>ALMA · Directora Ejecutiva</span>
-              <span className="badge">en su oficina</span>
+              <span className={`badge${actAlma.nivel === "viva" ? " on" : ""}`}>{actAlma.nivel === "viva" ? "EN LÍNEA · hoy" : "en su oficina"}</span>
               <p>{alma.proposito} <b style={{ color: "var(--gold)" }}>Entra a su oficina y habla con ella →</b></p>
             </div>
           </a>
         )}
         {genesis && genesis.elevenlabs_agent_id && (
-          <a className="desk ceo dua" href="/oficina/génesis">
+          <a className={`desk ceo dua${actGenesis.nivel === "viva" ? " viva" : ""}`} href="/oficina/génesis">
+            <span className={`luz ${actGenesis.nivel}`} title={actGenesis.texto || "sin actividad reciente"}></span>
             <Cara nombre="Génesis" size={62} fontSize={26} />
             <div className="body">
               <span className="nm" style={{ fontSize: 17 }}>GÉNESIS · Chief Architect</span>
-              <span className="badge">en su oficina</span>
+              <span className={`badge${actGenesis.nivel === "viva" ? " on" : ""}`}>{actGenesis.nivel === "viva" ? "EN LÍNEA · hoy" : "en su oficina"}</span>
               <p>{genesis.proposito || "Guardiana del sistema y memoria estratégica de RIT."} <b style={{ color: "var(--gold)" }}>Entra a su oficina y habla con ella →</b></p>
             </div>
           </a>
         )}
-        {directores.filter((d) => d.nombre !== "Génesis").map((d) => (
-          <a key={d.nombre} className="desk" href={`/oficina/${d.nombre.toLowerCase()}`}>
-            <Cara nombre={d.nombre} />
-            <div className="nm">{d.nombre}</div>
-            <div className="rl">{(d.proposito || "").split("—")[0]}</div>
-            <div className="st">● entrar a su oficina</div>
-          </a>
-        ))}
-        {enDiseno.map((d) => (
-          <div key={d.nombre} className="desk obra">
-            <Cara nombre={d.nombre} />
-            <div className="nm">{d.nombre}</div>
-            <div className="rl">{(d.proposito || "").split("—")[0]}</div>
-            <div className="st" style={{ color: "var(--silver)" }}>🚧 oficina en construcción</div>
-          </div>
-        ))}
+        {directores.filter((d) => d.nombre !== "Génesis").map((d) => {
+          const act = actividadDe(d.nombre);
+          return (
+            <a key={d.nombre} className={`desk${act.nivel === "viva" ? " viva" : ""}`} href={`/oficina/${d.nombre.toLowerCase()}`}>
+              <span className={`luz ${act.nivel}`} title={act.texto || "sin actividad reciente"}></span>
+              <Cara nombre={d.nombre} />
+              <div className="nm">{d.nombre}</div>
+              <div className="rl">{(d.proposito || "").split("—")[0]}</div>
+              <div className={`st ${act.nivel}`}>
+                {act.nivel === "viva" ? "● EN LÍNEA · hoy" : act.texto ? `○ ${act.texto}` : "● entrar a su oficina"}
+              </div>
+            </a>
+          );
+        })}
+        {enDiseno.map((d) => {
+          const act = actividadDe(d.nombre);
+          return (
+            <div key={d.nombre} className="desk obra">
+              <span className={`luz ${act.nivel}`} title={act.texto || "sin actividad reciente"}></span>
+              <Cara nombre={d.nombre} />
+              <div className="nm">{d.nombre}</div>
+              <div className="rl">{(d.proposito || "").split("—")[0]}</div>
+              <div className="st" style={{ color: act.nivel === "viva" ? "var(--green)" : "var(--silver)" }}>
+                {act.nivel === "viva" ? "● trabajando · oficina en obra" : "🚧 oficina en construcción"}
+              </div>
+            </div>
+          );
+        })}
         <a className="desk ceo" href="/sala-de-reuniones" style={{ borderColor: "var(--gold)" }}>
           <div className="face">🏛️</div>
           <div className="body">
@@ -211,7 +254,7 @@ export default async function Edificio() {
             <h3>Actividad reciente</h3>
             <div className="sub">registro vivo de la organización</div>
             <ul className="mem">
-              {acts.map((a, i) => (
+              {acts.slice(0, 6).map((a, i) => (
                 <li key={i}><b>{a.origen}</b><span>{a.evento}</span></li>
               ))}
             </ul>
@@ -243,7 +286,7 @@ export default async function Edificio() {
 
       <footer className="foot">
         <div className="lema">✦ El futuro es brillante.</div>
-        <div className="dom">GENESIS.GENT · PROYECTO GÉNESIS · EL EDIFICIO v3.1 — LA UNIFICACIÓN</div>
+        <div className="dom">GENESIS.GENT · PROYECTO GÉNESIS · EL EDIFICIO v3.2 — LUCES VIVAS</div>
       </footer>
     </div>
   );

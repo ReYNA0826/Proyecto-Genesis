@@ -80,4 +80,21 @@ a{color:inherit}
 .cfg td{padding:8px;border-bottom:1px dashed #17294a;vertical-align:middle}
 .cfg .mono{font-family:ui-monospace,monospace;font-size:10.5px;word-break:break-all}
 .cfg input{width:100%;padding:7px 9px;border-radius:8px;border:1px solid #2a446e;background:#0c2144;color:var(--pearl);font-size:10.5px}
+/* — v3.2 Luces vivas (PG-022): las oficinas se encienden por actividad real de rit_core.logs — */
+.desk .luz{position:absolute;top:9px;right:9px;width:9px;height:9px;border-radius:50%;background:#243a5e;z-index:2}
+.desk .luz.viva{background:var(--green);box-shadow:0 0 8px rgba(127,211,163,.9);animation:pulso 2.2s ease-in-out infinite}
+.desk .luz.reciente{background:var(--gold);opacity:.85;box-shadow:0 0 6px rgba(212,175,55,.5)}
+.desk .luz.inactiva{background:#243a5e}
+.desk.viva{border-color:rgba(212,175,55,.5);box-shadow:0 0 24px rgba(212,175,55,.15)}
+.desk.viva:hover{border-color:var(--gold)}
+.desk .st.viva{color:var(--green)}
+.desk .st.reciente{color:var(--gold)}
+.desk .st.inactiva{color:var(--silver)}
+.badge.on{background:rgba(127,211,163,.22);color:var(--green)}
+.leyenda{display:inline-flex;align-items:center;gap:4px;margin-left:8px;color:var(--silver);font-size:10.5px}
+.luz.ing{position:static;display:inline-block;width:8px;height:8px;border-radius:50%;background:#243a5e}
+.luz.viva.ing{animation:none;background:var(--green)}
+.luz.reciente.ing{background:var(--gold)}
+.luz.inactiva.ing{background:#243a5e}
+@keyframes pulso{0%{box-shadow:0 0 4px rgba(127,211,163,.7)}50%{box-shadow:0 0 11px rgba(127,211,163,1)}100%{box-shadow:0 0 4px rgba(127,211,163,.7)}}
 @media(max-width:760px){.consejo{grid-template-columns:repeat(2,1fr)}.wings{grid-template-columns:1fr}.hall{grid-template-columns:repeat(2,1fr)}.lobby h1{font-size:26px}.piso2{grid-template-columns:repeat(3,1fr)}.oficina-grid{grid-template-columns:1fr}}
