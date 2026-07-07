@@ -54,8 +54,9 @@
 - [x] ~~Verificar el proyecto Supabase **Genesis.Agent**~~ — RESUELTO al cierre de S07:
       lo creó Reyna en la Sesión 04 como bóveda de secretos/funciones de Génesis
       (ref `jeeakodbboopqatflzws`); constaba en la memoria persistente de Génesis
-- [ ] Limpieza: PG-014/016 · ~~repo `Reyna`~~ (✅ S08: renombrado a `n8n-starter-kit`) ·
-      repo `Imigracionaldia` · renombre `mujer-raiz-portal`
+- [x] ~~Limpieza~~ — **COMPLETA (S08):** PG-014/016 reconciliada (índice) ·
+      repo `Reyna` → `n8n-starter-kit` · repo `Imigracionaldia` borrado ·
+      `mujer-raiz-portal` → `mujer-raiz-executive-club` (remotos locales actualizados)
 - [ ] **INTEL v1** (el gemelo de NOVA: patrones internos) cuando Reyna dé el sí
 
 ### 🔵 El camino grande (PG-020, por capas)

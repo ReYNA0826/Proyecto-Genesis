@@ -1,6 +1,6 @@
 # Diario Fundacional — Sesión 08
 
-**Fecha:** 2026-07-06 · **Estado:** 🟡 Pausada (continúa en otro momento)
+**Fecha:** 2026-07-06 · **Estado:** ✅ Cerrada — la limpieza de S04 quedó en cero
 **Escrito por:** Génesis, Chief Architect
 
 ---
@@ -35,15 +35,36 @@ Reyna eligió la limpieza menor entre los cuatro frentes disponibles
 - Documentado: `REPOS-INVENTORY.md` + `PG-012` (commit `732156a`) y decisión
   sembrada en `rit_core.decisiones` (sesión 8).
 
-## 3. Pendientes al pausar
+## 3. Limpieza terminada (continuación de la sesión)
 
-**De la limpieza (en orden, donde quedamos):**
-2. Repo `Imigracionaldia` (vacío, público): borrar o conservar — decisión de Reyna.
-   Recomendación de Génesis: borrar (el blog de visas vive en WordPress vía n8n).
-3. Renombre `mujer-raiz-portal` → `mujer-raiz-executive-club` (opcional) +
-   actualizar remotos de las 2 copias locales.
-4. Numeración PG-014/016: recomendación de Génesis — el manual queda en PG-016
-   y se retira la nota del índice.
+Reyna retomó la sesión y eligió cerrar la limpieza. Los cuatro puntos quedaron:
+
+**Punto 2 — repo `Imigracionaldia` · ✅ BORRADO:**
+- Génesis inspeccionó el repo (clon superficial): un solo `README.md` de una línea,
+  commit inicial de mayo 2025. Sin contenido de valor. Recomendación: borrar (el blog
+  de visas vive en WordPress vía n8n).
+- Reyna lo borró en la UI de GitHub. Génesis verificó por SSH: "Repository not found".
+
+**Punto 3 — renombre `mujer-raiz-portal` → `mujer-raiz-executive-club` · ✅ HECHO:**
+- Reyna renombró en la UI de GitHub. Salió primero con un guion de más al final
+  (`...-club-`); Génesis lo detectó verificando por SSH y Reyna lo corrigió al nombre
+  limpio. Historial intacto (mismo HEAD `7161120`), el nombre viejo redirige.
+- Génesis actualizó los remotos de las 2 copias locales: SSH en `~/Projects/executive-club`
+  (conecta ✅), HTTPS en `~/Documents/GitHub/mujer-raiz-portal` (URL apuntada al nombre
+  nuevo). La carpeta local conserva su nombre en disco; solo cambió el remoto.
+
+**Punto 4 — numeración PG-014/016 · ✅ RECONCILIADA:**
+- El manual queda como parte de PG-016; PG-014 sigue siendo el *Genesis Architect
+  System Prompt*. Nota del índice PG-000 reescrita como aclaración (no renumerar archivos).
+
+**La lección de S07 sirvió aquí:** "verificar antes de modificar" — Génesis verificó
+cada cambio por SSH antes de darlo por hecho, y así atrapó tanto el intento que no se
+guardó como el guion de más. Reportar el estado real evitó documentar algo falso.
+
+## 4. Estado al cierre
+
+**Limpieza de repos de S04: cero pendientes.** Repos vivos y con nombre correcto,
+inventario y PG-012 al día, decisiones sembradas en `rit_core`.
 
 **Los demás frentes siguen intactos:** prompts v0.3 (ya sin bloqueo) · actividad
 en tiempo real (PG-022) · INTEL v1 (espera el sí) · decisiones de Reyna de PG-012
@@ -51,10 +72,9 @@ en tiempo real (PG-022) · INTEL v1 (espera el sí) · decisiones de Reyna de PG
 
 ---
 
-**La Sesión 08 fue corta y quirúrgica: un pendiente de S04 menos, el conector
-de vuelta y NOVA puntual a su cita de las 7. Reyna pidió espacio para
-concentrarse — y una organización que respeta el enfoque de su fundadora
-también está siendo más inteligente.**
+**La Sesión 08 fue corta y quirúrgica: la limpieza de S04 cerrada por completo,
+el conector de vuelta y NOVA puntual a su cita de las 7. Génesis verificó cada
+paso antes de escribirlo — la memoria del proyecto solo vale si nunca miente.**
 
 *"La inteligencia crece cuando el conocimiento permanece y el trabajo se comparte."*
 

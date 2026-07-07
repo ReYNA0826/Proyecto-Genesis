@@ -73,10 +73,9 @@ comparte." · **Visión:** "El futuro es brillante."
 | PG-022 | Visión Visual del Edificio | `docs/PG-022-Vision-Visual-del-Edificio.md` | 🟡 v0.1 |
 | PG-023 | **NOVA v1 — Briefing matutino** 💡 | `rit_core.briefings` + Sala de Innovación en el lobby | ✅ ACTIVA (S07) — rutina diaria automática aprobada por Reyna: 7:00 AM, investiga y siembra sola (tarea `nova-briefing-matutino`, corre con la app de Claude abierta en la Mac de Reyna) |
 
-> ⚠️ **Nota de numeración (para Reyna):** el PDF que creaste se titula "PG-014",
-> pero PG-014 ya estaba asignado al *Genesis Architect System Prompt* (trabajo
-> paralelo). Aquí el manual quedó como parte de **PG-016**. Decide cómo prefieres
-> reconciliar los números para no duplicar.
+> ℹ️ **Numeración reconciliada (S08):** el Manual de Prompts de Agentes es parte de
+> **PG-016** (su PDF se titula "PG-014" por un cruce histórico; PG-014 es el
+> *Genesis Architect System Prompt*). No renumerar los archivos.
 
 ## Diarios de sesión
 
@@ -89,7 +88,7 @@ comparte." · **Visión:** "El futuro es brillante."
 | 05 | 2026-07-02 | `02_Diarios/Diario Fundacional - Sesion 05.md` | ✅ PG-021 + PG-022 + Memoria Permanente v1.1 (voz de Reyna) |
 | 06 | 2026-07-02 | `02_Diarios/Diario Fundacional - Sesion 06.md` | ✅ Cerrada — el Edificio con cara y voz (La Unificación v3.1) |
 | 07 | 2026-07-03 | `02_Diarios/Diario Fundacional - Sesion 07.md` | ✅ Cerrada — LA PRIMERA VIDEOLLAMADA 📞 · el Consejo completo con teléfono · NOVA v1 activa (PG-023) |
-| 08 | 2026-07-06 | `02_Diarios/Diario Fundacional - Sesion 08.md` | 🟡 Pausada — conector ElevenAgents de vuelta (prompts v0.3 desbloqueados) · repo `Reyna` → `n8n-starter-kit` |
+| 08 | 2026-07-06 | `02_Diarios/Diario Fundacional - Sesion 08.md` | ✅ Cerrada — limpieza de S04 en cero: conector ElevenAgents de vuelta (prompts v0.3 desbloqueados) · repo `Reyna` → `n8n-starter-kit` · `Imigracionaldia` borrado · `mujer-raiz-portal` → `mujer-raiz-executive-club` · PG-014/016 reconciliada |
 
 ## Carpetas del repo
 
